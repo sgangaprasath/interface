@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Collective phototactic robotectonics",
+    "message": "How can robots perform cooperative construction without central control? Look at our recent.",
+    "link": "https://arxiv.org/abs/2208.12373",
+    "date": "25-08-2022",
+    "tag": "Behaviour",
+    "image":"/images/Tectonics.png"
+  },
+  {
+    "id": 2,
+    "title": "Bee collective behaviour",
+    "message": "Our paper on flow mediated communication in bee collectives is published in Proc. Roy. Soc. A",
+    "link": "https://royalsocietypublishing.org/doi/10.1098/rspa.2022.0470",
+    "date": "11-01-2023",
+    "tag": "Behaviour",
+    "image":"/images/Rheomergy.png"
+  },
+  {
+    "id": 3,
+    "title": "Kalman filter",
+    "message": "New tutorial titled \"Revisiting linear filtering, the Bayesian paradigm & optimal state estimation\" is out.",
+    "link": "https://github.com/sgangaprasath/Publications/raw/master/KFTutorial.pdf",
+    "date": "23-05-2023",
+    "tag": "Control",
+    "image":"/images/KFSchematic.png"
+  } 
+]

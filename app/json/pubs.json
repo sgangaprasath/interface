@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "year": 2023,
+    "data": [
+      {
+        "id": 1,
+        "authors": "Ganga Prasath, S., and Vishaal Krishnan.",
+        "title": "Revisiting linear filtering, the Bayesian paradigm & optimal state estimation: From least-squares to Kalman filter.",
+        "arxiv": "https://github.com/sgangaprasath/Publications/raw/master/KFTutorial.pdf",
+        "website": "",
+        "download": "",
+        "news1": "",
+        "news2": "",
+        "date": "",
+        "image": "",
+        "journal": "",
+        "tag": "Control"
+      },
+      {
+        "id": 2,
+        "authors": "Divya Jaganathan, Ganga Prasath, S., Vishal Vasan and Rama Govindarajan. ",
+        "title": "The Basset-Boussinesq history force: its neglect, validity and recent numerical developments.",
+        "arxiv": "",
+        "website": "https://www.frontiersin.org/articles/10.3389/fphy.2023.1167338",
+        "download": "https://github.com/sgangaprasath/Publications/raw/master/FPhy_MiniReview_2023.pdf",
+        "news1": "",
+        "news2": "",
+        "date": "",
+        "image": "",
+        "journal": "Frontiers in Physics, 10.3389/fphy.2023.1167338",
+        "tag": "Hydrodynamics"
+      },
+      {
+        "id": 3,
+        "authors": "Fabio Giardina, Ganga Prasath, S., and Mahadevan, L.",
+        "title": "Collective phototactic robotectonics.",
+        "arxiv": "https://arxiv.org/abs/2208.12373",
+        "website": "",
+        "download": "",
+        "news1": "",
+        "news2": "",
+        "date": "",
+        "image": "",
+        "journal": "",
+        "tag": "Robotics"
+      }
+    ]
+  }
+]

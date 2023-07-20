@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "S Ganga Prasath",
+    "title": "Principal Investigator",
+    "twitter": "https://twitter.com/kaitovaai",
+    "email": "mailto:sgangaprasath@smail.iitm.ac.in",
+    "webpage": "https://sgangaprasath.github.io",
+    "cv": "https://drive.google.com/file/d/1yO7_i4Sexrao04cgkDZYpeVJB1p_mRlS/view?usp=sharing",
+    "image": "/images/sgp.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Can be you!",
+    "title": "MS/PhD student",
+    "twitter": "",
+    "email": "mailto:compulsory@gmail.com",
+    "webpage": "",
+    "cv": "",
+    "image": "/images/profile.svg"
+  }
+]
