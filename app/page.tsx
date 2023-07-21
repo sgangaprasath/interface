@@ -52,7 +52,7 @@ export default function Home() {
                 </svg>
               </span>
               news{" "}
-              <span className="inline-block transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 motion-reduce:transform-none">
+              <span className="inline-block transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 motion-reduce:transform-none duration-200">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -98,7 +98,7 @@ export default function Home() {
                 </svg>
               </span>
               blog{" "}
-              <span className="inline-block transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 motion-reduce:transform-none">
+              <span className="inline-block transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 motion-reduce:transform-none duration-200">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -144,7 +144,7 @@ export default function Home() {
                 </svg>
               </span>
               research{" "}
-              <span className="inline-block transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 motion-reduce:transform-none">
+              <span className="inline-block transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 motion-reduce:transform-none duration-200">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -190,7 +190,7 @@ export default function Home() {
                 </svg>
               </span>
               outreach{" "}
-              <span className="inline-block transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 motion-reduce:transform-none">
+              <span className="inline-block transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 motion-reduce:transform-none duration-200">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
