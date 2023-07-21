@@ -19,10 +19,10 @@ In this 4 part series we will be discussing problems each with an unique ashover
 ## Getting Started
 We begin by introducing the framework [here](/tutorials/auto07p/autoFw.html). Please click this link and go over it before you start reading the tutorial problems. The relevant codes used in these tutorials are available here. The problems we will be looking at (and the focus of each example in auto-07p implementation) are
 
-- (18-Nov-21) [Bending of an elastica](/tutorials/auto07p/elastica.html)-bifurcation diagram, solution
-- (24-Nov-21) [Buckling of a sheet](/tutorials/auto07p/fvk.html)-two parameter continuation
-- (04-Apr-22) [Oscillating beam](/tutorials/auto07p/oscillating.html)-eigen-value problem, homotopy continuation
-- (05-Apr-22) [Undulatory propulsion on land](/tutorials/auto07p/snake.html)-many parameter system, periodic solution, homotopy continuation, adding new boundary boundary conditions
+- (18-Nov-21) [Bending of an elastica](https://sgangaprasath.github.io/elastica.html)-bifurcation diagram, solution
+- (24-Nov-21) [Buckling of a sheet](https://sgangaprasath.github.io/fvk.html)-two parameter continuation
+- (04-Apr-22) [Oscillating beam](https://sgangaprasath.github.io/oscillating.html)-eigen-value problem, homotopy continuation
+- (05-Apr-22) [Undulatory propulsion on land](https://sgangaprasath.github.io/snake.html)-many parameter system, periodic solution, homotopy continuation, adding new boundary boundary conditions
 
 You can find the entire tutorial collection in pdf format [here](https://github.com/sgangaprasath/autoTutorial).
 
