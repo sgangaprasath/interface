@@ -21,6 +21,26 @@
   },
   {
     "id": 3,
+    "name": "Jay Jayeshbhai Chavda",
+    "title": "MS student",
+    "twitter": "",
+    "email": "mailto:am23s028@smail.iitm.ac.in",
+    "webpage": "",
+    "cv": "",
+    "image": "/images/jaychavda.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Mohanraj A",
+    "title": "MS student",
+    "twitter": "",
+    "email": "mailto:am23s055@smail.iitm.ac.in",
+    "webpage": "",
+    "cv": "",
+    "image": "/images/mohanraj.jpg"
+  },
+  {
+    "id": 5,
     "name": "Can be you!",
     "title": "MS/PhD student",
     "twitter": "",
