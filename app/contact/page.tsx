@@ -26,9 +26,14 @@ export default function Home() {
           <p className="text-center md:text-left font-light text-md md:px-16">
             S Ganga Prasath <br/>
             227A, Mechanical Sciences Block <br/>
-            Department of Applied Mechanics <br/>
+            {/* Department of Applied Mechanics<br/>
+            & Biomedical Engineering<br/> */}
             <Link href={"mailto:sgangaprasath@smail.iitm.ac.in"} className="linkStyle font-mono">sgangaprasath@iitm.ac.in</Link> <br/>
             (044) 2257 4086
+          </p>
+          <p className="text-center md:text-left font-light text-md md:px-16">
+            INTERFACE lab <br/>
+            114, Mechanical Sciences Block <br/>
           </p>
         </div>
     </>
