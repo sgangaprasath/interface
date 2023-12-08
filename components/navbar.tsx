@@ -1,6 +1,6 @@
 import "../app/globals.css";
 import Link from "next/link";
-import { AiOutlineTwitter } from "react-icons/ai";
+import { RiTwitterXLine } from "react-icons/ri";
 
 export default function NavBar() {
   return (
@@ -27,7 +27,7 @@ export default function NavBar() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <AiOutlineTwitter />
+            <RiTwitterXLine />
           </Link>
         </li>
       </ul>

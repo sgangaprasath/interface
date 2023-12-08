@@ -8,7 +8,9 @@ desig: "Principal Investigator"
 image: "/images/sgp.jpg"
 ---
 
-![Schematic](/images/KFSchematicBig.png "Title poster")
+<div class="flex justify-center items-center">
+<img src="/images/KFSchematicBig.png" alt="Schematic" width="600"/>
+</div>
 
 We look at the derivation of the famous Kalman filter starting with the least-squares fit.
 The folder attached in this [link](https://github.com/sgangaprasath/KFTutorial/tree/main) contains the `python` code that goes along with the detailed tutorial (`pdf` is available [here](https://github.com/sgangaprasath/Publications/raw/master/KFTutorial.pdf)).

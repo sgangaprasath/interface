@@ -138,13 +138,13 @@ const MembersPage = () => {
       <section className="grid grid-cols-1 gap-10 md:gap-10 lg:gap-20 mb-10 px-10 lg:px-14 text-sm md:grid-cols-3 max-w-4xl">
         {memPreviews}
       </section>
-      <div className="border border-rose-300 bg-rose-200 max-w-2xl text-rose-600 p-4 rounded-xl text-xs">
-        We are currently looking for MS and PhD students interested in exploring
-        problems in the field of soft-robotics, reinforcement learning, animal
-        behaviour and control of large degree of freedom systems. Our group is
-        interested in problem solving through experiments and/or theoretical
-        analysis as demanded by the question at hand. Have a look at
-        the research tab for a broad overview and drop by our lab to know more.
+      <div className="border border-rose-300 bg-rose-200 max-w-2xl text-rose-600 text-center p-4 rounded-xl text-xs">
+        We are looking for MS and PhD students interested in exploring
+        problems in the fields of soft-robotics, reinforcement learning,
+        behaviour and control of large degree of freedom systems. Our group
+        uses experiments and/or theoretical analysis as demanded by the question
+        at hand. Have a look at the research tab for a broad overview and drop
+        by our lab to know more.
       </div>
     </div>
   );
