@@ -8,7 +8,10 @@ desig: "Principal Investigator"
 image: "/images/sgp.jpg"
 ---
 
-<!-- ![Schematic](/images/KFSchematicBig.png "Title poster") -->
+<div class="flex justify-center items-center">
+<img src="/images/coversv1.jpg" alt="Scientific Visualization cover" width="1000"/>
+</div>
+
 Scientific visualization is the process of converting data into a visual form that is easy to comprehend.
 It gives colors to numbers, lines to sequences and bars to arrays. Visualization is as much art as science.
 Edward Tufte's ["The Visual Display of Quantitative Information"](https://www.amazon.in/Visual-Display-Quantitative-Information/dp/1930824130)
