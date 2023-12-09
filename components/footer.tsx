@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="w-full max-w-6xl py-6 backdrop-blur-2xl dark:rounded-xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit">
+    <footer className="w-full max-w-6xl py-6 backdrop-blur-2xl">
       <div className="flex flex-col items-center justify-between gap-10 md:flex-row px-8">
         <a
           href="https://apm.iitm.ac.in"

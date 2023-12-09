@@ -6,7 +6,7 @@ const PostPreview = (props: PostMetadata) => {
   return (
     <Link
       href={`/blog/${props.slug}`}
-      className="group flex flex-col items-start justify-around w-auto h-auto bg-white dark:bg-black rounded-lg border border-gray-200 dark:border-neutral-600 px-5 py-4 transition-colors hover:bg-gray-50 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+      className="group flex flex-col items-start justify-around w-auto h-auto bg-white rounded-lg border border-gray-200  px-5 py-4 transition-colors hover:bg-gray-50"
     >
       <div className="flex flex-row w-full items-center justify-between mb-1">
         <p className="text-xs text-gray-400">{props.date}</p>
