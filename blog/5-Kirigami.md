@@ -161,4 +161,4 @@ the latest technology. It's a fantastic tool that brings together the
 best of both worlds, making crafting a whole new and exciting
 experience!
 
-You can read this tutorial in pdf format [here](https://github.com/sgangaprasath/interface/blob/main/public/tutorials/interface/kirigami/blog.pdf).
+You can read this tutorial in pdf format [here](https://github.com/sgangaprasath/interface/blob/main/public/tutorials/kirigami/blog.pdf).
