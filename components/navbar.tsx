@@ -13,6 +13,9 @@ export default function NavBar() {
           <Link href={"/members"}>members</Link>
         </li>
         <li className="linkStyle">
+          <Link href={"/research"}>research</Link>
+        </li>
+        <li className="linkStyle">
           <Link href={"/pubs"}>publications</Link>
         </li>
         <li className="linkStyle">
