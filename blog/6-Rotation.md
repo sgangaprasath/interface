@@ -1,7 +1,7 @@
 ---
 title: "Rotations - from complex numbers to quaternions"
 subtitle: "A primer on how to perform rotation operation in 2D and 3D."
-date: "2024-01-22"
+date: "2024-01-30"
 category: "Primer"
 author: "Mohanraj"
 desig: "MS Student"
