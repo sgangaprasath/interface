@@ -16,7 +16,7 @@ export default function NavBar() {
           <Link href={"/pubs"}>publications</Link>
         </li>
         <li className="linkStyle">
-          <Link href={"/"}>gallery</Link>
+          <Link href={"/gallery"}>gallery</Link>
         </li>
         <li className="linkStyle">
           <Link href={"/contact"}>contact</Link>

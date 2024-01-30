@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author"
+    content="A Mohanraj, and S Ganga Prasath Department of Applied Mechanics and Biomedical Engineering, Indian Institute of Technology Madras, Chennai 600 036." />
+  <title>Rotations – from complex numbers to quaternions</title>
+  <style>
+    html {
+      line-height: 1.7;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+
+    body {
+      margin: 0 auto;
+      max-width: 40em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+      }
+
+      p,
+      h2,
+      h3 {
+        orphans: 3;
+        widows: 3;
+      }
+
+      h2,
+      h3,
+      h4 {
+        page-break-after: avoid;
+      }
+    }
+
+    p {
+      margin-top: 1.7em;
+    }
+
+    a {
+      color: #1a1a1a;
+    }
+
+    a:visited {
+      color: #1a1a1a;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 1.7em;
+    }
+
+    ol,
+    ul {
+      padding-left: 1.7em;
+      margin-top: 1.7em;
+    }
+
+    li>ol,
+    li>ul {
+      margin-top: 0;
+    }
+
+    blockquote {
+      margin: 1.7em 0 1.7em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      font-style: italic;
+    }
+
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      background-color: #f0f0f0;
+      font-size: 85%;
+      margin: 0;
+      padding: .2em .4em;
+    }
+
+    pre {
+      line-height: 1.5em;
+      padding: 1em;
+      background-color: #f0f0f0;
+      overflow: auto;
+    }
+
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin-top: 1.7em;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid lightgray;
+      padding: 1em 3em 1em 0;
+    }
+
+    header {
+      margin-bottom: 6em;
+      text-align: center;
+    }
+
+    nav a:not(:hover) {
+      text-decoration: none;
+    }
+
+    code {
+      white-space: pre-wrap;
+    }
+
+    span.smallcaps {
+      font-variant: small-caps;
+    }
+
+    span.underline {
+      text-decoration: underline;
+    }
+
+    div.column {
+      display: inline-block;
+      vertical-align: top;
+      width: 50%;
+    }
+
+    div.hanging-indent {
+      margin-left: 1.5em;
+      text-indent: -1.5em;
+    }
+
+    ul.task-list {
+      list-style: none;
+    }
+  </style>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+      var mathElements = document.getElementsByClassName("math");
+      var macros = [];
+      for (var i = 0; i < mathElements.length; i++) {
+        var texText = mathElements[i].firstChild;
+        if (mathElements[i].tagName == "SPAN") {
+          katex.render(texText.data, mathElements[i], {
+            displayMode: mathElements[i].classList.contains('display'),
+            throwOnError: false,
+            macros: macros,
+            fleqn: false
+          });
+        }
+      }
+    });
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
+</head>
+
+<body>
+  <header id="title-block-header">
+    <h1 class="title">Rotations – from complex numbers to quaternions</h1>
+    <p class="author">A Mohanraj, and S Ganga Prasath<a href="#fn1" class="footnote-ref" id="fnref1"
+        role="doc-noteref"><sup>1</sup></a><br />
+      Department of Applied Mechanics and Biomedical Engineering,<br />
+      Indian Institute of Technology Madras, Chennai 600 036.</p>
+    <div class="abstract">
+      <div class="abstract-title">Abstract</div>
+      <p>Rotation is one of the fundamental operations of geometry. It
+        provides a way to transform vectors from one location to another while
+        hinged with respect to a pre-defined axis. In this first part of the two
+        part primer we introduce this simple yet often confusing geometric
+        operation in 2D and 3D. We start with the complex number representation
+        of the rotation operation in 2D and its connection to the standard
+        matrix version. Then we discuss the Euler-angle representation of
+        rotation of vector basis, their extrinsic and intrinsic forms.
+        Ultimately we introduce quaternions, which are the natural extension of
+        complex numbers to 3D. In the process, we also look at Gimbol locking,
+        an intrinsic berrier in Euler-angle represetation. Each concept
+        discussed is explained with a worked out example and a supplemental <a
+          href="https://github.com/sgangaprasath/RotationTut/blob/main/Rotations.ipynb"><code>python</code>–code</a>
+        that numerically implements these examples.</p>
+    </div>
+  </header>
+  <h1 id="introduction">Introduction</h1>
+  <p>In this two part series, we are interested in understanding the
+    connection between rotation and geometry of curves 3D. In the first
+    part, we develop the notation and the mathematics behind rotations and
+    in the second we will see how it forms the basis for geometry of curves
+    in 3D. Though understanding geometry of 3D curves is our ultimate
+    objective, we take the 2D route to make the concepts approachable before
+    extending them to 3D. Besides its application to 3D curves, rotation has
+    a variety of applications such as in the kinematics and dynamics of
+    rigid bodies in physics (useful in mechanics of machines, robotics, and
+    flight/rocket/satellite trajectories), animation &amp; graphic design
+    and so on. In this primer, we start with the rotation operation in 2D,
+    its representation using complex numbers and an example by applying it
+    to transform a vector. We then move to rotations in 3D which is
+    considerably complex than its 2D counterpart. In 3D, we introduce
+    rotation about an arbitrary orientation, the ideas of intrinsic and
+    extrinsic rotation of basis vectors and show how to transform between
+    two arbitrary basis vectors. We end with a generalization of complex
+    numbers to 3D i.e. the quaternions and use it to perform rotations. This
+    primer borrows heavily from these <span class="citation"
+      data-cites="hanson2005visualizing vince2008geometric vince2006mathematics"></span>
+    excellent approachable references.</p>
+  <h1 id="rotation-in-2d">Rotation in 2D</h1>
+  <p>We will illustrate rotation in 2D with 3 examples: <span class="math inline">(a)</span> rotation of a vector
+    represented in
+    cartesian coordinate basis, <span class="math inline">(b)</span>
+    rotation of the coordinate basis vectors (which will become relevant in
+    sec. <a href="#sec:3D" data-reference-type="ref" data-reference="sec:3D">3</a>), <span
+      class="math inline">(c)</span>
+    rotation of a triangle about the origin. We also show that the complex
+    number system provides an intuitive and simple way to perform rotations.
+    Most of what we see in this section is taught in high-school.
+    Nevertheless, we leave it here to ensure completeness.</p>
+  <h2 id="sec:comp2d">Complex plane representation</h2>
+  <p>A complex number <span class="math inline">z \in \mathbb{C}</span> is
+    defined as a number of the form <span class="math inline">z = a + i
+      b</span>, where <span class="math inline">a, b \in \mathbb{R}</span>,
+    and <span class="math inline">i</span> is the imaginary unit with the
+    property <span class="math inline">i^2 = -1</span>. Complex numbers can
+    be graphically represented in a cartesian plane with <span class="math inline">a</span> representing the magnitude
+    along <span class="math inline">\hat{\mathbf{e}}_x</span> and <span class="math inline">b</span> along <span
+      class="math inline">\hat{\mathbf{e}}_y</span> with <span class="math inline">\hat{\mathbf{e}}_{x,y}</span> being
+    the unit vectors
+    along <span class="math inline">x, y</span>-axes (see Fig. <a href="#fig:schm2D" data-reference-type="ref"
+      data-reference="fig:schm2D">1</a><span class="math inline">(a)</span>).
+    This complex number <span class="math inline">z</span> corresponds to
+    the point with coordinates <span class="math inline">(a, b)</span>.</p>
+  <h3 class="unnumbered" id="polar-form-of-complex-numbers">Polar form of
+    complex numbers</h3>
+  <p>In addition to the rectangular form, complex numbers can also be
+    expressed in polar notation. The complex number <span class="math inline">z</span> can be written as <span
+      class="math inline">z = re^{i\theta} = a + ib</span>, where <span class="math inline">r</span> is the magnitude
+    (or modulus) of the
+    complex number with <span class="math inline">r&gt;0</span> and <span class="math inline">\theta</span> is the
+    argument (or angle) of the
+    complex number, shown schematically in Fig. <a href="#fig:schm2D" data-reference-type="ref"
+      data-reference="fig:schm2D">1</a><span class="math inline">(a)</span>, taking values in the range, <span
+      class="math inline">\theta \in [ 0, 2\pi]</span>, measured from the
+    positive real axis. The term <span class="math inline">e^{i\theta}</span> is defined using Euler’s formula:
+    <span class="math display">e^{i\theta} = \cos \theta + i\sin
+      \theta.</span> This representation is particularly useful for performing
+    rotations in the complex plane. In polar notation, the multiplication of
+    two complex numbers results in the multiplication of their magnitudes
+    and the addition of their angles, thus providing a straightforward
+    geometric interpretation of complex multiplication as rotation and
+    scaling.
+  </p>
+  <figure id="fig:schm2D">
+    <embed src="figs/2Dcomplex.pdf" />
+    <figcaption>Schematic showing rotation of 3 different objects in
+      two-dimensions: <span class="math inline">(a)</span> a vector <span class="math inline">P</span> located at a
+      distance <span class="math inline">r</span> and an angle <span class="math inline">\theta</span> (with <span
+        class="math inline">a = r
+        \sin \theta, b = r \cos \theta</span>) with respect to the origin which
+      when rotated by an angle <span class="math inline">\phi</span>
+      transforms to <span class="math inline">P&#39;</span>, <span class="math inline">(b)</span> a coordinate basis,
+      <span class="math inline">\hat{\mathbf{e}}_x, \hat{\mathbf{e}}_y</span> when
+      rotated by an angle <span class="math inline">\phi</span> transforms to
+      <span class="math inline">\tilde{\mathbf{e}}_x,
+        \tilde{\mathbf{e}}_y</span>, <span class="math inline">(c)</span> a
+      triangle <span class="math inline">ABC</span> when rotated by an angle
+      <span class="math inline">\phi</span> reaches <span class="math inline">A&#39;B&#39;C&#39;</span>. Refer
+      <code>python</code>-notebook for implementation.
+    </figcaption>
+  </figure>
+  <h3 class="unnumbered" id="multiplication-as-rotation-and-scaling">Multiplication as rotation
+    and scaling</h3>
+  <p>When you multiply two complex numbers, you perform a rotation and
+    scaling in the complex plane. The multiplication can be expressed as:
+    <span class="math display">z_1 \cdot z_2 = (a_1 + i b_1)(a_2 + i
+      b_2).</span> This multiplication changes the magnitude and rotates the
+    point in the complex plane. In polar notation, multiplication of two
+    complex numbers given by, <span class="math inline">z_1 = r_1
+      e^{i\theta_1}</span> and <span class="math inline">z_2 = r_2
+      e^{i\theta_2}</span>, where <span class="math inline">r_1</span> and
+    <span class="math inline">r_2</span> are the magnitudes, and <span class="math inline">\theta_1</span> and <span
+      class="math inline">\theta_2</span> are the angles of <span class="math inline">z_1</span> and <span
+      class="math inline">z_2</span>,
+    can be written as, <span class="math display">z_1 \cdot z_2 = r_1
+      e^{i\theta_1} \cdot r_2 e^{i\theta_2} = r_1 r_2 e^{i(\theta_1 +
+      \theta_2)}.</span> This result implies that the
+    magnitudes of the complex numbers are multiplied, and their angles (or
+    arguments) are added. Therefore, multiplication in polar form
+    corresponds to a rotation (given by the sum of angles) and a scaling
+    (given by the product of magnitudes) in the complex plane.
+  </p>
+  <div class="egsBox">
+    <p><span>Rotating a point using complex number</span> Consider a point
+      <span class="math inline">P</span> represented by the complex number
+      <span class="math inline">z = 1 + i\sqrt{3}</span> (which corresponds to
+      the point <span class="math inline">(1, \sqrt{3})</span> in the 2D
+      plane, forming an angle of <span class="math inline">{\pi}/{3}</span>
+      with the positive real axis). To rotate this point by <span class="math inline">120</span> degrees (or <span
+        class="math inline">{2\pi}/{3}</span> radians), we multiply it by <span
+        class="math inline">e^{i\frac{2\pi}{3}}</span> (which represents a
+      rotation of <span class="math inline">{2\pi}/{3}</span> radians in the
+      complex plane). The multiplication is as follows: <span class="math display">z&#39; = z \times e^{i\frac{2\pi}{3}}
+        = (1 +
+        i\sqrt{3}) \times e^{i\frac{2\pi}{3}} = (1 + i\sqrt{3}) \times
+        \left(-\frac{1}{2} + i\frac{\sqrt{3}}{2}\right).</span> Expanding this
+      product, we get: <span class="math display">z&#39; = \left(1 \times
+        -\frac{1}{2}\right) + \left(1 \times i\frac{\sqrt{3}}{2}\right) +
+        \left(i\sqrt{3} \times -\frac{1}{2}\right) + \left(i\sqrt{3} \times
+        i\frac{\sqrt{3}}{2}\right) = -\frac{1}{2} - \frac{3}{2} +
+        i\left(\frac{\sqrt{3}}{2} - \frac{\sqrt{3}}{2}\right) = -2.</span> After
+      the rotation, the new position <span class="math inline">z&#39;</span>
+      of the point <span class="math inline">P</span> in the complex plane is
+      <span class="math inline">-2</span>, which corresponds to the point
+      <span class="math inline">(-2, 0)</span> in the 2D plane.
+    </p>
+  </div>
+  <h2 id="sec:VecComp2D">Vector components in a rotated frame</h2>
+  <p>We briefly move away from the complex plane representation of
+    rotation to the cartesian plane and connect them by the end of this
+    sub-section. Let us consider two basis vectors <span class="math inline">\hat{\mathbf{e}}_x,
+      \hat{\mathbf{e}}_y</span>
+    pointing along <span class="math inline">x, y</span>–axes (see Fig. <a href="#fig:schm2D" data-reference-type="ref"
+      data-reference="fig:schm2D">1</a><span class="math inline">(b)</span>)
+    which when rotated by an angle <span class="math inline">\phi</span> in
+    the counter-clockwise direction gives <span class="math inline">\tilde{\mathbf{e}}_x, \tilde{\mathbf{e}}_y</span>.
+    It is easy to see that <span
+      class="math inline">\hat{\mathbf{e}}_x\cdot\tilde{\mathbf{e}}_x=\hat{\mathbf{e}}_y\cdot\tilde{\mathbf{e}}_y=\cos
+      \phi</span> and <span class="math inline">\hat{\mathbf{e}}_y\cdot\tilde{\mathbf{e}}_x=
+      -\hat{\mathbf{e}}_x\cdot\tilde{\mathbf{e}}_y= \sin \phi</span>. Now a
+    vector <span class="math inline">\mathbf{v}</span> with components <span class="math inline">\{ v_1, v_2 \}</span>
+    in the <span class="math inline">\hat{\mathbf{e}}_i</span> basis transforms to
+    components <span class="math inline">\{ \tilde{v}_1, \tilde{v}_2
+      \}</span> in the rotated basis <span class="math inline">\tilde{\mathbf{e}}_i</span> i.e., <span
+      class="math inline">\mathbf{v}= v_1 \hat{\mathbf{e}}_x+ v_2
+      \hat{\mathbf{e}}_y</span> and <span class="math inline">\tilde{\mathbf{v}}= \tilde{v}_1
+      \tilde{\mathbf{e}}_x+ \tilde{v}_2 \tilde{\mathbf{e}}_y</span>. A compact
+    way of transforming between these two basis is to write <span class="math inline">\mathbf{v}=
+      \mathcal{Q}^\mathsf{T}\tilde{\mathbf{v}}</span> and <span class="math inline">\tilde{\mathbf{v}}=
+      \mathcal{Q}\mathbf{v}</span>
+    where <span class="math inline">\mathcal{Q}= \{ \tilde{\mathbf{e}}_x,
+      \tilde{\mathbf{e}}_y\}</span> with <span class="math inline">\mathcal{Q}</span> being the rotation tensor. The
+    rotation tensor <span class="math inline">\mathcal{Q}</span> can be
+    written explicitly as <span class="math display">\mathcal{Q}=
+      \begin{pmatrix}
+      \tilde{\mathbf{e}}_x\cdot \hat{\mathbf{e}}_x&amp;
+      \tilde{\mathbf{e}}_x\cdot \hat{\mathbf{e}}_y\\
+      \tilde{\mathbf{e}}_y\cdot \hat{\mathbf{e}}_x&amp;
+      \tilde{\mathbf{e}}_y\cdot \hat{\mathbf{e}}_y
+      \end{pmatrix} =
+      \begin{pmatrix}
+      \cos \phi &amp; \sin \phi \\
+      -\sin \phi &amp; \cos \phi
+      \end{pmatrix}.</span></p>
+  <p>This matrix <span class="math inline">\mathcal{Q}</span> is indeed
+    the transpose of the standard rotation matrix <span class="math inline">\mathcal{R}</span> i.e., <span
+      class="math inline">\mathcal{Q}= \mathcal{R}^\mathsf{T}</span> for a
+    counter-clockwise rotation, confirming that rotating the basis <span class="math inline">\hat{\mathbf{e}}_i</span>
+    by a counter-clockwise
+    angle of <span class="math inline">\phi</span> rotates the vector <span class="math inline">\mathbf{v}</span> by a
+    clockwise angle <span class="math inline">\phi</span> in the transformed frame <span
+      class="math inline">\tilde{\mathbf{e}}_i</span>. This rotation tensor,
+    <span class="math inline">\mathcal{Q}</span> is fundamental to what we
+    will see in the second part of the primer. We hope you are holding your
+    breath for the arrival of part 2.
+  </p>
+  <h3 class="unnumbered" id="rotation-in-complex-plane-vs-cartesian-plane">Rotation in complex
+    plane vs cartesian plane</h3>
+  <p>We can express a complex number <span class="math inline">z =
+      re^{i\theta}</span> in cartesian coordinates as vector <span class="math inline">\mathbf{r}= \{ x, y\}</span> with
+    <span class="math inline">x = r\cos\theta</span> and <span class="math inline">y = r\sin\theta</span> being the
+    <span class="math inline">x</span> and <span class="math inline">y</span>
+    component of the vector. When this vector is rotated counter-clockwise
+    by an angle <span class="math inline">\phi</span>, the new orientation
+    is simply, <span class="math display">\tilde{z}= re^{i(\theta + \phi)} =
+      r\{\cos(\theta + \phi) + i\sin(\theta + \phi)\}.</span> The rotation
+    process can also be expressed in matrix form with the original vector
+    <span class="math inline">z \equiv \mathbf{r}= \{x, y\}</span>
+    transforming to <span class="math inline">\tilde{z}\equiv
+      \tilde{\mathbf{r}}= \{ \tilde{x}, \tilde{y}\}</span> through the
+    relation <span class="math display">\begin{pmatrix}
+      \tilde{x}\\
+      \tilde{y}
+      \end{pmatrix} =
+      \underbrace{
+      \begin{pmatrix}
+      \cos\phi &amp; -\sin\phi \\
+      \sin\phi &amp; \cos\phi
+      \end{pmatrix}}_{\text{Rotation matrix, }\mathcal{R}}
+      \begin{pmatrix}
+      x \\
+      y
+      \end{pmatrix}.</span>
+  </p>
+  <h2 id="rotating-an-object">Rotating an object</h2>
+  <p>We have so far seen how to rotate a vector with respect to origin and
+    how vectors behave in rotated coordinate systems. The last application
+    of rotation matrix is to rotate an object such as a square or a
+    triangle. The rotation of the object translates essentially to rotation
+    of all the vectors defined within the boundary of the object. In the
+    schematic shown in Fig. <a href="#fig:schm2D" data-reference-type="ref" data-reference="fig:schm2D">1</a><span
+      class="math inline">(c)</span>,
+    the triangular object is defined by the region bounded by the edges
+    connecting the vertices <span class="math inline">A, B, C</span>.
+    Rotating this translates to rotating all the vectors inside this
+    boundary. However, because of the properties of the rotation matrix
+    (discussed in the ensuing sub-section), it is sufficient to rotate the
+    vertices along. Thus rotating <span class="math inline">A</span> to
+    <span class="math inline">A&#39;</span>, <span class="math inline">B</span> to <span
+      class="math inline">B&#39;</span>,
+    <span class="math inline">C</span> to <span class="math inline">C&#39;</span> by an angle <span
+      class="math inline">\phi</span> and connecting them by straight lines is
+    equivalent to rotating the triangle. See the <a
+      href="https://github.com/sgangaprasath/RotationTut/blob/main/Rotations.ipynb"><code>python</code>–code</a>
+    for an implementation of this rotation.
+  </p>
+  <h2 id="properties-of-rotation-matrix-in-2d">Properties of rotation
+    matrix in 2D</h2>
+  <p>Rotation matrices, <span class="math inline">\mathcal{R}</span> in 2D
+    satisfy the following important properties:</p>
+  <ul>
+    <li>
+      <p>All rotation matrices are orthonormal matrices satisfying <span
+          class="math inline">\mathcal{R}\mathcal{R}^\mathsf{T}=
+          \mathcal{R}^\mathsf{T}\mathcal{R}= \mathbb{I}</span> with <span class="math inline">\det(\mathcal{R}) =
+          1</span>. Here <span class="math inline">\mathbb{I}</span> is the identity matrix.</p>
+    </li>
+    <li>
+      <p>Set of all orthonormal matrices with determinant 1 forms a group
+        known as the special orthogonal group SO(2).</p>
+    </li>
+    <li>
+      <p>Since the eigen values of <span class="math inline">\mathcal{R}</span> are always <span class="math inline">\pm
+          1</span>, <span class="math inline">\mathcal{R}</span> does not contribute to any
+        stretching of the vector on which it acts.</p>
+    </li>
+  </ul>
+  <h1 id="sec:3D">Rotation in 3D</h1>
+  <p>In this section, we extend our exploration of rotations from the 2D
+    plane to three-dimensional space. While 2D rotations are confined to a
+    single plane and can be effectively described using complex numbers, 3D
+    rotations are inherently more intricate due to the additional degree of
+    freedom. The Euler angle representation is one of the most common
+    methods for describing these rotations. Despite its widespread use,
+    Euler angles come with their own set of challenges, such as Gimbal lock,
+    which we shall discuss later in this section. We will start with the
+    Euler angle representation of rotating coordinate basis and objects in
+    3D. This sets the stage for the introduction of quaternions in sec. <a href="#sec:quat" data-reference-type="ref"
+      data-reference="sec:quat">4</a>, which provide a powerful and efficient
+    way to represent and compute rotations in 3D while simultaneously
+    subverting the constraints of Euler angles.</p>
+  <h2 id="euler-angle-representation">Euler angle representation</h2>
+  <p>Euler angles are a set of 3 angles, often represented by <span class="math inline">\{\psi, \theta, \phi\}</span>,
+    that denote the
+    orientation of a rigid object with respect to a pre-defined coordinate
+    axes. It is often used to transform any orthonormal coordinate basis
+    from an initial configuration to a target configuration. An initial
+    coordinate basis <span class="math inline">\hat{\mathbf{e}}_i</span>,
+    shown in Fig. <a href="#fig:eulAng3D" data-reference-type="ref" data-reference="fig:eulAng3D">2</a>, can be
+    transformed into <span class="math inline">\tilde{\mathbf{e}}_i</span> by performing a sequence
+    of 3 rotations with angles <span class="math inline">\{\psi, \theta,
+      \phi\}</span>. There are two ways by which this basis rotation can be
+    achieved: <span class="math inline">(i)</span> using extrinsic form,
+    where rotations are performed with respect to a fixed global coordinate
+    axes, <span class="math inline">\hat{\mathbf{e}}_i</span>; <span class="math inline">(ii)</span> intrinsic form,
+    where rotation is
+    performed with respect to the local reference frame of the object, <span
+      class="math inline">\hat{\mathbf{e}}_i&#39;</span> that gets modified
+    with each rotation operation. These two frames are analogous to Eulerian
+    and Lagrangian frames one might be familiar from classical mechanics. In
+    the following section we will derive the rotation matrix for rotation
+    about different fixed axis and look at how to put them together to
+    achieve the extrinsic and the intrinsic forms of basis rotation with
+    Euler angle representation.</p>
+  <figure id="fig:eulAng3D">
+    <img src="figs/figExtInt.jpg" />
+    <figcaption>Schematic shows 2 ways of performing consecutive rotations
+      to transform from one orientation to the other i.e., extrinsic and
+      intrinsic rotations. Extrinsic rotation is performed about a fixed
+      global axes, while intrinsic rotation about a moving axes that
+      transforms with the object. It is important to note that rotations
+      performed in extrinsic and intrisic form provide the same result
+      (however the order of performing the operation is reversed, as discussed
+      in the main text). Please see the linked <a
+        href="https://github.com/sgangaprasath/RotationTut/blob/main/Rotations.ipynb"><code>python</code>–code</a>
+      for an example.</figcaption>
+  </figure>
+  <h2 id="rotation-around-hatmathbfe_i">Rotation around <span class="math inline">\hat{\mathbf{e}}_i</span></h2>
+  <p>We will now derive the rotation matrix, <span class="math inline">\mathcal{R}_i</span> for <span
+      class="math inline">i
+      = \{ x, y, z \}</span> that performs rotation around different axis,
+    <span class="math inline">\hat{\mathbf{e}}_i</span> when acted on a
+    vector represented in this basis. Fig. <a href="#fig:eulAng3D" data-reference-type="ref"
+      data-reference="fig:eulAng3D">2</a> shows
+    schematically the effect of this rotation on a rigid object. When <span class="math inline">\mathcal{R}_i</span>
+    acts on a vector or object, it
+    leaves the component along the <span class="math inline">i</span>-axis
+    fixed while rotating the other two components. In essence, <span class="math inline">\mathcal{R}_i</span> performs
+    2D rotation with
+    respect to <span class="math inline">i</span>-axis.
+  </p>
+  <ul>
+    <li>
+      <p><strong>Rotation about <span class="math inline">\hat{\mathbf{e}}_x</span></strong>: The rotation
+        matrix about <span class="math inline">\hat{\mathbf{e}}_x</span> by an
+        angle <span class="math inline">\psi</span>, denoted as <span class="math inline">\mathcal{R}_x (\psi)</span>,
+        is given by <span class="math display">\mathcal{R}_x(\psi) =
+          \begin{pmatrix}
+          1 &amp; 0 &amp; 0 \\
+          0 &amp; \cos(\psi) &amp; -\sin(\psi) \\
+          0 &amp; \sin(\psi) &amp; \cos(\psi)
+          \end{pmatrix}.</span> Here positive values of <span class="math inline">\psi</span> denote rotation in the
+        counter-clockwise
+        direction when looking along <span class="math inline">\hat{\mathbf{e}}_x</span>. This is shown
+        schematically as the first step in intrinsic rotation in Fig. <a href="#fig:eulAng3D" data-reference-type="ref"
+          data-reference="fig:eulAng3D">2</a>.</p>
+    </li>
+    <li>
+      <p><strong>Rotation about <span class="math inline">\hat{\mathbf{e}}_y</span></strong>: Rotation about
+        <span class="math inline">\hat{\mathbf{e}}_y</span> by an angle <span class="math inline">\theta</span> can be
+        performed by the matrix <span class="math inline">\mathcal{R}_y(\theta)</span> given by <span
+          class="math display">\mathcal{R}_y(\theta) =
+          \begin{pmatrix}
+          \cos(\theta) &amp; 0 &amp; \sin(\theta) \\
+          0 &amp; 1 &amp; 0 \\
+          -\sin(\theta) &amp; 0 &amp; \cos(\theta)
+          \end{pmatrix}.</span>
+      </p>
+    </li>
+    <li>
+      <p><strong>Rotation about <span class="math inline">\hat{\mathbf{e}}_z</span></strong>: Rotation about
+        <span class="math inline">\hat{\mathbf{e}}_z</span>, denoted as <span
+          class="math inline">\mathcal{R}_z(\phi)</span>, is <span class="math display">\mathcal{R}_z(\phi) =
+          \begin{pmatrix}
+          \cos(\phi) &amp; -\sin(\phi) &amp; 0 \\
+          \sin(\phi) &amp; \cos(\phi) &amp; 0 \\
+          0 &amp; 0 &amp; 1
+          \end{pmatrix}.</span>
+      </p>
+    </li>
+  </ul>
+  <h3 class="unnumbered" id="sequential-rotation-of-a-vector-mathbfv">Sequential rotation of a
+    vector <span class="math inline">\mathbf{v}</span></h3>
+  <p>Consider a vector <span class="math inline">\mathbf{v}</span> with
+    components in <span class="math inline">\hat{\mathbf{e}}_i</span>
+    coordinate basis <span class="math inline">\{ v_1, v_2, v_3 \}</span>.
+    Performing a sequence of rotations of this vector will modify its
+    orientation but the order of rotation determines the final orientation
+    of <span class="math inline">\mathbf{v}</span>. This is because rotation
+    is intrinsically a non-cummutative operation, which is equivalent to
+    saying that the order of the operation matters. When we rotate <span class="math inline">\mathbf{v}</span> around
+    <span class="math inline">\hat{\mathbf{e}}_x</span> by <span class="math inline">\psi</span> followed by rotation
+    around <span class="math inline">\hat{\mathbf{e}}_y</span> by <span class="math inline">\theta</span> does not
+    necessarily result in
+    rotation around <span class="math inline">\hat{\mathbf{e}}_y</span> by
+    <span class="math inline">\theta</span> followed around <span class="math inline">\hat{\mathbf{e}}_x</span> by <span
+      class="math inline">\psi</span>. This can be easily seen by the fact
+    that matrix multiplication is not commutative. We can write this
+    sequential operation and the non-cummutivity mathematically as, <span class="math inline">\mathcal{R}_x(\psi)
+      \mathcal{R}_y(\theta) \neq
+      \mathcal{R}_y(\theta) \mathcal{R}_x(\psi)</span>. No two sequences
+    produce the same transformation unless they represent the same
+    rotation.
+  </p>
+  <h2 id="sec:rodg">Rotation around arbitrary direction</h2>
+  <figure id="fig:rodg">
+    <img src="figs/figRodg.png" style="width:75.0%" />
+    <figcaption>Schematic describes the rotation of vector <span class="math inline">\mathbf{v}</span> represented by
+      <span class="math inline">\vec{OP}</span> about <span class="math inline">\hat{\mathbf{n}}</span> or <span
+        class="math inline">\vec{ON}</span> by an angle <span class="math inline">\phi</span> thereby becoming the new
+      vector <span class="math inline">\tilde{\mathbf{v}}/ \vec{OP&#39;}</span>. This
+      approach is also used to rotate a rigid body as shown here and the
+      matrix to perform such a rotation in Eq. <a href="#eq:rodgForm" data-reference-type="ref"
+        data-reference="eq:rodgForm">[eq:rodgForm]</a>
+      is given the name Rodrigues formula.</figcaption>
+  </figure>
+  <p>We have seen that simple rotations about <span class="math inline">\hat{\mathbf{e}}_i</span> can be performed by
+    <span class="math inline">\mathcal{R}_i</span>, as it extends 2D rotations.
+    Now we look at how to perform rotation around a specified direction,
+    <span class="math inline">\hat{\mathbf{n}}</span>. This not only
+    generalizes rotations around <span class="math inline">\hat{\mathbf{e}}_i</span> but is pivotal for
+    transforming an object’s configuration in three-dimensional space.
+  </p>
+  <p>Let us consider a vector <span class="math inline">\mathbf{v}</span>,
+    shown schematically in Fig. <a href="#fig:rodg" data-reference-type="ref" data-reference="fig:rodg">3</a>, as <span
+      class="math inline">\overrightarrow{OP}</span>, that is to be rotated
+    around another unit vector <span class="math inline">\hat{\mathbf{n}}</span> along <span
+      class="math inline">\overrightarrow{ON}</span> by an angle <span class="math inline">\phi</span> to reach <span
+      class="math inline">\tilde{\mathbf{v}}/ \overrightarrow{OP&#39;}</span>.
+    From Fig. <a href="#fig:rodg" data-reference-type="ref" data-reference="fig:rodg">3</a> we can see that the rotated
+    vector <span class="math inline">\tilde{\mathbf{v}}</span> can be expressed as the
+    sum of three components, <span class="math display">\tilde{\mathbf{v}}/
+      \overrightarrow{OP&#39;} = \hat{\mathbf{n}}+ \overrightarrow{NQ} +
+      \overrightarrow{QP&#39;},</span> where <span class="math inline">\overrightarrow{ON}</span> is the component of
+    <span class="math inline">\mathbf{v}</span> along the rotation axis <span
+      class="math inline">\hat{\mathbf{n}}</span>, <span class="math inline">\overrightarrow{NQ}</span> is the component
+    of <span class="math inline">\overrightarrow{NP&#39;}</span> perpendicular to
+    <span class="math inline">\hat{\mathbf{n}}</span> within the plane
+    containing <span class="math inline">\hat{\mathbf{n}}</span> and <span class="math inline">\mathbf{v}</span> , and
+    <span class="math inline">\overrightarrow{QP&#39;}</span> is the component of
+    <span class="math inline">\overrightarrow{NP&#39;}</span> that is
+    perpendicular to <span class="math inline">\hat{\mathbf{n}}</span> and
+    <span class="math inline">\mathbf{v}</span>. It is intuitive to see that
+    the component along the axis, <span class="math inline">\hat{\mathbf{n}}</span> is along <span
+      class="math inline">\overrightarrow{ON} = (\mathbf{v}\cdot
+      \hat{\mathbf{n}}) \hat{\mathbf{n}}</span>. And the perpendicular
+    component in the plane, <span class="math inline">\overrightarrow{NP} =
+      \mathbf{v}- \overrightarrow{ON}</span>. The rotated perpendicular
+    component is then <span class="math inline">\overrightarrow{NQ} =
+      \cos(\phi) \overrightarrow{NP}</span>. The perpendicular component to
+    the plane ultimately is <span class="math inline">\overrightarrow{QP&#39;} = \sin(\phi)
+      (\hat{\mathbf{n}}\times \mathbf{v})</span>. Summing up these different
+    components then gives the relation between <span class="math inline">\mathbf{v}, \hat{\mathbf{n}},
+      \tilde{\mathbf{v}}</span> and <span class="math inline">\phi</span> as,
+    <span class="math display">\tilde{\mathbf{v}}= \cos(\phi) \mathbf{v}+ [1
+      - \cos(\phi)] (\hat{\mathbf{n}}\cdot \mathbf{v}) \hat{\mathbf{n}}+
+      \sin(\phi) (\hat{\mathbf{n}}\times \mathbf{v}).</span> This can be
+    reformulated using matrix notation as, <span class="math display">\tilde{\mathbf{v}}= \big[\cos(\phi) \mathbb{I}+ (1
+      - \cos(\phi))\hat{\mathbf{n}}\hat{\mathbf{n}}^\text{T} + \sin(\phi)
+      \bm{\epsilon} \hat{\mathbf{n}}\big] \mathbf{v},</span> where <span class="math inline">\mathbb{I}</span> is the
+    <span class="math inline">3
+      \times 3</span> identity matrix, <span class="math inline">\bm{\epsilon}
+      \hat{\mathbf{n}}</span> is the skew-symmetric matrix corresponding to
+    the vector <span class="math inline">\hat{\mathbf{n}}</span>, defined as
+    <span class="math display">\bm{\epsilon} \hat{\mathbf{n}}=
+      \begin{pmatrix}
+      0 &amp; -n_3 &amp; n_2 \\
+      n_3 &amp; 0 &amp; -n_1 \\
+      -n_2 &amp; n_1 &amp; 0
+      \end{pmatrix},</span> with <span class="math inline">\bm{\epsilon}
+      \equiv \epsilon_{ijk}</span> being the third order anti-symmetric tensor
+    with the property <span class="math display">\epsilon_{ijk} =
+      \begin{cases}
+      +1 &amp; \ \text{if $(i,j,k)$ are even permutations of (1, 2, 3)},
+      \\
+      -1 &amp; \ \text{if $(i,j,k)$ are odd permutations of (1, 2, 3)}, \\
+      0 &amp; \ \text{if $i=j$ or $j=k$ or $i=k$}.
+      \end{cases}</span> and the expression <span class="math inline">\bm{\epsilon} \hat{\mathbf{n}}= \sum_{k=1}^3
+      \epsilon_{ijk}n_k</span>. Thus, the rotation matrix <span class="math inline">\mathcal{R}(\phi,
+      \hat{\mathbf{n}})</span> is simply
+    <span class="math display">\mathcal{R}(\phi, \hat{\mathbf{n}}) =
+      \cos(\phi)\mathbb{I}+ (1 - \cos(\phi))
+      \hat{\mathbf{n}}\hat{\mathbf{n}}^\mathsf{T}+ \sin(\phi) \bm{\epsilon}
+      \hat{\mathbf{n}},</span> and the rotated vector <span class="math inline">\tilde{\mathbf{v}}</span> is obtained
+    simply by
+    acting this matrix on <span class="math inline">\mathbf{v}</span>, i.e.,
+    <span class="math inline">\tilde{\mathbf{v}}=
+      \mathcal{R}\mathbf{v}</span>.
+  </p>
+  <p>The unit vector defining the axis of rotation <span class="math inline">\hat{\mathbf{n}}</span> in <span
+      class="math inline">\hat{\mathbf{e}}_i</span> basis can be written as
+    <span class="math display">\hat{\mathbf{n}}= n_1 \hat{\mathbf{e}}_x +
+      n_2 \hat{\mathbf{e}}_y + n_3 \hat{\mathbf{e}}_z,</span> with <span class="math inline">||\hat{\mathbf{n}}||^2 =
+      n_1^2 + n_2^2 + n_3^2 =
+      1</span>. The rotation matrix <span class="math inline">\mathcal{R}(\phi, \hat{\mathbf{n}})</span>
+    explicitly reads as <span class="math display">
+      \mathcal{R}(\phi, \hat{\mathbf{n}}) = \begin{pmatrix}
+      n_1^2 (1 - \textsf{c}(\phi)) + \textsf{c}(\phi) &amp; n_1 n_2 \cdot
+      (1 - \textsf{c}(\phi)) - n_3 \textsf{s}(\phi) &amp; n_1 n_3 (1 -
+      \textsf{c}(\phi)) + n_2 \textsf{s}(\phi) \\
+      n_1 n_2 (1 - \textsf{c}(\phi)) + n_3 \textsf{s}(\phi) &amp; n_2^2 (1
+      - \textsf{c}(\phi)) + \textsf{c}(\phi) &amp; - n_1 \textsf{s}(\phi) +
+      n_2 n_3 (1 - \textsf{c}(\phi)) \\
+      n_1 n_3 (1 - \textsf{c}(\phi)) - n_2 \textsf{s}(\phi) &amp; n_1
+      \textsf{s}(\phi) + n_2 n_3 \cdot (1 - \textsf{c}(\phi)) &amp; n_3^2 (1
+      - \textsf{c}(\phi)) + \textsf{c}(\phi)
+      \end{pmatrix},</span> where we have used the short-hand notation <span class="math inline">\textsf{c}(\bullet)
+      \equiv \cos(\bullet),
+      \textsf{s}(\bullet) \equiv \sin(\bullet)</span>. This form of <span class="math inline">\mathcal{R}(\phi,
+      \hat{\mathbf{n}})</span> is
+    sometimes given the name Rodrigues’ rotation formula.
+  </p>
+  <div class="egsBox">
+    <p><span>Rotation using Rodrigues’ formula</span></p>
+    <p>Consider a scenario where we have a vector <span class="math inline">\mathbf{v} = (1, 0, 0)</span>. Our goal is
+      to rotate
+      this vector by an angle of <span class="math inline">\pi/4</span>
+      radians around a unit vector <span class="math inline">\mathbf{n} = (1,
+        1, 1)/{\sqrt{3}}</span>.</p>
+    <p>First, we calculate the components of the rotation matrix <span class="math inline">\mathcal{R}(\phi,
+        \hat{\mathbf{n}})</span> using
+      Rodrigues’ formula. With <span class="math inline">\phi =
+        {\pi}/{4}</span> and <span class="math inline">\hat{\mathbf{n}}= (1, 1,
+        1)/{\sqrt{3}}</span>, the rotation matrix is computed as:</p>
+    <p><span class="math display">\mathcal{R}\Big( \frac{\pi}{4},
+        \hat{\mathbf{n}}\Big) = \frac{1}{2} \begin{pmatrix}
+        1+\frac{1}{\sqrt{3}} &amp; 1-\frac{1}{\sqrt{3}} &amp;
+        1-\frac{1}{\sqrt{3}} \\
+        1-\frac{1}{\sqrt{3}} &amp; 1+\frac{1}{\sqrt{3}} &amp;
+        1-\frac{1}{\sqrt{3}} \\
+        1-\frac{1}{\sqrt{3}} &amp; 1-\frac{1}{\sqrt{3}} &amp;
+        1+\frac{1}{\sqrt{3}}
+        \end{pmatrix}.</span></p>
+    <p>Applying this matrix to the vector <span class="math inline">\mathbf{v}</span>, we find the rotated vector <span
+        class="math inline">\tilde{\mathbf{v}}</span> is, <span class="math display">\tilde{\mathbf{v}}=
+        \mathcal{R}\Big( \frac{\pi}{4},
+        \hat{\mathbf{n}}\Big) \mathbf{v} = \frac{1}{2} \begin{pmatrix}
+        1+\frac{1}{\sqrt{3}} \\
+        1-\frac{1}{\sqrt{3}} \\
+        1-\frac{1}{\sqrt{3}}
+        \end{pmatrix}.</span> This rotated vector <span class="math inline">\tilde{\mathbf{v}}</span> represents the new
+      orientation of <span class="math inline">\mathbf{v}</span> after the
+      rotation.</p>
+  </div>
+  <h2 id="sec:ex2int">Extrinsic rotation from <span class="math inline">\hat{\mathbf{e}}_i</span> basis to <span
+      class="math inline">\tilde{\mathbf{e}}_i</span> basis</h2>
+  <p>In this section we look at one of the most important functions of
+    rotations, which is to transform a coordinate axes from an initial
+    configuration to a target configuration. As we have mentioned briefly
+    earlier and shown schematically in Fig. <a href="#fig:eulAng3D" data-reference-type="ref"
+      data-reference="fig:eulAng3D">2</a>, rigid
+    objects’ orientation or coordinate basis can be transformed from initial
+    to target configuration by either using a global fixed reference frame,
+    referred to as extrinsic rotation or by using the local reference frame
+    which transforms with every rotation operation, referred to as intrinsic
+    form.</p>
+  <p>We will first look at the more intuitive extrinsic form of rotation
+    between two coordinate basis denoted by <span class="math inline">A</span>, the initial configuration and <span
+      class="math inline">B</span>, the target configuration shown in Fig. <a href="#fig:eulAng3D"
+      data-reference-type="ref" data-reference="fig:eulAng3D">2</a>. The global coordinate basis is
+    <span class="math inline">A</span> which is aligned with global axes
+    <span class="math inline">\hat{\mathbf{e}}_i</span> and it must be
+    rotated to reach target frame <span class="math inline">B</span> with
+    axes <span class="math inline">\tilde{\mathbf{e}}_i</span>. We can do
+    this by performing three rotations: first around the first axis of frame
+    <span class="math inline">A</span> that is rotation about <span class="math inline">\hat{\mathbf{e}}_z</span>,
+    followed by rotation
+    about <span class="math inline">\hat{\mathbf{e}}_y</span> and lastly by
+    rotating about <span class="math inline">\hat{\mathbf{e}}_x</span>. As
+    it must be clear, this rotation sequence is performed in the extrinsic
+    form as the global coordinate basis, <span class="math inline">\hat{\mathbf{e}}_i</span> is used for the
+    transformation. It is important to note that this sequence of rotations,
+    starting with the global <span class="math inline">z</span>-axis,
+    followed by the global <span class="math inline">y</span>-axis, and then
+    the global <span class="math inline">x</span>-axis, has equivalent
+    intrinsic rotations. In order to do this in intrinsic form, in Fig. <a href="#fig:eulAng3D"
+      data-reference-type="ref" data-reference="fig:eulAng3D">2</a> we show that we can traverse from
+    <span class="math inline">A</span> by first rotating with respect to
+    <span class="math inline">\hat{\mathbf{e}}_x</span> to reach an
+    intermediate frame <span class="math inline">A&#39;</span> (with axes
+    <span class="math inline">\{ \hat{\mathbf{e}}&#39;_x,
+      \hat{\mathbf{e}}&#39;_y, \hat{\mathbf{e}}_z \}</span>), and second
+    rotation around <span class="math inline">\hat{\mathbf{e}}&#39;_y</span>
+    leading to frame <span class="math inline">A&#39;&#39;</span> (with axes
+    <span class="math inline">\{ \hat{\mathbf{e}}&#39;&#39;_x,
+      \hat{\mathbf{e}}&#39;&#39;_y, \hat{\mathbf{e}}&#39;&#39;_z \}</span>),
+    and third rotation around <span class="math inline">\hat{\mathbf{e}}&#39;&#39;_z</span> to arrive at
+    frame <span class="math inline">B</span>.
+  </p>
+  <p>This particular sequence of rotation starting with the global <span class="math inline">z</span>-axis followed by
+    global <span class="math inline">y</span>-axis then by global <span class="math inline">x</span>-axis is called 321
+    rotation. The 321
+    rotation can be represented as composition of rotation matrices, <span class="math inline">\mathcal{R}_i</span> we
+    have seen in the earlier
+    section. We can perform the rotation about global <span class="math inline">z, y, x</span>-axes by angles <span
+      class="math inline">\psi, \theta, \phi</span> using product of 3 <span class="math inline">\mathcal{R}_i</span>
+    matrices given by, <span class="math display">\mathcal{R}(\psi, \theta, \phi) =
+      \mathcal{R}_x(\phi) \mathcal{R}_y(\theta)
+      \mathcal{R}_z(\psi).</span></p>
+  <p>In the context of 3D rotations, yaw (<span class="math inline">\psi</span>), pitch(<span
+      class="math inline">\theta</span>), and roll(<span class="math inline">\phi</span>) are commonly used terms for
+    321
+    rotation sequence, <span class="math display">\mathcal{R}_{\text{final}}
+      (\psi, \theta, \phi) =
+      \begin{pmatrix}
+      \cos(\phi) &amp; -\sin(\phi) &amp; 0 \\
+      \sin(\phi) &amp; \cos(\phi) &amp; 0 \\
+      0 &amp; 0 &amp; 1
+      \end{pmatrix}
+      \begin{pmatrix}
+      \cos(\theta) &amp; 0 &amp; \sin(\theta) \\
+      0 &amp; 1 &amp; 0 \\
+      -\sin(\theta) &amp; 0 &amp; \cos(\theta)
+      \end{pmatrix}
+      \begin{pmatrix}
+      1 &amp; 0 &amp; 0 \\
+      0 &amp; \cos(\psi) &amp; -\sin(\psi) \\
+      0 &amp; \sin(\psi) &amp; \cos(\psi)
+      \end{pmatrix}.</span></p>
+  <p>A subtle point worth mentioning is that we have taken some freedom in
+    defining yaw (<span class="math inline">\psi</span>), pitch(<span class="math inline">\theta</span>), and roll(<span
+      class="math inline">\phi</span>) in the case of an extrinsic rotation
+    sequence here, however it is conventionally used in the context of an
+    intrinsic rotation. This results in the following matrix, <span class="math display">\mathcal{R}_{\text{final}}
+      (\psi, \theta, \phi) =
+      \begin{pmatrix}
+      \textsf{c}(\psi)\textsf{c}(\theta) &amp;
+      -\textsf{s}(\psi)\textsf{c}(\phi) +
+      \textsf{c}(\psi)\textsf{s}(\theta)\textsf{s}(\phi) &amp;
+      \textsf{s}(\psi)\textsf{s}(\phi) +
+      \textsf{c}(\psi)\textsf{s}(\theta)\textsf{c}(\phi) \\
+      \textsf{s}(\psi)\textsf{c}(\theta) &amp;
+      \textsf{c}(\psi)\textsf{c}(\phi) +
+      \textsf{s}(\psi)\textsf{s}(\theta)\textsf{s}(\phi) &amp;
+      -\textsf{c}(\psi)\textsf{s}(\phi) +
+      \textsf{s}(\psi)\textsf{s}(\theta)\textsf{c}(\phi) \\
+      -\textsf{s}(\theta) &amp; \textsf{c}(\theta)\textsf{s}(\phi) &amp;
+      \textsf{c}(\theta)\textsf{c}(\phi)
+      \end{pmatrix}.</span></p>
+  <div class="egsBox">
+    <p><span>Rotating from initial basis <span class="math inline">\hat{\mathbf{e}}_i</span> to target basis <span
+          class="math inline">\tilde{\mathbf{e}}_i</span></span> Consider a
+      scenario where we need to rotate a coordinate system from an initial
+      basis <span class="math inline">\hat{\mathbf{e}}_i =
+        \{\hat{\mathbf{e}}_x, \hat{\mathbf{e}}_y, \hat{\mathbf{e}}_z\}</span> to
+      a target basis <span class="math inline">\tilde{\mathbf{e}}_i =
+        \{\tilde{\mathbf{e}}_x, \tilde{\mathbf{e}}_y,
+        \tilde{\mathbf{e}}_z\}</span>. Let’s assume the rotation involves a yaw
+      of <span class="math inline">\dfrac{\pi}{6}</span> , a pitch of <span class="math inline">\dfrac{\pi}{4}</span>,
+      and a roll of <span class="math inline">\dfrac{\pi}{3}</span>. Using the 321 rotation
+      sequence, the final rotation matrix is calculated as follows: <span
+        class="math display">\mathcal{R}_{\text{final}} (\psi, \theta, \phi) =
+        \begin{pmatrix}
+        \textsf{c}(\frac{\pi}{6}) \textsf{c}(\frac{\pi}{4}) &amp;
+        \textsf{s}(\frac{\pi}{3}) \textsf{s}(\frac{\pi}{4})
+        \textsf{c}(\frac{\pi}{6}) - \textsf{s}(\frac{\pi}{6})
+        \textsf{c}(\frac{\pi}{3}) &amp; \textsf{s}(\frac{\pi}{3})
+        \textsf{s}(\frac{\pi}{6}) + \textsf{s}(\frac{\pi}{4})
+        \textsf{c}(\frac{\pi}{3}) \textsf{c}(\frac{\pi}{6}) \\
+        \textsf{s}(\frac{\pi}{6}) \textsf{c}(\frac{\pi}{4}) &amp;
+        \textsf{s}(\frac{\pi}{3}) \textsf{s}(\frac{\pi}{6})
+        \textsf{c}(\frac{\pi}{4}) + \textsf{c}(\frac{\pi}{3})
+        \textsf{c}(\frac{\pi}{6}) &amp; \textsf{s}(\frac{\pi}{6})
+        \textsf{s}(\frac{\pi}{4}) \textsf{c}(\frac{\pi}{3}) -
+        \textsf{s}(\frac{\pi}{3}) \textsf{c}(\frac{\pi}{6}) \\
+        -\textsf{s}(\frac{\pi}{4}) &amp; \textsf{s}(\frac{\pi}{3})
+        \textsf{c}(\frac{\pi}{4}) &amp; \textsf{c}(\frac{\pi}{3})
+        \textsf{c}(\frac{\pi}{4})
+        \end{pmatrix}.</span></p>
+    <p>This matrix represents the combined effect of yaw, pitch, and roll
+      rotations, transforming the initial basis <span class="math inline">\hat{\mathbf{e}}_i</span> to the target basis
+      <span class="math inline">\tilde{\mathbf{e}}_i</span>. The columns of this
+      rotation matrix can be interpreted as follows:</p>
+    <ul>
+      <li>
+        <p>The first column represents the target basis vector <span class="math inline">\tilde{\mathbf{e}}_x</span>
+          written in terms of the
+          initial basis vectors <span class="math inline">\hat{\mathbf{e}}_i</span>.</p>
+      </li>
+      <li>
+        <p>The second column represents the target basis vector <span class="math inline">\tilde{\mathbf{e}}_y</span>
+          written in terms of the
+          initial basis vectors <span class="math inline">\hat{\mathbf{e}}_i</span>.</p>
+      </li>
+      <li>
+        <p>The third column represents the target basis vector <span class="math inline">\tilde{\mathbf{e}}_z</span>
+          written in terms of the
+          initial basis vectors <span class="math inline">\hat{\mathbf{e}}_i</span>.</p>
+      </li>
+    </ul>
+  </div>
+  <h3 class="unnumbered" id="rotation-sequence">313 Rotation Sequence</h3>
+  <p>Just like we can transform between <span class="math inline">\hat{\mathbf{e}}_i</span> to <span
+      class="math inline">\tilde{\mathbf{e}}_i</span> via 321 rotations, we
+    can do this transformation via 11 other sequences (which we will discuss
+    soon). Another such sequence is the 313 rotation sequence for which the
+    rotation matrix <span class="math inline">\mathcal{R}</span> is the
+    product of rotations about <span class="math inline">\hat{\mathbf{e}}_z</span>, followed by <span
+      class="math inline">\hat{\mathbf{e}}_x</span>, and again <span class="math inline">\hat{\mathbf{e}}_z</span>. The
+    rotation matrix <span class="math inline">\mathcal{R}</span> for the 313 sequence is given by,
+    <span class="math display">\mathcal{R}(\psi, \theta, \phi) =
+      \mathcal{R}_z(\psi) \mathcal{R}_x(\theta) \mathcal{R}_z(\phi),</span>
+    where <span class="math inline">\mathcal{R}_z(\psi)</span> and <span class="math inline">\mathcal{R}_z(\phi)</span>
+    are the rotation matrices
+    about the <span class="math inline">z</span>-axis, and <span class="math inline">\mathcal{R}_x(\theta)</span> is the
+    rotation matrix
+    about the <span class="math inline">x</span>-axis.
+  </p>
+  <p>The final rotation matrix <span class="math inline">\mathcal{R}_{\text{final}} (\psi, \theta,
+      \phi)</span> for the 313 rotation sequence can be written as, <span
+      class="math display">\mathcal{R}_{\text{final}} (\psi, \theta, \phi) =
+      \begin{pmatrix}
+      -\textsf{s}(\phi)\textsf{s}(\psi)\textsf{c}(\theta) +
+      \textsf{c}(\phi)\textsf{c}(\psi) &amp; -\textsf{s}(\phi)\textsf{c}(\psi)
+      - \textsf{s}(\psi)\textsf{c}(\phi)\textsf{c}(\theta) &amp;
+      \textsf{s}(\psi)\textsf{s}(\theta) \\
+      \textsf{s}(\phi)\textsf{c}(\psi)\textsf{c}(\theta) +
+      \textsf{s}(\psi)\textsf{c}(\phi) &amp; -\textsf{s}(\phi)\textsf{s}(\psi)
+      + \textsf{c}(\phi)\textsf{c}(\psi)\textsf{c}(\theta) &amp;
+      -\textsf{s}(\theta)\textsf{c}(\psi) \\
+      \textsf{s}(\phi)\textsf{s}(\theta) &amp;
+      \textsf{s}(\theta)\textsf{c}(\phi) &amp; \textsf{c}(\theta)
+      \end{pmatrix}.</span></p>
+  <p>In three-dimensional space, like the 321, 313 rotation sequence we
+    have seen above, Euler angle rotations can be represented via a total of
+    12 distinct sequences. These sequences are derived from permutations of
+    rotations about the three principal axes, <span class="math inline">\hat{\mathbf{e}}_i</span>. For each sequence,
+    the
+    first and last rotations must be about different axes, and the middle
+    rotation is about the axis not used in the first rotation. This rule
+    leads to 12 unique combinations: 321, 323, 313, 312, 231, 213, 212, 232,
+    123, 132, 121, 131.</p>
+  <p>We have seen so far that the rotation between two different
+    coordinate basis <span class="math inline">\hat{\mathbf{e}}_i</span> and
+    <span class="math inline">\tilde{\mathbf{e}}_i</span> can be achieved
+    either by using Rodrigues’ formula with <span class="math inline">\hat{\mathbf{n}}, \phi</span> in Eq. <a
+      href="#eq:rodgForm" data-reference-type="ref" data-reference="eq:rodgForm">[eq:rodgForm]</a> or through 3 Euler
+    angles, <span class="math inline">\{\psi, \theta, \phi\}</span>. In the
+    former case of it might seem as though we require 4–degrees of freedom,
+    <span class="math inline">\{ n_i, \phi \}</span>, the unit-vector
+    constraint of <span class="math inline">\hat{\mathbf{n}}</span> i.e.
+    <span class="math inline">||\hat{\mathbf{n}}||^2 = 1</span>, however,
+    reduces the required variables to 3. The attached <a
+      href="https://github.com/sgangaprasath/RotationTut/blob/main/Rotations.ipynb"><code>python</code>–code</a>
+    has details of such an implementation.
+  </p>
+  <h3 class="unnumbered" id="connection-between-extrinsic-and-intrinsic-transformations">Connection
+    between extrinsic and intrinsic transformations</h3>
+  <p>We have seen that in the extrinsic form, each rotation is performed
+    with respect to a fixed coordinate basis, <span class="math inline">\hat{\mathbf{e}}_i</span>. These rotations are
+    easier to visualize as they relate to a stationary frame of reference.
+    In contrast, intrinsic rotations in Fig. <a href="#fig:eulAng3D" data-reference-type="ref"
+      data-reference="fig:eulAng3D">2</a> are
+    performed with respect to the rotating coordinate system. The key to
+    connection between extrinsic and intrinsic transformations lies in the
+    order of applied rotations. An extrinsic rotation sequence can be
+    converted to an intrinsic sequence by reversing the order of rotations
+    and vice versa. This is because rotating an object first about one axis
+    and then about another in a fixed coordinate system (extrinsic) is
+    equivalent to rotating it about the second axis and then the first in
+    its own coordinate system (intrinsic).</p>
+  <p>For example, an extrinsic rotation sequence about the 123 (<span class="math inline">\hat{\mathbf{e}}_x \rightarrow
+      \hat{\mathbf{e}}_y
+      \rightarrow \hat{\mathbf{e}}_z</span>) is equivalent to an intrinsic
+    rotation sequence 321 (<span class="math inline">\hat{\mathbf{e}}_z
+      \rightarrow \hat{\mathbf{e}}&#39;_y \rightarrow
+      \hat{\mathbf{e}}&#39;&#39;_x</span>). Though the order of applied
+    sequence is reversed, the rotation matrix for both these sequences is
+    the same. This relationship allows for the translation of a series of
+    rotations from one perspective to another. In order to gain a deeper
+    understanding of this connection, we refer the reader to this <a
+      href="https://dominicplein.medium.com/extrinsic-intrinsic-rotation-do-i-multiply-from-right-or-left-357c38c1abfd">link</a>.
+  </p>
+  <h3 class="unnumbered" id="vector-components-in-different-coordinate-basis">Vector components
+    in different coordinate basis</h3>
+  <p>In sec. <a href="#sec:VecComp2D" data-reference-type="ref" data-reference="sec:VecComp2D">2.2</a> we saw that the
+    vector components
+    in 2D transform under the rule, <span class="math inline">\mathbf{v}=
+      \mathcal{Q}^\mathsf{T}\tilde{\mathbf{v}}</span> and <span class="math inline">\tilde{\mathbf{v}}=
+      \mathcal{Q}\mathbf{v}</span>.
+    This transformation is valid also in 3D where the matrix <span class="math inline">\mathcal{Q}= \{
+      \tilde{\mathbf{e}}_x,
+      \tilde{\mathbf{e}}_y, \tilde{\mathbf{e}}_z \}</span>, which can be
+    written explicitly as <span class="math display">\mathcal{Q}=
+      \begin{pmatrix}
+      \tilde{\mathbf{e}}_x\cdot \hat{\mathbf{e}}_x&amp;
+      \tilde{\mathbf{e}}_x\cdot \hat{\mathbf{e}}_y&amp;
+      \tilde{\mathbf{e}}_x\cdot \hat{\mathbf{e}}_z\\
+      \tilde{\mathbf{e}}_y\cdot \hat{\mathbf{e}}_x&amp;
+      \tilde{\mathbf{e}}_y\cdot \hat{\mathbf{e}}_y&amp;
+      \tilde{\mathbf{e}}_y\cdot \hat{\mathbf{e}}_z\\
+      \tilde{\mathbf{e}}_z\cdot \hat{\mathbf{e}}_x&amp;
+      \tilde{\mathbf{e}}_z\cdot \hat{\mathbf{e}}_y&amp;
+      \tilde{\mathbf{e}}_z\cdot \hat{\mathbf{e}}_z
+      \end{pmatrix}.</span> Let us consider three basis vectors <span class="math inline">\hat{\mathbf{e}}_x,
+      \hat{\mathbf{e}}_y,
+      \hat{\mathbf{e}}_z</span> pointing along the <span class="math inline">x, y, z</span>-axis respectively. Similar
+    to our 2D
+    calculations, When the vectors <span class="math inline">\hat{\mathbf{e}}_x, \hat{\mathbf{e}}_y</span> are
+    rotated by an angle <span class="math inline">\phi</span> in the
+    counter-clockwise direction around the <span class="math inline">\hat{\mathbf{e}}_z</span> axis, they give rise to
+    <span class="math inline">\tilde{\mathbf{e}}_x,
+      \tilde{\mathbf{e}}_y</span>. It is straightforward to see that <span
+      class="math inline">\hat{\mathbf{e}}_x\cdot\tilde{\mathbf{e}}_x=\hat{\mathbf{e}}_y\cdot\tilde{\mathbf{e}}_y=\cos
+      \phi</span> and <span class="math inline">\hat{\mathbf{e}}_y\cdot\tilde{\mathbf{e}}_x=
+      -\hat{\mathbf{e}}_x\cdot\tilde{\mathbf{e}}_y= \sin \phi</span>. The
+    third basis vector <span class="math inline">\hat{\mathbf{e}}_z</span>
+    remains unchanged during this rotation, so <span class="math inline">\hat{\mathbf{e}}_z\cdot\tilde{\mathbf{e}}_z=
+      1</span>. The rotation tensor <span class="math inline">\mathcal{Q}</span> in 3D then reduces to <span
+      class="math display">\mathcal{Q}=
+      \begin{pmatrix}
+      \cos \phi &amp; \sin \phi &amp; 0 \\
+      -\sin \phi &amp; \cos \phi &amp; 0 \\
+      0 &amp; 0 &amp; 1
+      \end{pmatrix}.</span> Now, a vector <span class="math inline">\mathbf{v}</span> with components <span
+      class="math inline">\{ v_1, v_2, v_3 \}</span> in the <span class="math inline">\hat{\mathbf{e}}_i</span> basis
+    can be transformed
+    to components <span class="math inline">\{ \tilde{v}_1, \tilde{v}_2,
+      \tilde{v}_3 \}</span> in the rotated basis <span class="math inline">\tilde{\mathbf{e}}_i</span> using <span
+      class="math inline">\tilde{\mathbf{v}}= \mathcal{Q}\mathbf{v}</span> and
+    the inverse operation can be done using <span class="math inline">\mathbf{v}=
+      \mathcal{Q}^\mathsf{T}\tilde{\mathbf{v}}</span>. The
+    <code>python</code>–code for an implementation of this to transform the
+    basis vectors is available <a
+      href="https://github.com/sgangaprasath/RotationTut/blob/main/Rotations.ipynb">here</a>.
+  </p>
+  <h3 class="unnumbered" id="properties-of-rotation-matrix-in-3d">Properties of rotation matrix
+    in 3D</h3>
+  <p>Apart from orthonormal property of rotation matrix (which is valid
+    also in 3D), <span class="math inline">\mathcal{R}</span> has the
+    following properties:</p>
+  <ul>
+    <li>
+      <p>A 3D rotation matrix <span class="math inline">\mathcal{R}</span>
+        is an orthonormal matrix, meaning <span class="math inline">\mathcal{R}^\mathsf{T}\mathcal{R}=
+          \mathcal{R}\mathcal{R}^\mathsf{T}= \mathbb{I}</span>, where <span
+          class="math inline">\mathcal{R}^\mathsf{T}</span> is the transpose of
+        <span class="math inline">\mathcal{R}</span> and <span class="math inline">\mathbb{I}</span> is the identity
+        matrix(<span class="math inline">\mathcal{R}^{-1} = \mathcal{R}^\mathsf{T}</span>.).
+        The determinant of <span class="math inline">\mathcal{R}</span> in the
+        special orthogonal group SO(3) is +1, indicating that the rotation
+        preserves the orientation of a right-handed coordinate system: <span class="math inline">\det(\mathcal{R}) =
+          +1</span>.
+      </p>
+    </li>
+    <li>
+      <p>The set of all orthonormal matrices with determinant +1 forms the
+        special orthogonal group SO(3).</p>
+    </li>
+    <li>
+      <p>A 3D rotation matrix always has one real eigenvalue, which is +1,
+        with the corresponding eigenvector being the axis of rotation. The other
+        two eigenvalues are complex conjugates of each other and lie on the unit
+        circle in the complex plane.</p>
+    </li>
+    <li>
+      <p>Every orthonormal matrix in 3D corresponds to rotation about a
+        specific axis by a certain angle, known as the axis-angle
+        representation. The rotation axis, <span class="math inline">\hat{\mathbf{n}}</span> is the eigenvector
+        associated with the eigenvalue +1 of the matrix, and the rotation angle
+        <span class="math inline">\phi</span> can be calculated from the
+        matrix’s trace: <span class="math inline">\phi = \arccos\Big[
+          \dfrac{\text{tr}(\mathcal{R}) - 1}{2} \Big]</span>.
+      </p>
+    </li>
+  </ul>
+  <h2 id="gimbal-lock">Gimbal lock</h2>
+  <figure id="fig:gimbLck">
+    <img src="figs/figGimbal.png" />
+    <figcaption>Schematic showing the phenomenon of Gimbal locking occuring
+      given the initial configuration is transformed by the 321 rotation
+      sequence. Such a locking situation arises when rotating the axis, <span
+        class="math inline">\hat{\mathbf{e}}_i</span> by <span class="math inline">\mathcal{R}_z(\phi)</span> followed
+      by <span class="math inline">\mathcal{R}_y(\pi/2)</span> then by <span
+        class="math inline">\mathcal{R}_x(\psi)</span>. It is worth noting that
+      Gimbal locking occurs with all the 12 Euler angle sequences discussed in
+      sec. <a href="#sec:ex2int" data-reference-type="ref" data-reference="sec:ex2int">3.4</a>.</figcaption>
+  </figure>
+  <p>Gimbal is a structure used to provide pivoted support to an object so
+    that the object can be oriented in any specified direction (see Fig. <a href="#fig:gimbLck"
+      data-reference-type="ref" data-reference="fig:gimbLck">4</a>). Gimbal lock is a phenomenon in
+    which the connection of the rings pointing towards three directions lose
+    a degree-of-freedom as two rings align themselves. This can occur in a
+    sequence of rotations where one rotation leads to an alignment of two
+    axes. For example, in a yaw-pitch-roll system (321-rotation sequence)
+    shown in , if the pitch angle (<span class="math inline">\theta</span>)
+    is rotated by <span class="math inline">\pm 90^\circ</span>, the yaw and
+    the roll axes align. This alignment causes the loss of one degree of
+    freedom, making it impossible to distinguish between yaw and roll
+    motions. <span class="math display">\mathcal{R}_{\text{final}} (\psi,
+      \theta, \phi) =
+      \begin{pmatrix}
+      1 &amp; 0 &amp; 0 \\
+      0 &amp; \textsf{c}(\phi) &amp; -\textsf{s}(\phi) \\
+      0 &amp; \textsf{s}(\phi) &amp; \textsf{c}(\phi)
+      \end{pmatrix}
+      \begin{pmatrix}
+      \textsf{c}(\theta) &amp; 0 &amp; \textsf{s}(\theta) \\
+      0 &amp; 1 &amp; 0 \\
+      -\textsf{s}(\theta) &amp; 0 &amp; \textsf{c}(\theta)
+      \end{pmatrix}
+      \begin{pmatrix}
+      \textsf{c}(\psi) &amp; -\textsf{s}(\psi) &amp; 0 \\
+      \textsf{s}(\psi) &amp; \textsf{c}(\psi) &amp; 0 \\
+      0 &amp; 0 &amp; 1
+      \end{pmatrix}.</span></p>
+  <p>When <span class="math inline">\theta = 90^\circ</span> or <span class="math inline">\theta = \dfrac{\pi}{2}</span>
+    radians, the pitch
+    rotation matrix simplifies to, <span class="math display">\mathcal{R}_{y}(\pi/2) =
+      \begin{pmatrix}
+      0 &amp; 0 &amp; 1 \\
+      0 &amp; 1 &amp; 0 \\
+      -1 &amp; 0 &amp; 0
+      \end{pmatrix}.</span> Multiplying these matrices together with <span class="math inline">\theta = 90^\circ</span>,
+    we get the final rotation
+    matrix as, <span class="math display">\begin{aligned}
+      \mathcal{R}_{\text{final}} (\psi, \pi/2, \phi) = \mathcal{R}_{x}(\psi)
+      \mathcal{R}_{y}(\pi/2) \mathcal{R}_{z}(\phi) =
+      \begin{pmatrix}
+      0 &amp; 0 &amp; 1 \\
+      \textsf{s}(\psi + \phi) &amp; \textsf{c}(\psi + \phi) &amp; 0 \\
+      -\textsf{c}(\psi + \phi) &amp; \textsf{s}(\psi + \phi) &amp; 0
+      \end{pmatrix}.
+      \end{aligned}</span> This matrix shows that the rotation about the third
+    axis is now the only distinct motion. The rotation about the yaw and
+    roll axes (<span class="math inline">\hat{\mathbf{e}}_z</span> and <span
+      class="math inline">\hat{\mathbf{e}}_x</span>) becomes dependent on each
+    other, represented by the combination of <span class="math inline">\psi</span> and <span
+      class="math inline">\phi</span> in the second and third rows.
+    Essentially when <span class="math inline">\theta = \pi/2</span>, the
+    yaw (<span class="math inline">\psi</span>) and roll (<span class="math inline">\phi</span>) rotations combine,
+    resulting in the
+    loss of one degree of freedom. This is the phenomenon of gimbal lock,
+    where the system cannot differentiate between yaw and roll rotations
+    independently. Though we see that Gimbal lock is an issue seen in a
+    Gimbal parameterised using Euler angles, it points to a fundamental
+    issue with Euler angle representation of rotation. We see in Eq. <a href="#eq:gimbEq" data-reference-type="ref"
+      data-reference="eq:gimbEq">[eq:gimbEq]</a> that we can no more
+    distinguish between change in <span class="math inline">\psi</span> or
+    <span class="math inline">\phi</span> but rather only <span class="math inline">(\psi + \phi)</span>. This happens
+    to all rotation
+    matrices, <span class="math inline">\mathcal{R}</span> parameterised
+    with Euler angles at particular values of <span class="math inline">\psi</span> or <span
+      class="math inline">\theta</span> or <span class="math inline">\phi</span>.
+  </p>
+  <p>The implications of gimbal lock are significant in fields that rely
+    on precise 3D rotations, such as aerospace and robotics. In these
+    fields, gimbal lock can lead to unpredictable behavior and loss of
+    control. For instance, in an aircraft, if gimbal lock occurs, the pilot
+    may lose the ability to control the aircraft’s orientation accurately.
+    One common method to overcome gimbal lock is to use a different
+    representation for 3D rotations, such as quaternions. Quaternions do not
+    suffer from gimbal lock because they represent rotations in four
+    dimensions, avoiding the alignment issue inherent in three-dimensional
+    Euler angles which we shall elucidate in the next section.</p>
+  <h1 id="sec:quat">Quaternion</h1>
+  <p>We have so far seen two forms of rotations, one using complex numbers
+    in 2D and the standard matrix form acting on vectors in 2D and 3D. In
+    this last section, we will see how to extend the ideas of complex
+    numbers from 2D into 3D using quaternions. Quaternions form an
+    interesting algebra, which is beyond the scope of this primer,
+    nevertheless, the interested reader can look at <span class="citation"
+      data-cites="hanson2005visualizing vince2008geometric"></span> for
+    detailed discussions.</p>
+  <p>Quaternions are an extension of complex numbers, represented with one
+    real part and three imaginary parts. A quaternion <span class="math inline">q</span> is expressed as, <span
+      class="math display">q = q_0 + q_1i + q_2j + q_3k,</span> where <span class="math inline">q_i \in
+      \mathbb{R}</span> for <span class="math inline">i=\{0, \dots, 3 \}</span>, and <span class="math inline">i, j,
+      k</span> are the fundamental quaternion units.
+    These units, similar to the imaginary constant in complex numbers, have
+    specific multiplication rules that are crucial to their behaviour. They
+    are, <span class="math display">\begin{aligned}
+      i^2 &amp;= j^2 = k^2 = ijk = -1 ,\\
+      ij &amp;= k, \quad ji = -k, \\
+      jk &amp;= i, \quad kj = -i, \\
+      ki &amp;= j, \quad ik = -j.
+      \end{aligned}</span> The non-commutative nature of quaternion
+    multiplication (e.g., <span class="math inline">ij \neq ji</span>) is a
+    key feature that distinguishes them from complex numbers and allows for
+    their unique application. Quaternions are also represented in 4–vector
+    form as <span class="math inline">q = \{ q_0, \mathbf{q}\}</span> where
+    <span class="math inline">\mathbf{q}</span> is a vector in 3D with
+    components <span class="math inline">\mathbf{q}= \{ q_1, q_2, q_3
+      \}</span>. Quaternion multiplication is a key operation that combines
+    the effects of two rotations. Given two quaternions <span class="math inline">p = p_0 + p_1i + p_2j + p_3k</span>
+    and <span class="math inline">q = q_0 + q_1i + q_2j + q_3k</span>, their product
+    <span class="math inline">p \star q</span> is not commutative and can be
+    expressed as <span class="math display">\begin{aligned}
+      p \star q =\ &amp; (p_0 q_0 - p_1 q_1 - p_2 q_2 - p_3 q_3) + \nonumber
+      \\
+      &amp; (p_0 q_1 + p_1 q_0 + p_2 q_3 - p_3 q_2)i + \nonumber \\
+      &amp; (p_0 q_2 - p_1 q_3 + p_2 q_0 + p_3 q_1)j + \nonumber \\
+      &amp; (p_0 q_3 + p_1 q_2 - p_2 q_1 + p_3 q_0)k.
+      \end{aligned}</span> This result can be rearranged into a matrix
+    multiplication form, often used in numerical implementations, where the
+    quaternion is represented as a <span class="math inline">4 \times
+      1</span> column vector, and the coefficients form a <span class="math inline">4 \times 4</span> matrix. The matrix
+    representation
+    of the quaternion multiplication is given by, <span class="math display">\begin{pmatrix}
+      p_0 &amp; -p_1 &amp; -p_2 &amp; -p_3 \\
+      p_1 &amp; p_0 &amp; -p_3 &amp; p_2 \\
+      p_2 &amp; p_3 &amp; p_0 &amp; -p_1 \\
+      p_3 &amp; -p_2 &amp; p_1 &amp; p_0
+      \end{pmatrix}
+      \begin{pmatrix}
+      q_0 \\
+      q_1 \\
+      q_2 \\
+      q_3
+      \end{pmatrix}
+      =
+      \begin{pmatrix}
+      p_0 q_0 - p_1 q_1 - p_2 q_2 - p_3 q_3 \\
+      p_0 q_1 + p_1 q_0 + p_2 q_3 - p_3 q_2 \\
+      p_0 q_2 - p_1 q_3 + p_2 q_0 + p_3 q_1 \\
+      p_0 q_3 + p_1 q_2 - p_2 q_1 + p_3 q_0
+      \end{pmatrix}.</span> We can write this multiplication operation in
+    terms of vector operations as <span class="math inline">p \star q =
+      (p_0q_0 - \mathbf{p}\cdot \mathbf{q}, p_0 \mathbf{q}+ q_0 \mathbf{p}+
+      \mathbf{p}\times \mathbf{q})</span>. Here <span class="math inline">\cdot</span>, <span
+      class="math inline">\times</span> operations are the standard
+    dot–product and cross–product used for 3–vectors. Quaternions also have
+    conjugates, <span class="math inline">\bar{\mathbf{q}} = \{q_0, -q_1,
+      -q_2, -q_3\}</span>, similar to complex numbers, and with this the
+    multiplication becomes, <span class="math inline">q \star \bar{q} = \{ q
+      \cdot q, 0 , 0 , 0\} = \{ q_0^2 + \mathbf{q}\cdot \mathbf{q}, 0, 0, 0 \}
+      = \{\sum_{i=0}^3 q_i^2, 0, 0, 0\}</span>.
+  </p>
+  <h2 id="rotation-about-arbitrary-direction">Rotation about arbitrary
+    direction</h2>
+  <p>In order to capture rotation with quaternions, we first restrict them
+    to be of unit magnitude, i.e. <span class="math inline">q \star \bar{q}
+      = 1</span>. Then we define the axis of rotation using quaternions and
+    construct the rotation quaternion, followed by the action on the vector
+    that must be rotated.</p>
+  <p>Let the unit vector denoting the axis of rotation be <span class="math inline">\hat{\mathbf{n}}= n_i
+      \hat{\mathbf{e}}_i</span> with
+    <span class="math inline">\hat{\mathbf{n}}\cdot \hat{\mathbf{n}}=
+      \sum_{i=1}^3 n_i^2 = 1</span> and the rotation quaternion, <span class="math inline">q = q_0 + q_1i + q_2j +
+      q_3k</span> be defined as,
+    <span class="math display">\begin{aligned}
+      q_0 &amp;= \cos\left(\frac{\phi}{2}\right), \\
+      q_1 &amp;= n_1 \sin\left(\frac{\phi}{2}\right), \\
+      q_2 &amp;= n_2 \sin\left(\frac{\phi}{2}\right), \\
+      q_3 &amp;= n_3 \sin\left(\frac{\phi}{2}\right),
+      \end{aligned}</span> where <span class="math inline">\phi</span> is the
+    angle of rotation. We can write this rotation quaternion compactly in
+    4–vector form as <span class="math inline">q = \{ \cos (\phi/2),
+      \hat{\mathbf{n}}\sin(\phi/2) \}</span>. With this definition, the
+    Rodrigues’ formula for rotation matrix, <span class="math inline">\mathcal{R}(\phi,\hat{\mathbf{n}})</span> around
+    <span class="math inline">\hat{\mathbf{n}}</span> by an angle <span class="math inline">\phi</span> in Eq. <a
+      href="#eq:rodgForm" data-reference-type="ref" data-reference="eq:rodgForm">[eq:rodgForm]</a>
+    can be written in terms of rotation quaternion components, <span class="math inline">q_0, q_1, q_2,</span> and <span
+      class="math inline">q_3</span> as, <span class="math display">\mathcal{R}(q) \equiv \mathcal{R}(\phi,
+      \hat{\mathbf{n}}) = \begin{pmatrix}
+      q_0^2 + q_1^2 - q_2^2 - q_3^2 &amp; 2(q_1q_2 - q_0q_3) &amp;
+      2(q_1q_3 + q_0q_2) \\
+      2(q_1q_2 + q_0q_3) &amp; q_0^2 - q_1^2 + q_2^2 - q_3^2 &amp;
+      2(q_2q_3 - q_0q_1) \\
+      2(q_1q_3 - q_0q_2) &amp; 2(q_2q_3 + q_0q_1) &amp; q_0^2 - q_1^2 -
+      q_2^2 + q_3^2
+      \end{pmatrix}.</span>
+  </p>
+  <h3 class="unnumbered" id="rotation-of-a-vector">Rotation of a
+    vector</h3>
+  <p>Given a vector <span class="math inline">\mathbf{v}</span>, we know
+    from sec. <a href="#sec:rodg" data-reference-type="ref" data-reference="sec:rodg">3.3</a> that we can rotate a
+    vector by an
+    angle <span class="math inline">\phi</span> by constructing <span class="math inline">\mathcal{R}(\phi,
+      \hat{\mathbf{n}})</span> and
+    obtained the transformed vector by simply performing the matrix
+    multiplication operation, <span class="math inline">\tilde{\mathbf{v}}=
+      \mathcal{R}(\phi, \hat{\mathbf{n}}) \mathbf{v}</span>. However, in order
+    to rotate a vector <span class="math inline">\mathbf{v}</span> using
+    quaternions, we need to construct two quaternions: <span class="math inline">(i)</span> rotation quaternion, <span
+      class="math inline">q = \{ \cos (\phi/2), \hat{\mathbf{n}}\sin(\phi/2)
+      \}</span>, <span class="math inline">(ii)</span> 4–vector form of <span class="math inline">\mathbf{v}</span> i.e.
+    <span class="math inline">p =
+      \{0, \mathbf{v}\}</span> (a pure quaternion, with vanishing first
+    component i.e. <span class="math inline">p_0=0</span>). The rotation
+    operation is then simply, <span class="math inline">(q \star p \star
+      \bar{q})</span>. This can be expanded explicitly as <span class="math display">\tilde{p} = q \star \{ 0,
+      \mathbf{v}\} \star
+      \bar{q} = \{ 0, \mathcal{R}(q) \mathbf{v}\},</span> where the quaternion
+    multiplication rule in Eq. <a href="#eq:quatMul" data-reference-type="ref"
+      data-reference="eq:quatMul">[eq:quatMul]</a>
+    is used and <span class="math inline">\tilde{p} = \{ 0,
+      \tilde{\mathbf{v}}\}</span>.</p>
+  <h3 class="unnumbered" id="connecting-euler-angles">Connecting Euler
+    angles</h3>
+  <p>We have seen that the rotation matrix, <span class="math inline">\mathcal{R}(\phi, \hat{\mathbf{n}})</span> can be
+    mapped to a quaternion <span class="math inline">q = \{ \cos (\phi/2),
+      \hat{\mathbf{n}}\sin (\phi/2) \}</span>. We can also do a similar
+    transformation from Euler angle rotation <span class="math inline">\mathcal{R}(\psi, \theta, \phi)</span> to
+    quaternion
+    by first choosing the rotation sequence and then describe the rotation
+    using a quaternion. Let us say we would like to follow 313 sequence,
+    <span class="math inline">R_{313}(\psi, \theta, \phi)</span> can be
+    written as quaternion <span class="math inline">q</span> with
+    components, <span class="math display">\begin{aligned}
+      q_0 =&amp; \ \cos \Big( \frac{\theta}{2} \Big) \cos \frac{1}{2} \Big(
+      \psi + \phi \Big), \\
+      q_1 =&amp; \ \sin \Big( \frac{\theta}{2} \Big) \sin \frac{1}{2} \Big(
+      \phi - \psi \Big), \\
+      q_2 =&amp; \ \sin \Big( \frac{\theta}{2} \Big) \cos \frac{1}{2} \Big(
+      \phi - \psi \Big), \\
+      q_3 =&amp; \ \cos \Big( \frac{\theta}{2} \Big) \sin \frac{1}{2} \Big(
+      \psi + \phi \Big).
+      \end{aligned}</span>
+  </p>
+  <h2 id="extension-of-complex-numbers">Extension of complex numbers</h2>
+  <p>As we have mentioned earlier, quaternions generalize complex numbers
+    from 2D to 3D. In order to see this in action, we can write the rotation
+    quaternion as <span class="math inline">q = \exp (\{0,
+      \hat{\mathbf{n}}\phi/2 \})</span>. With this definition, we can see that
+    the exponential of a pure quaternion (of unit modulus) satisfies, <span class="math display">\exp ( \{ 0,
+      \hat{\mathbf{n}}\phi/2 \}) =
+      \cos(\phi/2) + \hat{\mathbf{n}}\sin(\phi/2).</span> One easy way to
+    check the validity is to set <span class="math inline">\hat{\mathbf{n}}=
+      \{ 1, 0, 0 \}</span> and see that the expression reduces to the standard
+    complex number, <span class="math inline">q = \cos (\phi/2) + i \sin
+      (\phi/2)</span>.</p>
+  <p>Continuing, we have seen in sec. <a href="#sec:comp2d" data-reference-type="ref"
+      data-reference="sec:comp2d">2.1</a> that
+    multiplying two complex numbers is simpler in the polar form.
+    Multiplying quaternions in polar form follows a similar behaviour.
+    Consider two quaternions in polar form, <span class="math inline">p = \{
+      r_1, \hat{\mathbf{n}}_1 \phi_1/2 \}, q = \{ r_2, \hat{\mathbf{n}}_2
+      \phi_2/2 \}</span>, then the multiplication rule is simply, <span class="math display">p \star q = \{ r_1,
+      \hat{\mathbf{n}}_1 \phi_1/2 \}
+      \star \{ r_2, \hat{\mathbf{n}}_2 \phi_2/2 \} = \{ r_1 r_2,
+      \hat{\mathbf{m}}\phi_{12}/2 \},</span> where <span class="math inline">\cos (\phi_{12}/2) = p_0q_0 -
+      \mathbf{p}\cdot
+      \mathbf{q}</span> and <span class="math display">\hat{\mathbf{m}}=
+      \frac{p_0 \mathbf{q}+ q_0 \mathbf{p}+ \mathbf{p}\times \mathbf{q}}{||p_0
+      \mathbf{q}+ q_0 \mathbf{p}+ \mathbf{p}\times \mathbf{q}||}.</span> It is
+    easy to verify that <span class="math inline">p \star q</span> reduces
+    to Eq. <a href="#eq:compMult" data-reference-type="ref" data-reference="eq:compMult">[eq:compMult]</a> when <span
+      class="math inline">\hat{\mathbf{n}}_1 = \hat{\mathbf{n}}_2 = \{ 1, 0, 0
+      \}</span>.</p>
+  <h3 class="unnumbered" id="properties-of-quaternions">Properties of
+    quaternions</h3>
+  <p>Quaternions are a compact way to represent rotations as one needs
+    only 4 components of <span class="math inline">q</span> instead of 9
+    components of <span class="math inline">\mathcal{R}</span>. Further, all
+    unit quaternions represent rotation and captures a space of S(3)
+    representing a 3–sphere. Unlike Euler angle form of parameterising
+    rotation matrix, <span class="math inline">\mathcal{R}</span> the unit
+    quaternion, <span class="math inline">q</span> avoids Gimbal locking
+    because there are no singularities associated with them. This has been
+    leveraged for interpolation in animation for camera movement.
+    Nevertheless, quaternions are complex mathematically and are less
+    intuitive in terms of what the values represent as they must be
+    converted to <span class="math inline">\phi, \hat{\mathbf{n}}</span> to
+    gain insights.</p>
+  <h1 id="conclusion">Conclusion</h1>
+  <p>In summary, we have seen in this primer some of the properties of
+    rotation in 2D and 3D with examples. We have seen how to rotate vectors,
+    coordinate basis, and rigid objects. Finally, we introduced quaternions
+    which are a compact way of representing rotations in 3D. The <a
+      href="https://github.com/sgangaprasath/RotationTut/blob/main/Rotations.ipynb"><code>python</code>–code</a>
+    accompanying this primer has the numerical implementation of the various
+    methods discussed here. In the second part of this primer, we will
+    extend ideas from this primer to curves. Rotations are intimately tied
+    to curvature and twist about which we will explore in detail there.</p>
+  <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+    <hr />
+    <ol>
+      <li id="fn1">
+        <p><a href="emailto:sgangaprasath@smail.iitm.ac.in">sgangaprasath@smail.iitm.ac.in</a><a href="#fnref1"
+            class="footnote-back" role="doc-backlink">↩︎</a></p>
+      </li>
+    </ol>
+  </section>
+</body>
+
+</html>

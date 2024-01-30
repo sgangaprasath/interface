@@ -7,9 +7,9 @@ export default function Home() {
     <>
       <div className="flex flex-col pt-40 pb-20 gap-32 items-center justify-between px-24">
         {/* Lab logo */}
-        <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-pink-200 after:via-sky-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-pink-500 before:dark:opacity-10 after:dark:from-teal-700 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px]">
+        <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-pink-200 after:via-sky-200 after:blur-2xl after:content-[''] ">
           <Image
-            className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
+            className="relative"
             src="/logo.svg"
             alt="Interface lab Logo"
             width={600}
@@ -21,8 +21,10 @@ export default function Home() {
           <p className="font-light">at the intersection of</p>
           <p className="font-extrabold">Soft-mechanics, Robotics & Behaviour</p>
           <p className="max-w-2xl mt-10 p-2 bg-green-200 text-sm text-green-600 rounded-lg border border-green-400">
-            We are a new and exciting group in the Department of Applied Mechanics & Biomedical Engineering at IIT
-            Madras. Look around the website and drop by our lab if you are interested to know more about what we do!
+            We are a new and exciting group in the Department of Applied
+            Mechanics & Biomedical Engineering at IIT Madras. Look around the
+            website and drop by our lab if you are interested to know more about
+            what we do!
           </p>
         </div>
         {/* Bottom navigation links */}
@@ -30,7 +32,7 @@ export default function Home() {
           {/* News */}
           <Link
             href="/news"
-            className="group flex flex-col items-center justify-center rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-200 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+            className="group flex flex-col items-center justify-center rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-200"
           >
             <h2
               className={`flex flex-row items-center justify-center gap-2 mb-3 text-2xl font-semibold`}
@@ -76,7 +78,7 @@ export default function Home() {
           {/* Blog */}
           <Link
             href="/blog"
-            className="group flex flex-col items-center justify-center rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-200 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+            className="group flex flex-col items-center justify-center rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-200"
           >
             <h2
               className={`flex flex-row items-center justify-center gap-2 mb-3 text-2xl font-semibold`}
@@ -122,7 +124,7 @@ export default function Home() {
           {/* Research */}
           <Link
             href="/research"
-            className="group flex flex-col items-center justify-center rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-200 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+            className="group flex flex-col items-center justify-center rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-200"
           >
             <h2
               className={`flex flex-row items-center justify-center gap-2 mb-3 text-2xl font-semibold`}
@@ -168,7 +170,7 @@ export default function Home() {
           {/* Outreach */}
           <Link
             href="/"
-            className="group flex flex-col items-center justify-center rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-200 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+            className="group flex flex-col items-center justify-center rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-200"
           >
             <h2
               className={`flex flex-row items-center justify-center gap-2 mb-3 text-2xl font-semibold`}

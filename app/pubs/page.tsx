@@ -195,7 +195,7 @@ const PubsPage = () => {
     <div className="flex flex-col items-center justify-center max-w-4xl">
       <div className="flex flex-col items-center md:items-start justify-center gap-4 w-full mt-20 mb-10">
         <div className="flex flex-col md:flex-row items-center justify-start gap-2">
-          <div className="p-3 bg-white dark:bg-black border border-gray-300 rounded-full opacity-60 dark:border-neutral-300">
+          <div className="p-3 bg-white border border-gray-300 rounded-full opacity-60">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
