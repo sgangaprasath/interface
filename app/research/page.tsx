@@ -28,7 +28,7 @@ const ResearchPage = () => {
       </div>
       <section className="grid grid-cols-1 items-start gap-4 mb-10 max-w-5xl drop-shadow-xl text-sm md:grid-cols-2 lg:grid-cols-3">
         {/* First topic */}
-        <div className="group flex flex-col items-start justify-start w-full h-auto bg-white dark:bg-black rounded-lg border border-gray-200 dark:border-neutral-600 transition-colors">
+        <div className="group flex flex-col items-start justify-start w-full h-auto bg-white rounded-lg border border-gray-200 transition-colors">
           <Image
             // src="/images/geometric.jpg"
             src="/images/soft.jpg"
@@ -61,7 +61,7 @@ const ResearchPage = () => {
                 <li>
                   <Link
                     href="https://pubs.rsc.org/en/content/articlehtml/2012/sm/c2sm00011c"
-                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1      "
                   >
                     Morphological instabilities
                   </Link>
@@ -69,7 +69,7 @@ const ResearchPage = () => {
                 <li>
                   <Link
                     href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2008/EECS-2008-103.pdf"
-                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1      "
                   >
                     The elastica: a mathematical history
                   </Link>
@@ -77,7 +77,7 @@ const ResearchPage = () => {
                 <li>
                   <Link
                     href="https://www.academia.edu/download/75296176/1081357172.pdf"
-                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1      "
                   >
                     Leaves, Flowers and Garbage Bags
                   </Link>
@@ -85,7 +85,7 @@ const ResearchPage = () => {
                 <li>
                   <Link
                     href="https://www.epfl.ch/labs/flexlab/wp-content/uploads/2018/03/research_fracture_tearing_graphene_cracks_marder_physicstoday_2007.pdf"
-                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1      "
                   >
                     Crumpling, buckling, and cracking
                   </Link>
@@ -114,7 +114,7 @@ const ResearchPage = () => {
           </div>
         </div>
         {/* Second topic */}
-        <div className="group flex flex-col items-start justify-start w-full h-auto bg-white dark:bg-black rounded-lg border border-gray-200 dark:border-neutral-600 transition-colors">
+        <div className="group flex flex-col items-start justify-start w-full h-auto bg-white rounded-lg border border-gray-200 transition-colors">
           <Image
             src="/images/robotic.png"
             width="0"
@@ -146,7 +146,7 @@ const ResearchPage = () => {
                 <li>
                   <Link
                     href="https://www.jstor.org/stable/pdf/20051596.pdf"
-                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1      "
                   >
                     Self-organization and embodiment
                   </Link>
@@ -154,7 +154,7 @@ const ResearchPage = () => {
                 <li>
                   <Link
                     href="http://people.csail.mit.edu/brooks/papers/elephants.pdf"
-                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1      "
                   >
                     Elephants don't play chess
                   </Link>
@@ -162,7 +162,7 @@ const ResearchPage = () => {
                 <li>
                   <Link
                     href="https://www.jstor.org/stable/pdf/24917274.pdf"
-                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1      "
                   >
                     Biorobotics
                   </Link>
@@ -170,7 +170,7 @@ const ResearchPage = () => {
                 <li>
                   <Link
                     href="http://people.csail.mit.edu/iida/papers/pfeifer_iida_JSM05.pdf"
-                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1      "
                   >
                     Morphological computation
                   </Link>
@@ -191,7 +191,7 @@ const ResearchPage = () => {
           </div>
         </div>
         {/* Third topic */}
-        <div className="group flex flex-col items-start justify-start w-full h-auto bg-white dark:bg-black rounded-lg border border-gray-200 dark:border-neutral-600 transition-colors">
+        <div className="group flex flex-col items-start justify-start w-full h-auto bg-white rounded-lg border border-gray-200 transition-colors">
           <Image
             src="/images/ants.jpeg"
             width="0"
@@ -226,10 +226,10 @@ const ResearchPage = () => {
             <div className="flex flex-col py-4 gap-2">
               <p className="font-bold">Further reading</p>
               <ul className="list-none px-2 space-y-3">
-              <li>
+                <li>
                   <Link
                     href="https://www.reed.edu/biology/courses/BIO342/2015_syllabus/2015_readings/Tinb_1963.pdf"
-                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1      "
                   >
                     Aims and methods of Ethology
                   </Link>
@@ -237,7 +237,7 @@ const ResearchPage = () => {
                 <li>
                   <Link
                     href="https://www.jasss.org/4/1/reviews/kluegl.html"
-                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1      "
                   >
                     Swarm intelligence
                   </Link>
@@ -245,7 +245,7 @@ const ResearchPage = () => {
                 <li>
                   <Link
                     href="https://journals.biologists.com/jeb/article/220/1/83/33438/When-social-behaviour-is-moulded-in-clay-on-growth"
-                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1      "
                   >
                     Social behaviour moulded in clay
                   </Link>
@@ -253,7 +253,7 @@ const ResearchPage = () => {
                 <li>
                   <Link
                     href="https://www.academia.edu/50568923/What_are_Social_Insects"
-                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1      "
                   >
                     What are social insects?
                   </Link>

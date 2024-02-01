@@ -1,36 +1,15 @@
 import "../globals.css";
-
-export const metadata = {
-  title: "Slider with Progress Indicator - Cruip Tutorials",
-  description: "Page description",
-};
-
-import SilderImg01 from "@/public/gallery/gingee.jpg";
-import SilderImg02 from "@/public/gallery/cricut.jpg";
-import ProgressSlider from "@/components/progress-slider";
+import Csel from "@/components/carousel";
 
 export default function Home() {
-  const items = [
-    {
-      img: SilderImg01,
-      desc: "Our recent 'hike' to the top of the Gingee fort - 7 Jan, 24",
-    },
-    {
-      img: SilderImg02,
-      desc: "Paul Jackson insipired Kirigami art by Jay Chavda",
-    },
-  ];
-
   return (
     <>
       <main>
-      <div className="w-full max-w-6xl mx-auto px-4 md:px-6">
-        <div className="flex justify-center antialiased">
-          <div className="flex flex-col justify-center">
-            <ProgressSlider items={items} />
+        <div className="grid grid-cols-1 items-center justify-center xl:w-auto pb-10">
+          <div className="h-10 sm:h-[100px] md:h-[300px] xl:h-[420px] w-20 sm:w-[100px] md:w-[700px] xl:w-[1000px]">
+            <Csel/>
           </div>
         </div>
-      </div>
       </main>
     </>
   );
