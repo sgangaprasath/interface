@@ -17,7 +17,7 @@ export default function Csel() {
           alt={"Our 'hike' to the top of the Gingee fort - 7 Jan, 24"}
         />
         <div className="absolute top-0 px-4 py-2 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-full">
-          <h1 className="text-white font-semibold text-sm">
+          <h1 className="text-white text-xs">
             Our 'hike' to the top of the Gingee fort - 7 Jan, 24
           </h1>
         </div>
@@ -31,7 +31,7 @@ export default function Csel() {
           alt={"Paul Jackson insipired Kirigami art by Jay Chavda"}
         />
         <div className="absolute top-0 px-4 py-2 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-full">
-          <h1 className="text-white font-semibold text-sm">
+          <h1 className="text-white text-xs">
             Paul Jackson insipired Kirigami art by Jay Chavda
           </h1>
         </div>

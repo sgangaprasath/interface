@@ -28,7 +28,7 @@ const NewsPreview = (props: NewsMetaData) => {
   return (
     <Link
       href={props.link}
-      className="group flex flex-col lg:flex-row items-start justify-start w-auto h-auto bg-white dark:bg-black rounded-lg border border-gray-200 dark:border-neutral-600 transition-colors duration-300 ease-in-out hover:bg-gray-50 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+      className="group flex flex-col lg:flex-row items-start justify-start w-auto h-auto bg-white rounded-lg border border-gray-200 transition-colors duration-300 ease-in-out hover:bg-gray-50 "
     >
         {props.image !== "" && (
           <Image

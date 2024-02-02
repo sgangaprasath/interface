@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import Link from "next/link";
 import Image from "next/image";
-import { AiOutlineTwitter } from "react-icons/ai";
+import { RiTwitterXLine } from "react-icons/ri";
 
 export interface MembersMetaData {
   id: number;
@@ -48,7 +48,7 @@ const MemPreview = (props: MembersMetaData) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <AiOutlineTwitter />
+              <RiTwitterXLine />
             </Link>
           )}
           <Link
