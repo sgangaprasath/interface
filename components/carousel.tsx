@@ -39,7 +39,7 @@ export default function Csel() {
 
       <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
         <Image
-          src={Img02}
+          src={Img03}
           width={0}
           height={0}
           alt={"Our dinner at Toscano with AM1100 TAs"}

@@ -1,10 +1,10 @@
 1:HL["/_next/static/media/c9a5bc6a7c948fb0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 2:HL["/_next/static/css/32500712dbc277b1.css","style",{"crossOrigin":""}]
-0:["pean_eNbY1rBaaGIzYBXM",[[["",{"children":["blog",{"children":[["slug","5-Kirigami","d"],{"children":["__PAGE__?{\"slug\":\"5-Kirigami\"}",{}]}]}]},"$undefined","$undefined",true],"$L3",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/32500712dbc277b1.css","precedence":"next","crossOrigin":""}]],"$L4"]]]]
-5:I[8326,["326","static/chunks/326-f6524fd8b95a56a9.js","404","static/chunks/app/blog/page-1cce028550646ba2.js"],""]
+0:["QYAbs5Xza5ZazB4qkBgz_",[[["",{"children":["blog",{"children":[["slug","5-Kirigami","d"],{"children":["__PAGE__?{\"slug\":\"5-Kirigami\"}",{}]}]}]},"$undefined","$undefined",true],"$L3",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/32500712dbc277b1.css","precedence":"next","crossOrigin":""}]],"$L4"]]]]
+5:I[8326,["326","static/chunks/326-f6524fd8b95a56a9.js","404","static/chunks/app/blog/page-6fb1d81eb9fa4356.js"],""]
 6:I[6954,[],""]
 7:I[7264,[],""]
-9:I[413,["413","static/chunks/413-972e579c94f1393d.js","308","static/chunks/app/blog/%5Bslug%5D/page-b11eb5dd366a45a3.js"],"Image"]
+9:I[413,["413","static/chunks/413-972e579c94f1393d.js","308","static/chunks/app/blog/%5Bslug%5D/page-cdd011aef1e25610.js"],"Image"]
 a:T473,: Cricut Maker 3 provides precision in cutting
 thin materials because of the precision crafting tools. There are 3
 types of blades: Fine-Point Blade, Rotary Blade and Knife Blade that
