@@ -8,6 +8,7 @@ import Img01 from "@/public/logo.svg";
 import Img02 from "@/public/images/RotationTut.png";
 import Img03 from "@/public/gallery/cricut.jpg";
 import Img04 from "@/public/images/coversv1.jpg";
+import Img05 from "@/public/images/MSPhDAdvert.png";
 
 export default function Cselmain() {
   return (
@@ -27,6 +28,24 @@ export default function Cselmain() {
           <p className="font-light">at the intersection of</p>
           <p className="font-extrabold">Soft-mechanics, Robotics & Behaviour</p>
         </div>
+      </div>
+      <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
+        <Link href={"https://apm.iitm.ac.in/pages/academics"}>
+          <Image
+            src={Img05}
+            height={0}
+            alt={"Art of scientific visualization - Part 1"}
+            objectFit="cover"
+          />
+          {/* <div className="absolute rounded-full bottom-3 left-4 px-4 py-1 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-auto">
+            <h1 className="text-white text-xs">
+              MS, PhD & Postdoc positions in INTERFACE lab
+            </h1>
+          </div> */}
+          {/* <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-amber-500 w-auto">
+            <h1 className="text-white text-xs">Info</h1>
+          </div> */}
+        </Link>
       </div>
       <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
         <Link href={"/blog/6-Rotation"}>
