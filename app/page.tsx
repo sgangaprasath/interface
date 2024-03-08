@@ -18,9 +18,9 @@ export default function Home() {
         {/* Welcome statement */}
         <div className="md:text-2xl text-center">
           <p className="max-w-2xl p-2 bg-green-200 text-sm text-green-600 rounded-lg border border-green-400">
-            We are a new and exciting group in the Department of Applied
+            We are an exciting new group in the Department of Applied
             Mechanics & Biomedical Engineering at IIT Madras. Look around the
-            website and drop by our lab if you are interested to know more about
+            website and drop by our lab if you are interested in knowing more about
             what we do!
           </p>
         </div>
