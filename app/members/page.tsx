@@ -2,12 +2,14 @@ import * as fs from "fs";
 import Link from "next/link";
 import Image from "next/image";
 import { RiTwitterXLine } from "react-icons/ri";
+import { RiLinkedinBoxLine } from "react-icons/ri";
 
 export interface MembersMetaData {
   id: number;
   name: string;
   title: string;
   twitter: string;
+  linkedIn: string;
   email: string;
   webpage: string;
   cv: string;
@@ -44,11 +46,21 @@ const MemPreview = (props: MembersMetaData) => {
           {props.twitter !== "" && (
             <Link
               className="opacity-50 hover:opacity-100"
-              href={props.twitter}
+              href={`${props.twitter}`}
               target="_blank"
               rel="noopener noreferrer"
             >
               <RiTwitterXLine />
+            </Link>
+          )}
+          {props.linkedIn !== "" && (
+            <Link
+              className="opacity-50 hover:opacity-100"
+              href={`${props.linkedIn}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <RiLinkedinBoxLine />
             </Link>
           )}
           <Link
