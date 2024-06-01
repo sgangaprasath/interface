@@ -8,7 +8,6 @@ export default function Home() {
   return (
     <>
       <div className="flex flex-col items-center justify-between pt-4 gap-10">
-        {/* Lab logo */}
         {/* Carousel */}
         <div className="grid grid-cols-1 items-center justify-center xl:w-auto">
           <div className="h-10 sm:h-[100px] md:h-[300px] xl:h-[420px] w-20 sm:w-[100px] md:w-[700px] xl:w-[1000px]">
@@ -16,7 +15,7 @@ export default function Home() {
           </div>
         </div>
         <div className="text-center">
-          <p className="max-w-3xl p-2 bg-purple-200 text-md text-purple-600 rounded-lg border border-purple-400">
+          <p className="max-w-3xl p-2 bg-purple-200 text-sm text-purple-600 rounded-lg border border-purple-400">
             We welcome <a href="https://scholar.google.com/citations?user=FnVSQWwAAAAJ&hl=en" className="font-bold underline hover:underline-offset-2">Vishnu Deo Mishra</a> to our group who is an Institute Postdoc Fellow interested in problems in soft-robotics.
           </p>
         </div>
