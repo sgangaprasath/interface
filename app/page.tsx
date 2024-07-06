@@ -16,7 +16,7 @@ export default function Home() {
         </div>
         <div className="text-center">
           <p className="max-w-3xl p-2 bg-purple-200 text-sm text-purple-600 rounded-lg border border-purple-400">
-            We welcome Institute Postdoc Fellow <a href="https://scholar.google.com/citations?user=FnVSQWwAAAAJ&hl=en" className="font-bold underline hover:underline-offset-2">Vishnu Deo Mishra</a> to our group. He is interested in problems in soft-robotics, inverse problems.
+            We welcome Institute Postdoc Fellow, <a href="https://scholar.google.com/citations?user=FnVSQWwAAAAJ&hl=en" className="font-bold underline hover:underline-offset-2">Vishnu Deo Mishra</a>, to our group. He is interested in soft-robotics and inverse problems.
           </p>
         </div>
         {/* Welcome statement */}
