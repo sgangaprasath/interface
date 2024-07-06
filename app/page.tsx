@@ -16,18 +16,18 @@ export default function Home() {
         </div>
         <div className="text-center">
           <p className="max-w-3xl p-2 bg-purple-200 text-sm text-purple-600 rounded-lg border border-purple-400">
-            We welcome <a href="https://scholar.google.com/citations?user=FnVSQWwAAAAJ&hl=en" className="font-bold underline hover:underline-offset-2">Vishnu Deo Mishra</a> to our group who is an Institute Postdoc Fellow interested in problems in soft-robotics.
+            We welcome Institute Postdoc Fellow <a href="https://scholar.google.com/citations?user=FnVSQWwAAAAJ&hl=en" className="font-bold underline hover:underline-offset-2">Vishnu Deo Mishra</a> to our group. He is interested in problems in soft-robotics, inverse problems.
           </p>
         </div>
         {/* Welcome statement */}
-        <div className="md:text-2xl text-center">
+        {/* <div className="md:text-2xl text-center">
           <p className="max-w-2xl p-2 bg-green-200 text-sm text-green-600 rounded-lg border border-green-400">
             We are an exciting new group in the Department of Applied
             Mechanics & Biomedical Engineering at IIT Madras. Look around the
             website and drop by our lab if you are interested in knowing more about
             what we do!
           </p>
-        </div>
+        </div> */}
 
         {/* Bottom navigation links */}
         <div className="grid m-10 text-center lg:mb-4 lg:grid-cols-4 lg:text-left">
