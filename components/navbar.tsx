@@ -22,6 +22,9 @@ export default function NavBar() {
           <Link href={"/gallery"}>gallery</Link>
         </li>
         <li className="linkStyle">
+          <Link href={"/openings"}>openings</Link>
+        </li>
+        <li className="linkStyle">
           <Link href={"/contact"}>contact</Link>
         </li>
         <li className="linkStyle">

@@ -17,7 +17,7 @@ In this set of 4 tutorials we will see how to solve for the deformation field of
 In this 4 part series we will be discussing problems each with an unique ashover:decoration-indigo-500pect in terms of implementation in auto-07p. It will become clear what I mean by this as we go over the examples.
 
 ## Getting Started
-We begin by introducing the framework [here](/tutorials/auto07p/autoFw.html). Please click this link and go over it before you start reading the tutorial problems. The relevant codes used in these tutorials are available here. The problems we will be looking at (and the focus of each example in auto-07p implementation) are
+We begin by introducing the framework [here](https://sgangaprasath.github.io/autoFw.html). Please click this link and go over it before you start reading the tutorial problems. The relevant codes used in these tutorials are available here. The problems we will be looking at (and the focus of each example in auto-07p implementation) are
 
 - (18-Nov-21) [Bending of an elastica](https://sgangaprasath.github.io/elastica.html)-bifurcation diagram, solution
 - (24-Nov-21) [Buckling of a sheet](https://sgangaprasath.github.io/fvk.html)-two parameter continuation

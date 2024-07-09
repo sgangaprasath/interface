@@ -125,7 +125,7 @@ const MembersPage = () => {
     <MemPreview key={post.id} {...post} />
   ));
   return (
-    <div className="flex flex-col items-center justify-center max-w-4xl">
+    <div className="flex flex-col items-center md:items-start justify-center max-w-4xl md:ml-20">
       <div className="flex flex-col items-center md:items-start justify-center gap-4 w-full mt-20 mb-10">
         <div className="flex flex-col md:flex-row items-center justify-start gap-2">
           <div className="p-3 bg-white border border-gray-300 rounded-full opacity-60">
@@ -144,20 +144,119 @@ const MembersPage = () => {
               />
             </svg>
           </div>
-          <p className="font-bold text-lg px-4">Members</p>
+          <p className="font-bold text-lg px-4">Current Members</p>
         </div>
       </div>
       <section className="grid grid-cols-1 gap-10 md:gap-10 lg:gap-20 mb-10 px-10 lg:px-14 text-sm md:grid-cols-3 max-w-4xl">
         {memPreviews}
       </section>
-      <div className="border border-rose-300 bg-rose-200 max-w-2xl text-rose-600 text-center p-4 rounded-xl text-xs">
-        We are looking for MS and PhD students interested in exploring
-        problems in the fields of soft-robotics, reinforcement learning,
-        behaviour and control of large degree of freedom systems. Our group
-        uses experiments and/or theoretical analysis as demanded by the question
-        at hand. Have a look at the research tab for a broad overview and drop
-        by our lab to know more.
+      {/* <div className="flex flex-col items-center md:items-start justify-center gap-4 w-full mt-20 mb-10">
+        <div className="flex flex-col md:flex-row items-center justify-start gap-2">
+          <div className="p-3 bg-white border border-gray-300 rounded-full opacity-60">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"
+              />
+            </svg>
+          </div>
+          <p className="font-bold text-lg px-4">Past Members</p>
+        </div>
+      </div> */}
+      <div className="flex flex-col items-center md:items-start justify-center gap-4 w-full mt-4 mb-10">
+        <div className="flex flex-col md:flex-row items-center justify-start gap-2">
+          <div className="p-3 bg-white border border-gray-300 rounded-full opacity-60">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"
+              />
+            </svg>
+          </div>
+          <p className="font-bold text-lg px-4">Short-term visitors</p>
+        </div>
       </div>
+      {/* Table with passouts & interns */}
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg mx-4">
+        <table className="w-full text-sm text-left rtl:text-right">
+          <thead className="text-xs uppercase bg-gray-50">
+            <tr>
+              <th scope="col" className="px-6 py-3">
+                Name
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Project Title
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Position
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Period
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Current Position
+              </th>
+            </tr>
+          </thead>
+          <tbody className="text-xs">
+            <tr className="odd:bg-white even:bg-gray-50 border-b">
+              <th
+                scope="row"
+                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+              >
+                Pranav P R
+              </th>
+              <td className="px-6 py-4">Balancing a inverted pendulum</td>
+              <td className="px-6 py-4">Summer Research Fellow</td>
+              <td className="px-6 py-4">Jun-Jul, 2024</td>
+              <td className="px-6 py-4">
+                Finishing B.Tech @ IIITDM, Kancheepuram
+              </td>
+            </tr>
+            {/* <tr className="odd:bg-white even:bg-gray-50 border-b">
+              <th
+                scope="row"
+                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+              >
+                Microsoft Surface Pro
+              </th>
+              <td className="px-6 py-4">White</td>
+              <td className="px-6 py-4">Laptop PC</td>
+              <td className="px-6 py-4">$1999</td>
+            </tr> */}
+          </tbody>
+        </table>
+      </div>
+      {/* MS/PhD advertisement */}
+      {/* <div className="border border-rose-300 bg-rose-200 max-w-2xl text-rose-600 text-center p-4 rounded-xl text-xs">
+        <p>
+          We are looking for MS & PhD students interested in exploring problems
+          in the fields of soft-mechanics, robotics, reinforcement learning,
+          behaviour and control of large degree of freedom systems.
+        </p>
+        <br />
+        <p>
+          Our group uses experiments and/or theoretical analysis as demanded by
+          the question. Have a look at the research tab for a broad overview and
+          drop by our lab to know more.
+        </p>
+      </div>       */}
     </div>
   );
 };

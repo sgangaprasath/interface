@@ -33,7 +33,7 @@ export default function Home() {
           </p>
           <p className="text-center md:text-left font-light text-md md:px-16">
             INTERFACE lab <br/>
-            114, Mechanical Sciences Block <br/>
+            123, Krishna Chivukula Block <br/>
           </p>
         </div>
     </>
