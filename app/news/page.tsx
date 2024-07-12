@@ -53,6 +53,11 @@ const NewsPreview = (props: NewsMetaData) => {
               {props.tag}
             </div>
             )}
+            {props.tag == "Prize" && (
+            <div className="px-2 bg-green-200 rounded-full text-[10px] font-normal text-green-600">
+              {props.tag}
+            </div>
+            )}
           </div>
           <h2 className="font-bold text-2xl mb-1 bg-gradient-to-r from-gray-400 via-gray-700 to-black text-transparent bg-clip-text">
             {props.title}
