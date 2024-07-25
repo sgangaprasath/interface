@@ -189,7 +189,7 @@ const MembersPage = () => {
               />
             </svg>
           </div>
-          <p className="font-bold text-lg px-4">Short-term visitors</p>
+          <p className="font-bold text-lg px-4">Past members</p>
         </div>
       </div>
       {/* Table with passouts & interns */}

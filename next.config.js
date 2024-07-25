@@ -20,5 +20,5 @@ const nextConfig = {
   //     delete modularizeImports["@headlessui/react"];
   //   return config;
   // },
-}
-module.exports = nextConfig
+};
+module.exports = nextConfig;
