@@ -222,41 +222,16 @@ const MembersPage = () => {
               >
                 Pranav P R
               </th>
-              <td className="px-6 py-4">Balancing a inverted pendulum</td>
+              <td className="px-6 py-4">Balancing an inverted pendulum</td>
               <td className="px-6 py-4">Summer Research Fellow</td>
               <td className="px-6 py-4">Jun-Jul, 2024</td>
               <td className="px-6 py-4">
                 Finishing B.Tech @ IIITDM, Kancheepuram
               </td>
             </tr>
-            {/* <tr className="odd:bg-white even:bg-gray-50 border-b">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-              >
-                Microsoft Surface Pro
-              </th>
-              <td className="px-6 py-4">White</td>
-              <td className="px-6 py-4">Laptop PC</td>
-              <td className="px-6 py-4">$1999</td>
-            </tr> */}
           </tbody>
         </table>
       </div>
-      {/* MS/PhD advertisement */}
-      {/* <div className="border border-rose-300 bg-rose-200 max-w-2xl text-rose-600 text-center p-4 rounded-xl text-xs">
-        <p>
-          We are looking for MS & PhD students interested in exploring problems
-          in the fields of soft-mechanics, robotics, reinforcement learning,
-          behaviour and control of large degree of freedom systems.
-        </p>
-        <br />
-        <p>
-          Our group uses experiments and/or theoretical analysis as demanded by
-          the question. Have a look at the research tab for a broad overview and
-          drop by our lab to know more.
-        </p>
-      </div>       */}
     </div>
   );
 };
