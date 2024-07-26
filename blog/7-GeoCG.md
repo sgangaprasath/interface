@@ -10,9 +10,8 @@ image: "/images/jaychavda.jpg"
 
 <div class="justify-center items-center">
     <img src="/images/RENb.jpg" alt="" width="1000">
-    <em>The wireframe in the left half of this frame from Inside Out is a
-visualization of the data that define the scene. The right side is the
-final rendered image. Image Credits: <a href="https://sciencebehindpixar.org/pipeline/rendering">Science behind
+    <em>The wireframe on the left is an inside out view of the mesh that define the scene. On the right is the
+final rendered image using ray-tracing techniques. Image Credits: <a href="https://sciencebehindpixar.org/pipeline/rendering">Science behind
 Pixar</a></em>
 </div>
 
