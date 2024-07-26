@@ -6,7 +6,7 @@
     "link": "https://arxiv.org/abs/2208.12373",
     "date": "25-08-2022",
     "tag": "Behaviour",
-    "image":"/images/Tectonics.jpg"
+    "image":"/images/Tectonics.png"
   },
   {
     "id": 2,
@@ -25,14 +25,5 @@
     "date": "23-05-2023",
     "tag": "Control",
     "image":"/images/KFSchematic.png"
-  },
-  {
-    "id": 4,
-    "title": "Research Palooza",
-    "message": "Mohanraj, 2023-batch MS student, wins 2nd place in Sci-Tech Exposium talk.",
-    "link": "https://amsa-iitm.github.io/home/new_event.html",
-    "date": "05-07-2024",
-    "tag": "Prize",
-    "image":"/images/mohanraj.jpg"
-  }
+  } 
 ]
