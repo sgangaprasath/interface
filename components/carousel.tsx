@@ -22,7 +22,7 @@ export default function Csel() {
         />
         <div className="absolute top-0 px-4 py-2 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-full">
           <h1 className="text-white text-xs">
-            Our 'hike' to the top of the Gingee fort - 7 Jan, 24
+            Our hike to the top of the Gingee fort - 7 Jan, 24
           </h1>
         </div>
       </div>
@@ -64,7 +64,7 @@ export default function Csel() {
         />
         <div className="absolute top-0 px-4 py-2 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-full">
           <h1 className="text-white text-xs">
-            Ganga Prasath's talk at SMYIM, Kodaikanal on 14 June, 2024.
+            Ganga Prasath&apos;s talk at SMYIM, Kodaikanal on 14 June, 2024.
           </h1>
         </div>
       </div>
@@ -92,7 +92,7 @@ export default function Csel() {
         />
         <div className="absolute top-0 px-4 py-2 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-full">
           <h1 className="text-white text-xs">
-            Jay's poster presentation in AMBE Research Palooza on 5 July, 2024 
+            Jay&apos;s poster presentation in AMBE Research Palooza on 5 July, 2024 
           </h1>
         </div>
       </div>
@@ -106,7 +106,7 @@ export default function Csel() {
         />
         <div className="absolute top-0 px-4 py-2 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-full">
           <h1 className="text-white text-xs">
-            Mohan's talk in AMBE Research Palooza on 5 July, 2024 
+            Mohan&apos;s talk in AMBE Research Palooza on 5 July, 2024 
           </h1>
         </div>
       </div>

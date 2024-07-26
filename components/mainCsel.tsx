@@ -35,9 +35,27 @@ export default function Cselmain() {
           <Image
             src={Img05}
             height={0}
-            alt={"Art of scientific visualization - Part 1"}
+            alt={"Lab open positions"}
             objectFit="cover"
           />
+        </Link>
+      </div>
+      <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
+        <Link href={"/blog/7-GeoCG"}>
+          <Image
+            src={Img06}
+            height={0}
+            alt={"Omnipresence of geometry in CG"}
+            objectFit="cover"
+          />
+          <div className="absolute rounded-full top-3 left-4 px-4 py-1 sm:opacity-0 md:opacity-100 md:bg-gray-100 w-auto">
+            <h1 className="text-black text-xs">
+              Omnipresence of geometry in CG by Jay Chavda
+            </h1>
+          </div>
+          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-500 w-auto">
+            <h1 className="text-white text-xs">Blog</h1>
+          </div>
         </Link>
       </div>
       <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
@@ -87,25 +105,6 @@ export default function Cselmain() {
           <div className="absolute rounded-full top-3 left-4 px-4 py-1 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-auto">
             <h1 className="text-white text-xs">
               Art of scientific visualization - Part 1
-            </h1>
-          </div>
-          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-500 w-auto">
-            <h1 className="text-white text-xs">Blog</h1>
-          </div>
-        </Link>
-      </div>
-
-      <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
-        <Link href={"/blog/7-GeoCG"}>
-          <Image
-            src={Img06}
-            height={0}
-            alt={"Omnipresence of geometry in CG"}
-            objectFit="cover"
-          />
-          <div className="absolute rounded-full top-3 left-4 px-4 py-1 sm:opacity-0 md:opacity-100 md:bg-gray-100 w-auto">
-            <h1 className="text-black text-xs">
-            Omnipresence of geometry in CG
             </h1>
           </div>
           <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-500 w-auto">

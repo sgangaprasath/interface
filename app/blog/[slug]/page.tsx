@@ -1,13 +1,13 @@
 import fs from "fs";
 import Image from "next/image";
 import Markdown from "markdown-to-jsx";
-// import ReactMarkdown from 'react-markdown';
-// import rehypeRaw from "rehype-raw";
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from "rehype-raw";
 import matter from "gray-matter";
 import getPostMetadata from "@/components/getPostMetadata";
-// import rehypeKatex from "rehype-katex";
-// import remarkMath from "remark-math";
-// import "katex/dist/katex.min.css";
+import rehypeKatex from "rehype-katex";
+import remarkMath from "remark-math";
+import "katex/dist/katex.min.css";
 
 const getPostContent = (slug: string) => {
   const folder = "blog/";
@@ -56,11 +56,11 @@ const PostPage = (props: any) => {
       </div>
 
       <article className="prose prose-stone max-w-none scroll-smooth dark:prose-invert">
-        {/* <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex ,rehypeRaw]}> */}
-        <Markdown>
+        <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex ,rehypeRaw]}>
+        {/* <Markdown> */}
           {post.content}
-        </Markdown>
-        {/* </ReactMarkdown> */}
+        {/* </Markdown> */}
+        </ReactMarkdown>
       </article>
     </div>
   );
