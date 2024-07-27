@@ -23,6 +23,17 @@
   },
   {
     "id": 3,
+    "name": "Akhil Sharma",
+    "title": "PhD student - 2024",
+    "twitter": "",
+    "linkedIn": "https://www.linkedin.com/in/akhil-sharma-01b12b220/",
+    "email": "mailto:am24d023@smail.iitm.ac.in",
+    "webpage": "",
+    "cv": "https://github.com/sgangaprasath/interface/blob/main/public/pdf/AkhilCV.pdf",
+    "image": "/images/akhil.jpg"
+  },
+  {
+    "id": 4,
     "name": "Jay Jayeshbhai Chavda",
     "title": "MS student - 2023",
     "twitter": "",
@@ -33,7 +44,7 @@
     "image": "/images/jaychavda.jpg"
   },
   {
-    "id": 4,
+    "id": 5,
     "name": "Mohanraj A",
     "title": "MS student - 2023",
     "twitter": "",
@@ -44,7 +55,7 @@
     "image": "/images/mohanraj.jpg"
   },
   {
-    "id": 5,
+    "id": 6,
     "name": "Can be you!",
     "title": "MS/PhD student",
     "twitter": "",
