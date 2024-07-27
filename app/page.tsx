@@ -14,11 +14,11 @@ export default function Home() {
             <Cselmain />
           </div>
         </div>
-        {/* <div className="text-center">
+        <div className="text-center">
           <p className="max-w-3xl p-2 bg-purple-200 text-sm text-purple-600 rounded-lg border border-purple-400">
-            We welcome Institute Postdoc Fellow, <a href="https://scholar.google.com/citations?user=FnVSQWwAAAAJ&hl=en" className="font-bold underline hover:underline-offset-2">Vishnu Deo Mishra</a>, to our group. He is interested in soft-robotics and inverse problems.
+            We welcome <a href="https://www.linkedin.com/in/akhil-sharma-01b12b220/" className="font-bold underline hover:underline-offset-2">Akhil Sharma</a> to our group! He is a new graduate student and is interested in collective behaviour and robotics.
           </p>
-        </div> */}
+        </div>
         {/* Welcome statement */}
         {/* <div className="md:text-2xl text-center">
           <p className="max-w-2xl p-2 bg-green-200 text-sm text-green-600 rounded-lg border border-green-400">
