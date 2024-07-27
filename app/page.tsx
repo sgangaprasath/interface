@@ -16,7 +16,7 @@ export default function Home() {
         </div>
         <div className="text-center">
           <p className="max-w-3xl p-2 bg-purple-200 text-sm text-purple-600 rounded-lg border border-purple-400">
-            We welcome <a href="https://www.linkedin.com/in/akhil-sharma-01b12b220/" className="font-bold underline hover:underline-offset-2">Akhil Sharma</a> to our group! He is a new graduate student and is interested in collective behaviour and robotics.
+            We welcome the new graduate student <a href="https://www.linkedin.com/in/akhil-sharma-01b12b220/" className="font-bold underline hover:underline-offset-2">Akhil Sharma</a> to our group! He is interested in collective behaviour and robotics.
           </p>
         </div>
         {/* Welcome statement */}

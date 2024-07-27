@@ -35,7 +35,7 @@ export default function Home() {
                 sgangaprasath@smail.iitm.ac.in
               </Link>{" "}
               <br />
-              (044) 2257 4086
+              Ph: (044) 2257 4086
             </p>
             <p className="text-center md:text-left font-light text-md md:px-16 pt-4">
               INTERFACE lab <br />
