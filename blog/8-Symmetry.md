@@ -65,7 +65,7 @@ symmetry operations:
     -   Combination of any above.
         <div>
         <div class="flex justify-center items-center">
-        <img src="/images/Snowflake.png" alt="" width="500"/>
+        <img src="/images/snowflake.png" alt="" width="500"/>
         </div>
         <em>Shown here, a snowflake that will appear the same if rotated
         by 60 deg. about an axis passing through the center pointing
