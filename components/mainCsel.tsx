@@ -10,6 +10,7 @@ import Img03 from "@/public/gallery/cricut.jpg";
 import Img04 from "@/public/images/coversv1.jpg";
 import Img05 from "@/public/images/MSPhDAdvert.png";
 import Img06 from "@/public/images/RENb.jpg";
+import Img07 from "@/public/images/SymCover.jpg";
 
 export default function Cselmain() {
   return (
@@ -30,7 +31,7 @@ export default function Cselmain() {
           <p className="font-extrabold">Soft-mechanics, Robotics & Behaviour</p>
         </div>
       </div>
-      <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
+      {/* <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
         <Link href={"/openings"}>
           <Image
             src={Img05}
@@ -38,6 +39,24 @@ export default function Cselmain() {
             alt={"Lab open positions"}
             objectFit="cover"
           />
+        </Link>
+      </div> */}
+      <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
+        <Link href={"/blog/8-Symmetry"}>
+          <Image
+            src={Img07}
+            height={0}
+            alt={"Symmetry in nature, science and engineering"}
+            objectFit="cover"
+          />
+          <div className="absolute rounded-full top-3 left-4 px-4 py-1 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-auto">
+            <h1 className="text-white text-xs">
+            Symmetry in nature, science and engineering by Vishnu Mishra
+            </h1>
+          </div>
+          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-500 w-auto">
+            <h1 className="text-white text-xs">Blog</h1>
+          </div>
         </Link>
       </div>
       <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
