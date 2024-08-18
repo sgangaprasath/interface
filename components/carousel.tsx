@@ -27,7 +27,7 @@ export default function Csel() {
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
+      {/* <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
         <Image
           src={Img02}
           width={0}
@@ -39,14 +39,14 @@ export default function Csel() {
             Paul Jackson insipired Kirigami art by Jay Chavda
           </h1>
         </div>
-      </div>
+      </div> */}
 
       <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
         <Image
           src={Img03}
           width={0}
           height={0}
-          alt={"Our dinner at Toscano with AM1100 TAs"}
+          alt={"Our dinner at Toscano with AM1100 TAs - 1 Mar, 24"}
         />
         <div className="absolute top-0 px-4 py-2 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-full">
           <h1 className="text-white text-xs">
@@ -55,7 +55,7 @@ export default function Csel() {
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
+      {/* <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
         <Image
           src={Img04}
           width={0}
@@ -67,7 +67,7 @@ export default function Csel() {
             Ganga Prasath&apos;s talk at SMYIM, Kodaikanal on 14 June, 2024.
           </h1>
         </div>
-      </div>
+      </div> */}
 
       <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
         <Image
@@ -97,7 +97,7 @@ export default function Csel() {
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
+      {/* <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
         <Image
           src={Img07}
           width={0}
@@ -109,7 +109,7 @@ export default function Csel() {
             Mohan&apos;s talk in AMBE Research Palooza on 5 July, 2024 
           </h1>
         </div>
-      </div>
+      </div> */}
 
       {/* <div className="flex h-full items-center justify-center bg-gray-400">
         Slide 3
