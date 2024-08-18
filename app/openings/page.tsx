@@ -37,7 +37,7 @@ export default function Home() {
           drop by our lab to know more.
         </p>
         <p className="text-center md:text-left font-light text-md md:px-16">
-        Details of the graduate admission can be found <a href="https://apm.iitm.ac.in/pages/graduate_admission" className="font-bold underline hover:underline-offset-2">here</a> and the application procedure is detailed in the <a href="https://research.iitm.ac.in" className="font-bold underline hover:underline-offset-2">IITM Research Portal</a>.
+        Details of the graduate admission can be found <a href="https://apm.iitm.ac.in/pages/graduate_admission" className="font-bold underline hover:underline-offset-2">here</a> and the application procedure is elaborated in the <a href="https://research.iitm.ac.in" className="font-bold underline hover:underline-offset-2">IITM Research Portal</a>.
         </p>
       </div>
     </>
