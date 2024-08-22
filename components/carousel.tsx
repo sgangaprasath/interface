@@ -9,7 +9,7 @@ import Img03 from "@/public/gallery/toscanoDinner.jpg";
 import Img04 from "@/public/gallery/SMYIMTalk.jpg";
 import Img05 from "@/public/gallery/Mohan2nd.jpg";
 import Img06 from "@/public/gallery/JayPoster.jpg";
-import Img07 from "@/public/gallery/MohanTalk.jpg";
+import Img07 from "@/public/gallery/sampoorna.jpg";
 export default function Csel() {
   return (
     <Carousel>
@@ -97,19 +97,19 @@ export default function Csel() {
         </div>
       </div>
 
-      {/* <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
+      <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
         <Image
           src={Img07}
           width={0}
           height={0}
-          alt={"Mohan's talk in AMBE Research Palooza on 5 July, 2024 "}
+          alt={"Vishnu's treat for receiving his PhD degree at Haven Sampoorna on 13 August, 2024"}
         />
         <div className="absolute top-0 px-4 py-2 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-full">
           <h1 className="text-white text-xs">
-            Mohan&apos;s talk in AMBE Research Palooza on 5 July, 2024 
+          Dr. Vishnu&apos;s PhD degree treat at Haven Sampoorna on 13 August, 2024
           </h1>
         </div>
-      </div> */}
+      </div>
 
       {/* <div className="flex h-full items-center justify-center bg-gray-400">
         Slide 3
