@@ -41,7 +41,8 @@ export default function Home() {
               INTERFACE lab <br />
               123, Krishna Chivukula Block <br />
               IIT Madras Campus <br />
-              Chennai - 600 036.
+              Chennai - 600 036. <br />
+              Ph: (044) 2257 5202
             </p>
           </div>
           <iframe
