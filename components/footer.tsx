@@ -13,8 +13,8 @@ export default function Footer() {
           rel="noopener noreferrer"
         >
           <p className={`text-center text-sm font-light md:text-left`}>
-            Department of Applied Mechanics &<br />
-            Biomedical Engineering, IIT Madras<br />
+            Department of Applied Mechanics<br />
+            and Biomedical Engineering, IIT Madras<br />
             {/* Indian Institute of Technology Madras <br /> */}
             Chennai, TN 600036.
           </p>

@@ -171,7 +171,7 @@ export default function Home() {
           </Link>
           {/* Outreach */}
           <Link
-            href="/"
+            href="https://projectclimate.substack.com"
             className="group flex flex-col items-center justify-center rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-200"
           >
             <h2
@@ -211,8 +211,8 @@ export default function Home() {
                 </svg>
               </span>
             </h2>
-            <p className={`m-0 max-w-[30ch] text-sm font-light opacity-50`}>
-              Coming soon...
+            <p className={`m-0 max-w-[30ch] text-center text-sm font-light opacity-50`}>
+              Project Climate - climate change awareness platform
             </p>
           </Link>
         </div>

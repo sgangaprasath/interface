@@ -12,12 +12,13 @@ import Img05 from "@/public/images/MSPhDAdvert.png";
 import Img06 from "@/public/images/RENb.jpg";
 import Img07 from "@/public/images/SymCover.jpg";
 import Img08 from "@/public/images/KempeCover.jpg";
-import Img09 from "@/public/images/Poster-ethology-site.png";
+import Img09 from "@/public/images/CoverBB.jpg";
+// import Img09 from "@/public/images/Poster-ethology-site.png";
 
 export default function Cselmain() {
   return (
     <Carousel>
-      <div className="flex flex-wrap items-center justify-center h-full bg-white ">
+      {/* <div className="flex flex-wrap items-center justify-center h-full bg-white ">
         <Link href={"https://sgangaprasath.github.io/ethology/index.html"}>
           <Image
             src={Img09}
@@ -34,7 +35,7 @@ export default function Cselmain() {
             <h1 className="text-white text-xs">Online Workshop</h1>
           </div>
         </Link>
-      </div>
+      </div> */}
       <div className="flex flex-wrap items-center justify-center h-full bg-white">
         <div className="relative after:absolute after:-z-20 after:h-[380px] md:after:w-[800px] after:-translate-x-10 md:after:-translate-y-1/3 xl:after:w-[1200px] xl:after:-translate-x-40 after:bg-gradient-conic after:from-sky-300 after:via-stone-300 after:to-pink-300 after:content-[''] after:blur-3xl sm:opacity-0 md:opacity-100">
           <Image
@@ -61,6 +62,24 @@ export default function Cselmain() {
           />
         </Link>
       </div> */}
+      <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
+        <Link href={"/blog/10-BBControl"}>
+          <Image
+            src={Img09}
+            height={0}
+            alt={"Bang-bang control"}
+            objectFit="cover"
+          />
+          <div className="absolute rounded-full top-3 left-4 px-4 py-1 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-auto">
+            <h1 className="text-white text-xs">
+              Bang-bang control by Vishnu Mishra
+            </h1>
+          </div>
+          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-500 w-auto">
+            <h1 className="text-white text-xs">Blog</h1>
+          </div>
+        </Link>
+      </div>
       <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
         <Link href={"/blog/9-Kempe"}>
           <Image
