@@ -174,7 +174,7 @@ through changes in $L$, rather than through gravity.
 
 <div>
 <div class="flex flex-col justify-center items-center">
-    <img src="/images/phase_traj.pdf" alt="" width="500">
+    <img src="/images/Phase_traj.pdf" alt="" width="500">
 </div>
 </div>
 
