@@ -14,6 +14,7 @@ import Img07 from "@/public/images/SymCover.jpg";
 import Img08 from "@/public/images/KempeCover.jpg";
 import Img09 from "@/public/images/CoverBB.jpg";
 import Img10 from "@/public/images/Pumping.jpg";
+import Img11 from "@/public/images/CoverString.jpg";
 // import Img09 from "@/public/images/Poster-ethology-site.png";
 
 export default function Cselmain() {
@@ -63,6 +64,24 @@ export default function Cselmain() {
           />
         </Link>
       </div> */}
+      <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
+        <Link href={"/blog/12-StringArt"}>
+          <Image
+            src={Img11}
+            height={0}
+            alt={"String Art"}
+            objectFit="cover"
+          />
+          <div className="absolute rounded-full top-3 left-4 px-4 py-1 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-auto">
+            <h1 className="text-white text-xs">
+              Geometry of string art by Jay Chavda
+            </h1>
+          </div>
+          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-500 w-auto">
+            <h1 className="text-white text-xs">Blog</h1>
+          </div>
+        </Link>
+      </div>
       <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
         <Link href={"/blog/11-Skateboard"}>
           <Image
@@ -117,7 +136,7 @@ export default function Cselmain() {
           </div>
         </Link>
       </div>
-      <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
+      {/* <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
         <Link href={"/blog/8-Symmetry"}>
           <Image
             src={Img07}
@@ -134,8 +153,8 @@ export default function Cselmain() {
             <h1 className="text-white text-xs">Blog</h1>
           </div>
         </Link>
-      </div>
-      <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
+      </div> */}
+      {/* <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
         <Link href={"/blog/7-GeoCG"}>
           <Image
             src={Img06}
@@ -152,7 +171,7 @@ export default function Cselmain() {
             <h1 className="text-white text-xs">Blog</h1>
           </div>
         </Link>
-      </div>
+      </div> */}
       {/* <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
         <Link href={"/blog/6-Rotation"}>
           <Image
