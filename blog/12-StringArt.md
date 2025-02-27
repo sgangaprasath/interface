@@ -214,4 +214,4 @@ String art beautifully combines art and mathematics. By understanding
 its geometric and algebraic principles, you can create stunning
 reconstructions of complex images. Do experiment with different
 configurations, numbers of nails, and target images to unleash your
-creativity with the `python` code attached [here](check)!
+creativity with the `python` code attached [here](https://github.com/sgangaprasath/interface/tree/main/public/codes/StringArtCode)!
