@@ -1,6 +1,6 @@
 ---
 title: "Geometry of string art"
-subtitle: "A journey through linear algebra and inverse design."
+subtitle: "A journey through the history, the underlying linear algebra structure and ideas of inverse design of this cool art form."
 date: "2025-02-27"
 category: "Blog"
 author: "Jay Chavda"
