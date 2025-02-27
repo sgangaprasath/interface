@@ -203,13 +203,13 @@ dynamics, essential for creating believable scenes in animation.
 </div>
 </div>
 
-Visualization of different elements in the Kajiya rendering
+_Visualization of different elements in the Kajiya rendering
 equation. The rendering equation describes the total amount of light
 emitted from a point $x$ along a particular viewing direction, given
 a function for incoming light. $w_i$ is the direction of incoming
 light and $w_o$ is the direction of outgoing light at $x$, $\Omega$
 is the hemispherical domain around which all light is integrated.
-Image Credits: [By Timrb - Own work, CC BY-SA 3.0.](https://commons.wikimedia.org/w/index.php?curid=4251811)
+Image Credits:_ [By Timrb - Own work, CC BY-SA 3.0.](https://commons.wikimedia.org/w/index.php?curid=4251811)
 
 The rendering equation is used to compute the global illumination in
 a scene, taking into account how light interacts with surfaces

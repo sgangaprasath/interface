@@ -13,6 +13,7 @@ import Img06 from "@/public/images/RENb.jpg";
 import Img07 from "@/public/images/SymCover.jpg";
 import Img08 from "@/public/images/KempeCover.jpg";
 import Img09 from "@/public/images/CoverBB.jpg";
+import Img10 from "@/public/images/Pumping.jpg";
 // import Img09 from "@/public/images/Poster-ethology-site.png";
 
 export default function Cselmain() {
@@ -62,6 +63,24 @@ export default function Cselmain() {
           />
         </Link>
       </div> */}
+      <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
+        <Link href={"/blog/11-Skateboard"}>
+          <Image
+            src={Img10}
+            height={0}
+            alt={"Skateboarding"}
+            objectFit="cover"
+          />
+          <div className="absolute rounded-full top-3 left-4 px-4 py-1 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-auto">
+            <h1 className="text-white text-xs">
+              How to be a pro skateboarder by Mohanraj
+            </h1>
+          </div>
+          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-500 w-auto">
+            <h1 className="text-white text-xs">Blog</h1>
+          </div>
+        </Link>
+      </div>
       <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
         <Link href={"/blog/10-BBControl"}>
           <Image
