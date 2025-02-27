@@ -28,7 +28,7 @@ performance.
 
 # Understanding the pumping motion
 
-Imagine standing at the base of a mount on a skateboard park, ready to
+Imagine standing at the base of a mound on a skateboard park, ready to
 ascend without a single push off the ground. Skateboarders achieve this
 seemingly effortless feat through the _pumping_ technique. This dynamic
 movement involves transferring energy to build and maintain momentum,
@@ -79,7 +79,7 @@ where you can find further resources and insights.
 <div>
 <div class="flex flex-col justify-center items-center">
     <img src="/images/PumpingSteps.pdf" alt="" width="600">
-    <em>Step by Step way to pump on a mount.</em>
+    <em>Step by Step way to pump on a mound.</em>
 </div>
 </div>
 
