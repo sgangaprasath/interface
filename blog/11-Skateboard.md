@@ -78,7 +78,7 @@ where you can find further resources and insights.
 
 <div>
 <div class="flex flex-col justify-center items-center">
-    <img src="/images/PumpingSteps.pdf" alt="" width="600">
+    <img src="/images/PumpingSteps.jpg" alt="" width="600">
     <em>Step by Step way to pump on a mound.</em>
 </div>
 </div>
@@ -115,7 +115,7 @@ from the pivot point $O$.
 
 <div>
 <div class="flex flex-col justify-center items-center">
-    <img src="/images/Variable_Pendulum.pdf" alt="" width="250">
+    <img src="/images/Variable_Pendulum.jpg" alt="" width="250">
 </div>
 </div>
 
@@ -174,7 +174,7 @@ through changes in $L$, rather than through gravity.
 
 <div>
 <div class="flex flex-col justify-center items-center">
-    <img src="/images/Phase_traj.pdf" alt="" width="500">
+    <img src="/images/Phase_traj.jpg" alt="" width="500">
 </div>
 </div>
 

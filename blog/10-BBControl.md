@@ -184,7 +184,7 @@ system's position and velocity.
 
 <div>
 <div class="flex justify-center items-center">
-    <img src="/images/brick_slider.pdf" alt="" width="500">
+    <img src="/images/brick_slider.jpg" alt="" width="500">
 </div>
 </div>
 

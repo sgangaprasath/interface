@@ -42,7 +42,7 @@ computational tools.
 
 <div>
 <div class="flex flex-col justify-center items-center">
-    <img src="/images/intro.pdf" alt="" width="800">
+    <img src="/images/intro.jpg" alt="" width="800">
     <em>String art configurations with 8, 13, and 18 nails. Here each nail
 along the circle is connected to every other nail. We see that by
 increasing the number of nails leads to complex geometric patterns,
@@ -61,7 +61,7 @@ $$\vec{r}(t) = (1 - t) \begin{bmatrix} x_0 \\ y_0 \end{bmatrix} + t \begin{bmatr
 
 <div>
 <div class="flex flex-col justify-center items-center">
-    <img src="/images/Threadint.pdf" alt="" width="500">
+    <img src="/images/Threadint.jpg" alt="" width="500">
 </div>
 </div>
 
@@ -198,7 +198,7 @@ geometric primitives.
 
 <div>
 <div class="flex flex-col justify-center items-center">
-    <img src="/images/jlet.pdf" alt="" width="600">
+    <img src="/images/jlet.jpg" alt="" width="600">
 </div>
 </div>
 
