@@ -13,9 +13,23 @@ import Img07 from "@/public/gallery/sampoorna.jpg";
 import Img08 from "@/public/gallery/AkhilBDay.jpg";
 import Img09 from "@/public/gallery/MahaVisit.jpg";
 import Img10 from "@/public/gallery/NarayananVisit.jpeg";
+import Img11 from "@/public/gallery/Ghibli.png";
 export default function Csel() {
   return (
     <Carousel>
+      <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
+        <Image
+          src={Img11}
+          width={0}
+          height={0}
+          alt={"Ghibli"}
+        />
+        <div className="absolute top-0 px-4 py-2 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-full">
+          <h1 className="text-white text-xs">
+            Ghibli style image of the INTERFACE lab members
+          </h1>
+        </div>
+      </div>
       <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
         <Image
           src={Img10}
