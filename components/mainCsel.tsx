@@ -16,6 +16,7 @@ import Img09 from "@/public/images/CoverBB.jpg";
 import Img10 from "@/public/images/Pumping.jpg";
 import Img11 from "@/public/images/CoverString.jpg";
 // import Img09 from "@/public/images/Poster-ethology-site.png";
+import Img12 from "@/public/images/ICTS_School_Banner.png";
 
 export default function Cselmain() {
   return (
@@ -38,6 +39,24 @@ export default function Cselmain() {
           </div>
         </Link>
       </div> */}
+      <div className="flex flex-wrap items-center justify-center h-full bg-white ">
+        <Link href={"https://www.icts.res.in/program/Geomech"}>
+          <Image
+            src={Img12}
+            height={0}
+            alt={"Geometry, mechanics and the physics of growth"}
+            objectFit="cover"
+          />
+          <div className="absolute rounded-full top-3 left-4 px-4 py-1 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-auto">
+            <h1 className="text-white text-xs">
+            Geometry, mechanics and the physics of growth
+            </h1>
+          </div>
+          <div className="absolute rounded-full top-3 right-4 px-4 py-1 sm:opacity-0 md:opacity-100 md:bg-blue-600 w-auto">
+            <h1 className="text-white text-xs">Winter school</h1>
+          </div>
+        </Link>
+      </div>
       <div className="flex flex-wrap items-center justify-center h-full bg-white">
         <div className="relative after:absolute after:-z-20 after:h-[380px] md:after:w-[800px] after:-translate-x-10 md:after:-translate-y-1/3 xl:after:w-[1200px] xl:after:-translate-x-40 after:bg-gradient-conic after:from-sky-300 after:via-stone-300 after:to-pink-300 after:content-[''] after:blur-3xl sm:opacity-0 md:opacity-100">
           <Image
