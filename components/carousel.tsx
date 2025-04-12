@@ -38,7 +38,7 @@ export default function Csel() {
         />
         <div className="absolute top-0 px-4 py-2 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-full">
           <h1 className="text-white text-xs">
-            Prof. L Mahadevan's from Harvard University visits our lab on 28 Dec, 25
+            Prof. L Mahadevan from Harvard University visits our lab on 28 Dec, 25
           </h1>
         </div>
       </div>
