@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import "../globals.css";
 export default function Home() {
   return (
@@ -24,21 +25,61 @@ export default function Home() {
           <p className="font-bold text-lg px-4">Openings</p>
         </div>
         <p className="text-center md:text-left font-light text-md md:px-16">
-          We are looking for motivated{" "}
+          We currently have openings for also looking for motivated{" "}
+          <b className="font-bold">for two post-docs</b> with good academic and
+          publishing record to explore problems in{" "}
+          <b className="font-bold">
+            intelligent collective robotics & soft-robotic endoscopes
+          </b>
+          .
+        </p>
+        <p className="text-center md:text-left font-light text-md md:px-16">
+          We are also looking for motivated{" "}
           <b className="font-bold">MS & PhD students</b> with good academic
           record and are interested in exploring problems in the fields of{" "}
           <b className="font-bold">
             geometry, soft-mechanics, robotics, reinforcement learning & control
-          </b>.
+          </b>
+          .
         </p>
         <p className="text-center md:text-left font-light text-md md:px-16">
           Our group uses experiments and/or theoretical analysis as demanded by
-          the question. Have a look at the <a href="/research" className="font-bold underline hover:underline-offset-2">research</a> tab for a broad overview and
-          drop by our lab to know more.
+          the question. Have a look at the{" "}
+          <a
+            href="/research"
+            className="font-bold underline hover:underline-offset-2"
+          >
+            research
+          </a>{" "}
+          tab for a broad overview and drop by our lab to know more.
         </p>
         <p className="text-center md:text-left font-light text-md md:px-16">
-        Details of the graduate admission can be found <a href="https://apm.iitm.ac.in/pages/graduate_admission" className="font-bold underline hover:underline-offset-2">here</a> and the application procedure is elaborated in the <a href="https://research.iitm.ac.in" className="font-bold underline hover:underline-offset-2">IITM Research Portal</a>.
+          Details of the graduate admission can be found{" "}
+          <a
+            href="https://apm.iitm.ac.in/pages/graduate_admission"
+            className="font-bold underline hover:underline-offset-2"
+          >
+            here
+          </a>{" "}
+          and the application procedure is elaborated in the{" "}
+          <a
+            href="https://research.iitm.ac.in"
+            className="font-bold underline hover:underline-offset-2"
+          >
+            IITM Research Portal
+          </a>
+          .
         </p>
+        <div className="relative flex flex-wrap items-center justify-center h-full bg-white ">
+          <Image
+            className="relative md:pt-10 xl:pt-20"
+            src="/images/PostdocAdvert.png"
+            alt="Interface lab Logo"
+            width={900}
+            height={100}
+            priority
+          />
+        </div>
       </div>
     </>
   );

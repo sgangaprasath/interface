@@ -14,6 +14,8 @@ import Img08 from "@/public/gallery/AkhilBDay.jpg";
 import Img09 from "@/public/gallery/MahaVisit.jpg";
 import Img10 from "@/public/gallery/NarayananVisit.jpeg";
 import Img11 from "@/public/gallery/Ghibli.png";
+import Img12 from "@/public/gallery/ChennaiHalf.jpg";
+import Img13 from "@/public/gallery/IITMRun.jpg";
 export default function Csel() {
   return (
     <Carousel>
@@ -27,6 +29,32 @@ export default function Csel() {
         <div className="absolute top-0 px-4 py-2 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-full">
           <h1 className="text-white text-xs">
             Ghibli style image of the INTERFACE lab members
+          </h1>
+        </div>
+      </div>
+      <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
+        <Image
+          src={Img13}
+          width={0}
+          height={0}
+          alt={"IITMRun"}
+        />
+        <div className="absolute top-0 px-4 py-2 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-full">
+          <h1 className="text-white text-xs">
+            INTERFACE lab members waking up to finish IIT Madras 5k run on 22 Feb, 25
+          </h1>
+        </div>
+      </div>
+      <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
+        <Image
+          src={Img12}
+          width={0}
+          height={0}
+          alt={"ChennaiHalf"}
+        />
+        <div className="absolute top-0 px-4 py-2 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-full">
+          <h1 className="text-white text-xs">
+            Members of INTERFACE lab at the Chennai Runners Half-marathon on 5 Jan, 25
           </h1>
         </div>
       </div>
