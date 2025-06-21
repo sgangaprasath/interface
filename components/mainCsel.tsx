@@ -119,7 +119,7 @@ export default function Cselmain() {
           </div>
         </Link>
       </div>
-      <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
+      {/* <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
         <Link href={"/blog/10-BBControl"}>
           <Image
             src={Img09}
@@ -136,8 +136,8 @@ export default function Cselmain() {
             <h1 className="text-white text-xs">Blog</h1>
           </div>
         </Link>
-      </div>
-      <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
+      </div> */}
+      {/* <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
         <Link href={"/blog/9-Kempe"}>
           <Image
             src={Img08}
@@ -154,7 +154,7 @@ export default function Cselmain() {
             <h1 className="text-white text-xs">Blog</h1>
           </div>
         </Link>
-      </div>
+      </div> */}
       {/* <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
         <Link href={"/blog/8-Symmetry"}>
           <Image

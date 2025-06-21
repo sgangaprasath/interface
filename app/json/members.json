@@ -23,6 +23,17 @@
   },
   {
     "id": 3,
+    "name": "Shruti Pandey",
+    "title": "Research Scholar - 2025",
+    "twitter": "",
+    "linkedIn": "",
+    "email": "mailto:shrupandey28@gmail.com",
+    "webpage": "shruti.jpg",
+    "cv": "https://github.com/sgangaprasath/interface/blob/main/public/pdf/ShrutiCV.pdf",
+    "image": "/images/shruti.jpg"
+  },
+  {
+    "id": 4,
     "name": "Akhil Sharma",
     "title": "PhD student - 2024",
     "twitter": "",
@@ -33,7 +44,7 @@
     "image": "/images/akhil.jpg"
   },
   {
-    "id": 4,
+    "id": 5,
     "name": "Jay Jayeshbhai Chavda",
     "title": "MS student - 2023",
     "twitter": "",
@@ -44,7 +55,7 @@
     "image": "/images/jaychavda.jpg"
   },
   {
-    "id": 5,
+    "id": 6,
     "name": "Mohanraj A",
     "title": "MS student - 2023",
     "twitter": "",
@@ -55,7 +66,7 @@
     "image": "/images/mohanraj.jpg"
   },
   {
-    "id": 6,
+    "id": 7,
     "name": "Can be you!",
     "title": "MS/PhD student",
     "twitter": "",
