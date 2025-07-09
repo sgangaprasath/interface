@@ -45,6 +45,17 @@
   },
   {
     "id": 5,
+    "name": "Ananthanarayanan R",
+    "title": "Joint PhD student - 2025",
+    "twitter": "",
+    "linkedIn": "",
+    "email": "",
+    "webpage": "",
+    "cv": "",
+    "image": "/images/profile.svg"
+  },
+  {
+    "id": 6,
     "name": "Jay Jayeshbhai Chavda",
     "title": "MS student - 2023",
     "twitter": "",
@@ -55,7 +66,7 @@
     "image": "/images/jaychavda.jpg"
   },
   {
-    "id": 6,
+    "id": 7,
     "name": "Mohanraj A",
     "title": "MS student - 2023",
     "twitter": "",
@@ -66,7 +77,7 @@
     "image": "/images/mohanraj.jpg"
   },
   {
-    "id": 7,
+    "id": 8,
     "name": "Can be you!",
     "title": "MS/PhD student",
     "twitter": "",
