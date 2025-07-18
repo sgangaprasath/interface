@@ -226,7 +226,21 @@ const MembersPage = () => {
               <td className="px-6 py-4">Summer Research Fellow</td>
               <td className="px-6 py-4">Jun-Jul, 2024</td>
               <td className="px-6 py-4">
-                Finishing B.Tech @ IIITDM, Kancheepuram
+                B.Tech @ IIITDM, Kancheepuram - 2025
+              </td>
+            </tr>
+            <tr className="odd:bg-white even:bg-gray-50 border-b">
+              <th
+                scope="row"
+                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+              >
+                Pradhama Sai Eswar Kumar
+              </th>
+              <td className="px-6 py-4">Table-top Universal Testing Machine</td>
+              <td className="px-6 py-4">Summer Research Fellow</td>
+              <td className="px-6 py-4">Jun-Jul, 2025</td>
+              <td className="px-6 py-4">
+                Finishing B.Tech @ NIT, Surathkal
               </td>
             </tr>
           </tbody>

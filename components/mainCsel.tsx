@@ -39,6 +39,22 @@ export default function Cselmain() {
           </div>
         </Link>
       </div> */}
+      <div className="flex flex-wrap items-center justify-center h-full bg-white">
+        <div className="relative after:absolute after:-z-20 after:h-[380px] md:after:w-[800px] after:-translate-x-10 md:after:-translate-y-1/3 xl:after:w-[1200px] xl:after:-translate-x-40 after:bg-gradient-conic after:from-sky-300 after:via-stone-300 after:to-pink-300 after:content-[''] after:blur-3xl sm:opacity-0 md:opacity-100">
+          <Image
+            className="relative md:pt-10 xl:pt-20"
+            src={Img01}
+            alt="Interface lab Logo"
+            width={600}
+            height={100}
+            priority
+          />
+        </div>
+        <div className="md:text-xl xl:text-2xl text-center max-w-2xl">
+          <p className="font-light">at the intersection of</p>
+          <p className="font-extrabold">Soft-mechanics, Robotics & Behaviour</p>
+        </div>
+      </div>
       <div className="flex flex-wrap items-center justify-center h-full bg-white ">
         <Link href={"https://www.icts.res.in/program/Geomech"}>
           <Image
@@ -56,22 +72,6 @@ export default function Cselmain() {
             <h1 className="text-white text-xs">Winter school</h1>
           </div>
         </Link>
-      </div>
-      <div className="flex flex-wrap items-center justify-center h-full bg-white">
-        <div className="relative after:absolute after:-z-20 after:h-[380px] md:after:w-[800px] after:-translate-x-10 md:after:-translate-y-1/3 xl:after:w-[1200px] xl:after:-translate-x-40 after:bg-gradient-conic after:from-sky-300 after:via-stone-300 after:to-pink-300 after:content-[''] after:blur-3xl sm:opacity-0 md:opacity-100">
-          <Image
-            className="relative md:pt-10 xl:pt-20"
-            src={Img01}
-            alt="Interface lab Logo"
-            width={600}
-            height={100}
-            priority
-          />
-        </div>
-        <div className="md:text-xl xl:text-2xl text-center max-w-2xl">
-          <p className="font-light">at the intersection of</p>
-          <p className="font-extrabold">Soft-mechanics, Robotics & Behaviour</p>
-        </div>
       </div>
       {/* <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
         <Link href={"/openings"}>
