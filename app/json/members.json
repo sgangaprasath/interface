@@ -89,6 +89,17 @@
   },
   {
     "id": 9,
+    "name": "Eshita Nandi",
+    "title": "MS student - 2025",
+    "twitter": "",
+    "linkedIn": "",
+    "email": "mailto:am25s020@smail.iitm.ac.in",
+    "webpage": "",
+    "cv": "https://github.com/sgangaprasath/interface/blob/main/public/pdf/EshitaCV.pdf",
+    "image": "/images/Eshita.jpg"
+  },
+  {
+    "id": 10,
     "name": "Can be you!",
     "title": "MS/PhD student",
     "twitter": "",
