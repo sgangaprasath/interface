@@ -25,18 +25,8 @@ export default function Home() {
           <p className="font-bold text-lg px-4">Openings</p>
         </div>
         <p className="text-center md:text-left font-light text-md md:px-16">
-          We currently have openings for also looking for motivated{" "}
-          <b className="font-bold">for two post-docs</b> with good academic and
-          publishing record to explore problems in{" "}
-          <b className="font-bold">
-            intelligent collective robotics & soft-robotic endoscopes
-          </b>
-          .
-        </p>
-        <p className="text-center md:text-left font-light text-md md:px-16">
-          We are also looking for motivated{" "}
-          <b className="font-bold">MS & PhD students</b> with good academic
-          record and are interested in exploring problems in the fields of{" "}
+          We currently have {" "}
+          <b className="font-bold">one opening for a PhD student</b> with good academic record to explore problems in {" "}
           <b className="font-bold">
             geometry, soft-mechanics, robotics, reinforcement learning & control
           </b>
@@ -70,7 +60,7 @@ export default function Home() {
           </a>
           .
         </p>
-        <div className="relative flex flex-wrap items-center justify-center h-full bg-white ">
+        {/* <div className="relative flex flex-wrap items-center justify-center h-full bg-white ">
           <Image
             className="relative md:pt-10 xl:pt-20"
             src="/images/PostdocAdvert.png"
@@ -79,8 +69,9 @@ export default function Home() {
             height={100}
             priority
           />
-        </div>
+        </div> */}
       </div>
     </>
   );
 }
+
