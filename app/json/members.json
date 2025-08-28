@@ -32,17 +32,17 @@
     "cv": "https://github.com/sgangaprasath/interface/blob/main/public/pdf/ShrutiCV.pdf",
     "image": "/images/shruti.jpg"
   },
-  {
-    "id": 4,
-    "name": "Akhil Sharma",
-    "title": "PhD student - 2024",
-    "twitter": "",
-    "linkedIn": "https://www.linkedin.com/in/akhil-sharma-01b12b220/",
-    "email": "mailto:am24d023@smail.iitm.ac.in",
-    "webpage": "",
-    "cv": "https://github.com/sgangaprasath/interface/blob/main/public/pdf/AkhilCV.pdf",
-    "image": "/images/akhil.jpg"
-  },
+  // {
+  //   "id": 4,
+  //   "name": "Akhil Sharma",
+  //   "title": "PhD student - 2024",
+  //   "twitter": "",
+  //   "linkedIn": "https://www.linkedin.com/in/akhil-sharma-01b12b220/",
+  //   "email": "mailto:am24d023@smail.iitm.ac.in",
+  //   "webpage": "",
+  //   "cv": "https://github.com/sgangaprasath/interface/blob/main/public/pdf/AkhilCV.pdf",
+  //   "image": "/images/akhil.jpg"
+  // },
   {
     "id": 5,
     "name": "Ananthanarayanan R",
