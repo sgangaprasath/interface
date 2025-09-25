@@ -20,12 +20,14 @@ export interface PubsData {
   arxiv: string;
   website: string;
   download: string;
+  video: string;
   news1: string;
   news2: string;
   date: string;
   image: string;
   journal: string;
   tag: string;
+  tag2: string;
 }
 
 const getPubContent = (): PubsMetaData[] => {
@@ -116,6 +118,23 @@ const DataLst = ({data}: any) => (
               />
             </Link>
           )}
+          {/* YouTube link */}
+          {data.video !== "" && (
+            <Link
+              className="opacity-50 hover:opacity-100"
+              href={data.video}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src={"/images/youtube.svg"}
+                width={15}
+                height={15}
+                alt="URL"
+                className="w-4 h-4"
+              />
+            </Link>
+          )}
           {/* Download link */}
           {data.download !== "" && (
             <Link
@@ -152,26 +171,51 @@ const DataLst = ({data}: any) => (
         {/* Tags */}
         <div className="flex flex-row items-start justify-start gap-1">
           {data.tag == "Control" && (
-            <div className="rounded-md bg-rose-300 text-rose-600 text-xs px-1 my-2 font-mono">
+            <div className="rounded-md bg-lime-300 text-lime-600 text-xs px-1 my-2 font-mono">
               #control
             </div>
           )}
           {data.tag == "Hydrodynamics" && (
-            <div className="rounded-md bg-violet-300 text-violet-600 text-xs px-1 my-2 font-mono">
+            <div className="rounded-md bg-amber-300 text-amber-600 text-xs px-1 my-2 font-mono">
               #hydrodynamics
             </div>
           )}
           {data.tag == "Robotics" && (
-            <div className="rounded-md bg-amber-300 text-amber-600 text-xs px-1 my-2 font-mono">
+            <div className="rounded-md bg-violet-300 text-violet-600 text-xs px-1 my-2 font-mono">
               #robotics
             </div>
           )}
           {data.tag == "Softmatter" && (
-            <div className="rounded-md bg-lime-300 text-lime-600 text-xs px-1 my-2 font-mono">
+            <div className="rounded-md bg-amber-300 text-amber-600 text-xs px-1 my-2 font-mono">
               #soft-matter
             </div>
           )}
           {data.tag == "Behaviour" && (
+            <div className="rounded-md bg-sky-300 text-sky-600 text-xs px-1 my-2 font-mono">
+              #behaviour
+            </div>
+          )}
+          {data.tag2 == "Control" && (
+            <div className="rounded-md bg-lime-300 text-lime-600 text-xs px-1 my-2 font-mono">
+              #control
+            </div>
+          )}
+          {data.tag2 == "Hydrodynamics" && (
+            <div className="rounded-md bg-amber-300 text-amber-600 text-xs px-1 my-2 font-mono">
+              #hydrodynamics
+            </div>
+          )}
+          {data.tag2 == "Robotics" && (
+            <div className="rounded-md bg-violet-300 text-violet-600 text-xs px-1 my-2 font-mono">
+              #robotics
+            </div>
+          )}
+          {data.tag2 == "Softmatter" && (
+            <div className="rounded-md bg-amber-300 text-amber-600 text-xs px-1 my-2 font-mono">
+              #soft-matter
+            </div>
+          )}
+          {data.tag2 == "Behaviour" && (
             <div className="rounded-md bg-sky-300 text-sky-600 text-xs px-1 my-2 font-mono">
               #behaviour
             </div>

@@ -10,12 +10,14 @@
         "arxiv": "https://arxiv.org/pdf/2509.17572",
         "website": "",
         "download": "",
+        "video": "https://www.youtube.com/watch?v=clzrcNDjzNY",
         "news1": "",
         "news2": "",
         "date": "",
         "image": "",
         "journal": "",
-        "tag": "Robotics"
+        "tag": "Robotics",
+        "tag2": "Behaviour"
       },
       {
         "id": 2,
@@ -24,12 +26,14 @@
         "arxiv": "https://www.biorxiv.org/content/biorxiv/early/2025/03/05/2025.03.04.641449.full.pdf",
         "website": "",
         "download": "",
+        "video": "",
         "news1": "",
         "news2": "",
         "date": "",
         "image": "",
         "journal": "",
-        "tag": "Behaviour"
+        "tag": "Behaviour",
+        "tag2": ""
       }
     ]
   },
@@ -44,12 +48,14 @@
         "arxiv": "https://www.biorxiv.org/content/biorxiv/early/2024/12/17/2024.12.13.628369.full.pdf",
         "website": "",
         "download": "",
+        "video": "",
         "news1": "",
         "news2": "",
         "date": "",
         "image": "",
         "journal": "",
-        "tag": "Control"
+        "tag": "Behaviour",
+        "tag2": "Control"
       }
     ]
   },
@@ -64,12 +70,14 @@
         "arxiv": "https://github.com/sgangaprasath/Publications/raw/master/KFTutorial.pdf",
         "website": "",
         "download": "",
+        "video": "",
         "news1": "",
         "news2": "",
         "date": "",
         "image": "",
         "journal": "",
-        "tag": "Control"
+        "tag": "Control",
+        "tag2": ""
       },
       {
         "id": 2,
@@ -78,12 +86,14 @@
         "arxiv": "",
         "website": "https://www.frontiersin.org/articles/10.3389/fphy.2023.1167338",
         "download": "https://github.com/sgangaprasath/Publications/raw/master/FPhy_MiniReview_2023.pdf",
+        "video": "",
         "news1": "",
         "news2": "",
         "date": "",
         "image": "",
         "journal": "Frontiers in Physics, 10.3389/fphy.2023.1167338",
-        "tag": "Hydrodynamics"
+        "tag": "Hydrodynamics",
+        "tag2": ""
       },
       {
         "id": 3,
@@ -92,12 +102,14 @@
         "arxiv": "https://arxiv.org/abs/2208.12373",
         "website": "",
         "download": "",
+        "video": "https://www.dropbox.com/scl/fi/frvc9zib3lv20g7khmx71/SummaryVideo.mp4?rlkey=dswzl1co4in8rt9cboo1j5idv&dl=0",
         "news1": "",
         "news2": "",
         "date": "",
         "image": "",
         "journal": "",
-        "tag": "Robotics"
+        "tag": "Robotics",
+        "tag2": ""
       }
     ]
   }
