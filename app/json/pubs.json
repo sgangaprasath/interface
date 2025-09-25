@@ -1,5 +1,59 @@
 [
   {
+    "id": 3,
+    "year": 2025,
+    "data": [
+      {
+        "id": 1,
+        "authors": "Vishnu Deo Mishra and Ganga Prasath, S.",
+        "title": "Morphologies of a sagging elastica with intrinsic sensing and actuation.",
+        "arxiv": "https://arxiv.org/pdf/2509.17572",
+        "website": "",
+        "download": "",
+        "news1": "",
+        "news2": "",
+        "date": "",
+        "image": "",
+        "journal": "",
+        "tag": "Robotics"
+      },
+      {
+        "id": 2,
+        "authors": "Siheng Chen, Ganga Prasath, S., and Mahadevan, L.",
+        "title": "Speed-accuracy trade-offs in Roulette betting.",
+        "arxiv": "https://www.biorxiv.org/content/biorxiv/early/2025/03/05/2025.03.04.641449.full.pdf",
+        "website": "",
+        "download": "",
+        "news1": "",
+        "news2": "",
+        "date": "",
+        "image": "",
+        "journal": "",
+        "tag": "Behaviour"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "year": 2024,
+    "data": [
+      {
+        "id": 1,
+        "authors": "Ludwig A. Hoffmann, Petur Bryde, Ian C. Davenport, Ganga Prasath, S., Bruce C. Jayne, and Mahadevan, L.",
+        "title": "Postural control in an upright snake.",
+        "arxiv": "https://www.biorxiv.org/content/biorxiv/early/2024/12/17/2024.12.13.628369.full.pdf",
+        "website": "",
+        "download": "",
+        "news1": "",
+        "news2": "",
+        "date": "",
+        "image": "",
+        "journal": "",
+        "tag": "Control"
+      }
+    ]
+  },
+  {
     "id": 1,
     "year": 2023,
     "data": [
