@@ -1,7 +1,6 @@
 import * as fs from "fs";
 import Link from "next/link";
 import Image from "next/image";
-import "../globals.css";
 
 export interface JsonLstFull {
   jsonFull: PubsMetaData;

@@ -1,34 +1,16 @@
-import "../app/globals.css";
-// import Image from "next/image";
 import Link from "next/link";
 import Cselmain from "@/components/mainCsel";
-// import Csel from "@/components/carousel";
 
 export default function Home() {
   return (
     <>
-      <div className="flex flex-col items-center justify-between pt-4 gap-10">
+      <div className="relative flex flex-col items-center justify-between pt-4 gap-10">
         {/* Carousel */}
-        <div className="grid grid-cols-1 items-center justify-center xl:w-auto">
-          <div className="h-10 sm:h-[100px] md:h-[300px] xl:h-[420px] w-20 sm:w-[100px] md:w-[700px] xl:w-[1000px]">
+        {/* <div className="grid grid-cols-1 items-center justify-center xl:w-auto"> */}
+          <div className="h-10 sm:h-[100px] md:h-[300px] xl:h-[420px] w-20 sm:w-[100px] md:w-[700px] xl:w-[1000px] mt-20">
             <Cselmain />
           </div>
-        </div>
-        {/* <div className="text-center">
-          <p className="max-w-3xl p-2 bg-purple-200 text-sm text-purple-600 rounded-lg border border-purple-400">
-            We welcome new graduate student <a href="https://www.linkedin.com/in/akhil-sharma-01b12b220/" className="font-bold underline hover:underline-offset-2">Akhil Sharma</a> to our group! He is interested in collective behaviour and robotics.
-          </p>
-        </div> */}
-        {/* Welcome statement */}
-        {/* <div className="md:text-2xl text-center">
-          <p className="max-w-2xl p-2 bg-green-200 text-sm text-green-600 rounded-lg border border-green-400">
-            We are an exciting new group in the Department of Applied
-            Mechanics & Biomedical Engineering at IIT Madras. Look around the
-            website and drop by our lab if you are interested in knowing more about
-            what we do!
-          </p>
-        </div> */}
-
+        {/* </div> */}
         {/* Bottom navigation links */}
         <div className="grid m-10 text-center lg:mb-4 lg:grid-cols-4 lg:text-left">
           {/* News */}

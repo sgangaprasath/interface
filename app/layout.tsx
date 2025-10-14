@@ -1,4 +1,4 @@
-import "./globals.css";
+import "./global.css";
 import { Inter } from "next/font/google";
 import NavBar from "@/components/navbar";
 import Footer from "@/components/footer";
@@ -18,11 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex flex-col items-center justify-between h-auto w-auto px-24">
-        {/* Navigation bar */}
-        <NavBar />
-        {children}
-        {/* Footer */}
-        <Footer />
+          {/* Navigation bar */}
+          <NavBar />
+          {children}
+          {/* Footer */}
+          <Footer />
       </body>
     </html>
   );

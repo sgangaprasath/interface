@@ -23,7 +23,7 @@ const ResearchPage = () => {
               />
             </svg>
           </div>
-          <p className="font-bold px-4">Research</p>
+          <p className="font-bold px-4">Research Areas</p>
         </h1>
       </div>
       <section className="grid grid-cols-1 items-start gap-4 mb-10 max-w-5xl drop-shadow-xl text-sm md:grid-cols-2 lg:grid-cols-3">

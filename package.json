@@ -18,6 +18,7 @@
     "build": "^0.1.4",
     "flowbite": "^2.2.1",
     "flowbite-react": "^0.7.2",
+    "formkit-react": "^1.1.17",
     "gray-matter": "^4.0.3",
     "headlessui": "^0.0.0",
     "katex": "^0.16.11",
