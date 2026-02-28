@@ -1,5 +1,27 @@
 [
   {
+    "id": 4,
+    "year": 2026,
+    "data": [
+      {
+        "id": 1,
+        "authors": "Mohanraj A and Ganga Prasath, S.",
+        "title": "Morphing of and writing with a scissor linkage mechanism.",
+        "arxiv": "https://arxiv.org/abs/2602.14958",
+        "website": "",
+        "download": "",
+        "video": "https://youtu.be/3XOW4NBu-kg",
+        "news1": "",
+        "news2": "",
+        "date": "",
+        "image": "",
+        "journal": "",
+        "tag": "Robotics",
+        "tag2": "Control"
+      }
+    ]
+  },
+  {
     "id": 3,
     "year": 2025,
     "data": [
@@ -10,7 +32,7 @@
         "arxiv": "https://arxiv.org/pdf/2509.17572",
         "website": "",
         "download": "",
-        "video": "https://www.youtube.com/watch?v=clzrcNDjzNY",
+        "video": "https://youtu.be/clzrcNDjzNY",
         "news1": "",
         "news2": "",
         "date": "",
@@ -60,7 +82,7 @@
     ]
   },
   {
-    "id": 1,
+    "id": 2,
     "year": 2023,
     "data": [
       {

@@ -55,7 +55,7 @@ export default function Cselmain() {
           <p className="font-extrabold">Soft-mechanics, Robotics & Behaviour</p>
         </div>
       </div>
-      <div className="flex flex-wrap items-center justify-center h-full bg-white ">
+      {/* <div className="flex flex-wrap items-center justify-center h-full bg-white ">
         <Link href={"https://www.icts.res.in/program/Geomech"}>
           <Image
             src={Img12}
@@ -72,7 +72,7 @@ export default function Cselmain() {
             <h1 className="text-white text-xs">Winter school</h1>
           </div>
         </Link>
-      </div>
+      </div> */}
       {/* <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
         <Link href={"/openings"}>
           <Image

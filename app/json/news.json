@@ -25,5 +25,23 @@
     "date": "23-05-2023",
     "tag": "Control",
     "image":"/images/KFSchematic.png"
-  } 
+  },
+  {
+    "id": 4,
+    "title": "Self-actuating elastica",
+    "message": "New article titled \"Morphologies of a sagging elastica with intrinsic sensing and actuation\" is on arXiv.",
+    "link": "https://arxiv.org/pdf/2509.17572",
+    "date": "22-09-2025",
+    "tag": "Control",
+    "image":"/images/ActiveElastica.png"
+  },
+  {
+    "id": 5,
+    "title": "Scissor linkage mechanism",
+    "message": "New article titled \"Morphing of and writing with a scissor linkage mechanism\" is on arXiv.",
+    "link": "https://arxiv.org/pdf/2602.14958",
+    "date": "18-02-2026",
+    "tag": "Control",
+    "image":"/images/ScissorMechanism.png"
+  }
 ]
