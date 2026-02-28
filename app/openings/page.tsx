@@ -25,9 +25,9 @@ export default function Home() {
         </div>
         <p className="text-center md:text-left font-light text-md md:px-16">
           We currently have {" "}
-          <b className="font-bold">one opening for a PhD student</b> with good academic record to explore problems in {" "}
+          <b className="font-bold">openings for two PhD students</b> with good academic record to explore problems in {" "}
           <b className="font-bold">
-            geometry, soft-mechanics, robotics, reinforcement learning & control
+            collective robotics & surgical device control
           </b>
           .
         </p>
@@ -59,16 +59,16 @@ export default function Home() {
           </a>
           .
         </p>
-        {/* <div className="relative flex flex-wrap items-center justify-center h-full bg-white ">
+        <div className="relative flex flex-wrap items-center justify-center h-full bg-white ">
           <Image
-            className="relative md:pt-10 xl:pt-20"
-            src="/images/PostdocAdvert.png"
+            className="relative md:pt-10 pl-20 xl:pt-10"
+            src="/images/PhDOpening.jpg"
             alt="Interface lab Logo"
-            width={900}
+            width={700}
             height={100}
             priority
           />
-        </div> */}
+        </div>
       </div>
     </>
   );
