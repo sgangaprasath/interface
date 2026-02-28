@@ -4,23 +4,21 @@ import { Carousel } from "flowbite-react";
 import Image from "next/image";
 
 import Img01 from "@/public/gallery/gingee.jpg";
-import Img02 from "@/public/gallery/cricut.jpg";
 import Img03 from "@/public/gallery/toscanoDinner.jpg";
 import Img04 from "@/public/gallery/SMYIMTalk.jpg";
 import Img05 from "@/public/gallery/Mohan2nd.jpg";
 import Img06 from "@/public/gallery/JayPoster.jpg";
 import Img07 from "@/public/gallery/sampoorna.jpg";
-import Img08 from "@/public/gallery/AkhilBDay.jpg";
 import Img09 from "@/public/gallery/MahaVisit.jpg";
 import Img10 from "@/public/gallery/NarayananVisit.jpeg";
-import Img11 from "@/public/gallery/Ghibli.png";
 import Img12 from "@/public/gallery/ChennaiHalf.jpg";
-import Img13 from "@/public/gallery/IITMRun.jpg";
 import Img14 from "@/public/gallery/RamaVisit.jpg";
+import Img15 from "@/public/gallery/PaperRocket.jpg";
+import Img16 from "@/public/gallery/Beach.jpg";
 export default function Csel() {
   return (
     <Carousel>
-      <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
+      {/* <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
         <Image
           src={Img11}
           width={0}
@@ -30,6 +28,32 @@ export default function Csel() {
         <div className="absolute top-0 px-4 py-2 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-full">
           <h1 className="text-white text-xs">
             Ghibli style image of the INTERFACE lab members
+          </h1>
+        </div>
+      </div> */}
+      <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
+        <Image
+          src={Img16}
+          width={0}
+          height={0}
+          alt={"Frisbee times"}
+        />
+        <div className="absolute top-0 px-4 py-2 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-full">
+          <h1 className="text-white text-xs">
+            Frisbee times in Eliot's beach on 26 Feb, 26
+          </h1>
+        </div>
+      </div>
+      <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
+        <Image
+          src={Img15}
+          width={0}
+          height={0}
+          alt={"Paper rockets"}
+        />
+        <div className="absolute top-0 px-4 py-2 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-full">
+          <h1 className="text-white text-xs">
+            Lab members having fun flying paper rockets at KCB Atrium on 9 Sep, 25
           </h1>
         </div>
       </div>
@@ -46,7 +70,7 @@ export default function Csel() {
           </h1>
         </div>
       </div>
-      <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
+      {/* <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
         <Image
           src={Img13}
           width={0}
@@ -58,7 +82,7 @@ export default function Csel() {
             INTERFACE lab members waking up to finish IIT Madras 5k run on 22 Feb, 25
           </h1>
         </div>
-      </div>
+      </div> */}
       <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
         <Image
           src={Img12}
@@ -95,19 +119,6 @@ export default function Csel() {
         <div className="absolute top-0 px-4 py-2 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-full">
           <h1 className="text-white text-xs">
             Prof. L Mahadevan from Harvard University visits our lab on 28 Dec, 24
-          </h1>
-        </div>
-      </div>
-      <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
-        <Image
-          src={Img08}
-          width={0}
-          height={0}
-          alt={"Akhil Birthday"}
-        />
-        <div className="absolute top-0 px-4 py-2 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-full">
-          <h1 className="text-white text-xs">
-            Akhil's birthday celebrations at CCD on 15 Nov, 24
           </h1>
         </div>
       </div>

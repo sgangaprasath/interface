@@ -125,20 +125,12 @@ const ResearchPage = () => {
           />
           <div className="px-5 py-4">
             <h2 className="font-bold text-2xl mb-1 bg-gradient-to-r from-gray-400 via-gray-700 to-black text-transparent bg-clip-text">
-              Robotics
+              Robotics/Behaviour
             </h2>
             <p className="text-sm text-slate-700 my-1 text-justify">
-              What constitutes as robotics can be a tricky question. As diverse
-              a field as it is, our group is interested in developing platforms
-              where custom-built agents can perceive their environment, make
-              measurements and take actions after integrating and processing the
-              information. The actions that these agents take affect both their
-              response as well as their environment. The agent-environment
-              approach falls under the paradigm of embodiment and we are
-              interested in utilising pattern formation approach to achieve
-              tasks in complex settings. Important questions include, but not
-              limited to, active learning in collectives, morphological
-              intelligence, hierarchical control and so on.
+              Robotic agents sense their environment and respond to cues depending on the encoded rules. Our group is interested in developing platforms
+              where custom-built agents can perform tasks inspired by biological systems. The agent-environment approach, which accounts for the dynamics of both the agent and environment, falls under the paradigm of embodied intelligence and we utilise ideas from pattern formation theory to execute tasks in complex settings. Important questions include, but not
+              limited to, active learning in collectives, morphological intelligence, hierarchical control and so on.
             </p>
             <div className="flex flex-col py-4 gap-2">
               <p className="font-bold">Further reading</p>
@@ -159,12 +151,20 @@ const ResearchPage = () => {
                     Elephants don't play chess
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link
                     href="https://www.jstor.org/stable/pdf/24917274.pdf"
                     className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1      "
                   >
                     Biorobotics
+                  </Link>
+                </li> */}
+                <li>
+                  <Link
+                    href="https://www.jasss.org/4/1/reviews/kluegl.html"
+                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1      "
+                  >
+                    Swarm intelligence
                   </Link>
                 </li>
                 <li>
@@ -202,26 +202,10 @@ const ResearchPage = () => {
           />
           <div className="px-5 py-4">
             <h2 className="font-bold text-2xl mb-1 bg-gradient-to-r from-gray-400 via-gray-700 to-black text-transparent bg-clip-text">
-              Behaviour
+              Scientific ML
             </h2>
             <p className="text-sm text-slate-700 my-1 text-justify">
-              A sequence of actions performed by an individual/animal is termed
-              behaviour. These motor actions often have a cause and effect,
-              often involving decisions made based on available information.
-              Nikolaas Tinbergen, one of the founders of the field of ethology
-              (the study of animal behaviour), classifies levels of analysis of
-              animal behaviour into four categories:
-            </p>
-            <ul className="list-disc px-5">
-              <li>causation</li>
-              <li>evolution/phylogeny</li>
-              <li>adaptation</li>
-              <li>development/ontogeny</li>
-            </ul>
-            <p className="text-sm text-slate-700 text-justify pt-2">
-              We are interested in understanding the decision-making aspect in
-              insects, and how they come up with new strategies to solve a
-              particular problem in novel environments.
+             Machine Learning has become ubiquitous, pervading all areas of research. Our group is interested in understanding the mechanism by which these techniques work and also utilizing them for problems in addressing complex questions in robotics.
             </p>
             <div className="flex flex-col py-4 gap-2">
               <p className="font-bold">Further reading</p>

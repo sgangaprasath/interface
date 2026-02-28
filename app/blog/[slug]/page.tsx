@@ -28,7 +28,7 @@ const PostPage = (props: any) => {
   const slug = props.params.slug;
   const post = getPostContent(slug);
   return (
-    <div className="max-w-5xl">
+    <div className="max-w-5xl mt-20">
       <div className="text-center">
         <h1 className="text-4xl font-bold">{post.data.title}</h1>
         <div className="group container flex flex-row items-center justify-between my-10">
