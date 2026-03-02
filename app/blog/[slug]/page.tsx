@@ -7,13 +7,32 @@ import matter from "gray-matter";
 import getPostMetadata from "@/components/getPostMetadata";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
+import path from "path";
 import "katex/dist/katex.min.css";
 
+// const getPostContent = (slug: string) => {
+//   const folder = "blog/";
+//   const file = `${folder}${slug}.md`;
+//   const content = fs.readFileSync(file, "utf8");
+//   const matterResult = matter(content);
+//   return matterResult;
+// };
+
 const getPostContent = (slug: string) => {
-  const folder = "blog/";
-  const file = `${folder}${slug}.md`;
-  const content = fs.readFileSync(file, "utf8");
-  const matterResult = matter(content);
+  if (!slug) {
+    throw new Error("Slug is undefined in getPostContent()");
+  }
+
+  const postsDirectory = path.join(process.cwd(), "blog");
+  const fullPath = path.join(postsDirectory, `${slug}.md`);
+
+  if (!fs.existsSync(fullPath)) {
+    throw new Error(`Post not found: ${fullPath}`);
+  }
+
+  const fileContents = fs.readFileSync(fullPath, "utf8");
+  const matterResult = matter(fileContents);
+
   return matterResult;
 };
 
@@ -24,13 +43,26 @@ export const generateStaticParams = async () => {
   }));
 };
 
-const PostPage = (props: any) => {
-  const slug = props.params.slug;
-  const post = getPostContent(slug);
+import { notFound } from "next/navigation";
+
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
+
+const PostPage = ({ params }: PageProps) => {
+  if (!params?.slug) {
+    notFound();
+  }
+
+  const post = getPostContent(params.slug);
+
   return (
     <div className="max-w-5xl mt-20">
       <div className="text-center">
         <h1 className="text-4xl font-bold">{post.data.title}</h1>
+
         <div className="group container flex flex-row items-center justify-between my-10">
           <div className="group flex flex-row items-center justify-between gap-4">
             <Image
@@ -41,25 +73,27 @@ const PostPage = (props: any) => {
               className="transform duration-200 rounded-full grayscale group-hover:grayscale-0 hover:scale-125"
             />
             <div className="flex flex-col items-start justify-center">
-              <p className="text-center md:text-left font-semibold text-md">
+              <p className="font-semibold text-md">
                 {post.data.author}
               </p>
-              <p className="text-center md:text-left font-light text-xs text-gray-500 pb-1">
+              <p className="font-light text-xs text-gray-500 pb-1">
                 {post.data.desig}
               </p>
             </div>
           </div>
-          <p className="text-center md:text-left font-medium text-md text-gray-800 pb-1">
+
+          <p className="font-medium text-md text-gray-800 pb-1">
             {post.data.date}
           </p>
         </div>
       </div>
 
       <article className="prose prose-stone max-w-none scroll-smooth dark:prose-invert">
-        <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex ,rehypeRaw]}>
-        {/* <Markdown> */}
+        <ReactMarkdown
+          remarkPlugins={[remarkMath]}
+          rehypePlugins={[rehypeKatex, rehypeRaw]}
+        >
           {post.content}
-        {/* </Markdown> */}
         </ReactMarkdown>
       </article>
     </div>
