@@ -23,9 +23,10 @@
     "headlessui": "^0.0.0",
     "katex": "^0.16.11",
     "markdown-to-jsx": "^7.2.1",
-    "next": "^14.2.5",
-    "nextra": "^2.13.4",
-    "nextra-theme-blog": "^2.13.4",
+    "next": "^16.1.6",
+    "next-mdx-remote": "^6.0.0",
+    "nextra": "^4.6.1",
+    "nextra-theme-blog": "^4.6.1",
     "node": "^22.5.1",
     "postcss": "^8.4.33",
     "react": "^18.3.1",
@@ -39,7 +40,7 @@
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6",
     "uri-js": "^4.2.2",
-    "vercel": "^35.2.1"
+    "vercel": "^50.25.4"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9"
