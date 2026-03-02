@@ -43,17 +43,7 @@ const ResearchPage = () => {
               Soft mechanics
             </h2>
             <p className="text-sm text-slate-700 my-1 text-justify">
-              Materials that can undergo large deformation under small magnitude
-              of force are termed soft. Soft materials are all around us,
-              starting with biological materials such as tissues to macroscopic
-              materials such as polymers. The mechanical response of these
-              materials is often non-linear even when the strains are small.
-              Such a behaviour is the manifestation of the coupling between the
-              geometry and the elastic properties of the material. In our lab we
-              are interested in understanding how and when these materials will
-              undergo instabilities, ways to design them with novel responses
-              and controlling their behaviour for a desired function even under
-              non-linearity.
+              Materials that can undergo large deformation under small magnitude of force are termed soft. Soft materials are all around us, starting with biological materials such as tissues to macroscopic materials such as polymers. In our lab we are understanding how and when materials undergo instabilities, ways to design them with novel responses and controlling their behaviour for a desired function.
             </p>
             <div className="flex flex-col py-4 gap-2">
               <p className="font-bold">Further reading</p>
@@ -128,9 +118,7 @@ const ResearchPage = () => {
               Robotics/Behaviour
             </h2>
             <p className="text-sm text-slate-700 my-1 text-justify">
-              Robotic agents sense their environment and respond to cues depending on the encoded rules. Our group is interested in developing platforms
-              where custom-built agents can perform tasks inspired by biological systems. The agent-environment approach, which accounts for the dynamics of both the agent and environment, falls under the paradigm of embodied intelligence and we utilise ideas from pattern formation theory to execute tasks in complex settings. Important questions include, but not
-              limited to, active learning in collectives, morphological intelligence, hierarchical control and so on.
+              Robots sense their environment and respond to cues depending on the encoded rules to perform a desired task. We develops platforms with custom-built agents that can perform tasks, primarily inspired by insects. We use an agent-environment approach which falls under the paradigm of embodied intelligence and utilise ideas from pattern formation theory to execute tasks in complex settings.
             </p>
             <div className="flex flex-col py-4 gap-2">
               <p className="font-bold">Further reading</p>
@@ -205,41 +193,33 @@ const ResearchPage = () => {
               Scientific ML
             </h2>
             <p className="text-sm text-slate-700 my-1 text-justify">
-             Machine Learning has become ubiquitous, pervading all areas of research. Our group is interested in understanding the mechanism by which these techniques work and also utilizing them for problems in addressing complex questions in robotics.
+             Machine Learning has become ubiquitous, pervading all areas of research. Our group is working on developing a physical understanding of these techniques and also using them for problems in robotics. We are currently working on problems in generative models, Reinforcement Learning and generalization properties of multimodal models.
             </p>
             <div className="flex flex-col py-4 gap-2">
               <p className="font-bold">Further reading</p>
               <ul className="list-none px-2 space-y-3">
                 <li>
                   <Link
-                    href="https://www.reed.edu/biology/courses/BIO342/2015_syllabus/2015_readings/Tinb_1963.pdf"
+                    href="https://physicsbaseddeeplearning.org/physgrad.html"
                     className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1      "
                   >
-                    Aims and methods of Ethology
+                    Physics based ML
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="https://www.jasss.org/4/1/reviews/kluegl.html"
+                    href="https://algorithmsbook.com/"
                     className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1      "
                   >
-                    Swarm intelligence
+                   Algorithms for decision making
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="https://journals.biologists.com/jeb/article/220/1/83/33438/When-social-behaviour-is-moulded-in-clay-on-growth"
+                    href="https://www.inference.org.uk/itprnn/book.pdf"
                     className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1      "
                   >
-                    Social behaviour moulded in clay
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="https://www.academia.edu/50568923/What_are_Social_Insects"
-                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1      "
-                  >
-                    What are social insects?
+                    Information Theory and Learning Algorithms
                   </Link>
                 </li>
               </ul>
