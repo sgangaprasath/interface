@@ -37,8 +37,6 @@ const getPostContent = (slug: string) => {
   return matterResult;
 };
 
-export const dynamicParams = false;
-
 export async function generateStaticParams() {
   const postsDirectory = path.join(process.cwd(), "blog");
 
@@ -65,17 +63,19 @@ export async function generateStaticParams() {
 import { notFound } from "next/navigation";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-const PostPage = ({ params }: PageProps) => {
-  if (!params?.slug) {
+const PostPage = async ({ params }: PageProps) => {
+  const { slug } = await params;
+
+  if (!slug) {
     notFound();
   }
 
-  const post = getPostContent(params.slug);
+  const post = getPostContent(slug);
 
   return (
     <div className="max-w-5xl mt-20">
