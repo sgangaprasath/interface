@@ -5,6 +5,38 @@
     "data": [
       {
         "id": 1,
+        "authors": "Fabio Giardina, Ganga Prasath, S., and Mahadevan, L.",
+        "title": "Collective phototactic robotectonics.",
+        "arxiv": "https://arxiv.org/abs/2208.12373",
+        "website": "",
+        "download": "",
+        "video": "https://www.dropbox.com/scl/fi/frvc9zib3lv20g7khmx71/SummaryVideo.mp4?rlkey=dswzl1co4in8rt9cboo1j5idv&dl=0",
+        "news1": "",
+        "news2": "",
+        "date": "",
+        "image": "",
+        "journal": "PRX Life, 10.1103/cx3h-bwhc.",
+        "tag": "Robotics",
+        "tag2": ""
+      },
+      {
+        "id": 2,
+        "authors": "Ludwig A. Hoffmann, Petur Bryde, Ian C. Davenport, Ganga Prasath, S., Bruce C. Jayne, and Mahadevan, L.",
+        "title": "Postural control in an upright snake.",
+        "arxiv": "https://www.biorxiv.org/content/biorxiv/early/2024/12/17/2024.12.13.628369.full.pdf",
+        "website": "https://royalsocietypublishing.org/rsif/article/23/235/20250314/480507/Postural-control-in-an-upright-snake",
+        "download": "",
+        "video": "",
+        "news1": "",
+        "news2": "",
+        "date": "",
+        "image": "",
+        "journal": "Royal Society Interface, 10.1098/rsif.2025.0314.",
+        "tag": "Behaviour",
+        "tag2": "Control"
+      },
+      {
+        "id": 3,
         "authors": "Mohanraj A and Ganga Prasath, S.",
         "title": "Morphing of and writing with a scissor linkage mechanism.",
         "arxiv": "https://arxiv.org/abs/2602.14958",
@@ -18,7 +50,7 @@
         "journal": "",
         "tag": "Robotics",
         "tag2": "Control"
-      }
+      }      
     ]
   },
   {
@@ -61,28 +93,6 @@
   },
   {
     "id": 2,
-    "year": 2024,
-    "data": [
-      {
-        "id": 1,
-        "authors": "Ludwig A. Hoffmann, Petur Bryde, Ian C. Davenport, Ganga Prasath, S., Bruce C. Jayne, and Mahadevan, L.",
-        "title": "Postural control in an upright snake.",
-        "arxiv": "https://www.biorxiv.org/content/biorxiv/early/2024/12/17/2024.12.13.628369.full.pdf",
-        "website": "",
-        "download": "",
-        "video": "",
-        "news1": "",
-        "news2": "",
-        "date": "",
-        "image": "",
-        "journal": "",
-        "tag": "Behaviour",
-        "tag2": "Control"
-      }
-    ]
-  },
-  {
-    "id": 2,
     "year": 2023,
     "data": [
       {
@@ -115,22 +125,6 @@
         "image": "",
         "journal": "Frontiers in Physics, 10.3389/fphy.2023.1167338",
         "tag": "Hydrodynamics",
-        "tag2": ""
-      },
-      {
-        "id": 3,
-        "authors": "Fabio Giardina, Ganga Prasath, S., and Mahadevan, L.",
-        "title": "Collective phototactic robotectonics.",
-        "arxiv": "https://arxiv.org/abs/2208.12373",
-        "website": "",
-        "download": "",
-        "video": "https://www.dropbox.com/scl/fi/frvc9zib3lv20g7khmx71/SummaryVideo.mp4?rlkey=dswzl1co4in8rt9cboo1j5idv&dl=0",
-        "news1": "",
-        "news2": "",
-        "date": "",
-        "image": "",
-        "journal": "",
-        "tag": "Robotics",
         "tag2": ""
       }
     ]
