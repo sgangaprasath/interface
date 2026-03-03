@@ -1,7 +1,7 @@
 /**
  * @type {import('next').NextConfig}
  */
-// const nextConfig = {
+const nextConfig = {
   // output: 'export',
   // trailingSlash: true,
   // Optional: Add a trailing slash to all paths `/about` -> `/about/`
@@ -21,6 +21,5 @@
   //     delete modularizeImports["@headlessui/react"];
   //   return config;
   // },
-// };
-const nextConfig = {};
+};
 module.exports = nextConfig;
