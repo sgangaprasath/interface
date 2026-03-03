@@ -18,12 +18,13 @@ import "katex/dist/katex.min.css";
 //   return matterResult;
 // };
 
+
 const getPostContent = (slug: string) => {
   if (!slug) {
     throw new Error("Slug is undefined in getPostContent()");
   }
 
-  const postsDirectory = path.join(process.cwd(), "blog");
+  const postsDirectory = path.join(process.cwd(), "blog/");
   const fullPath = path.join(postsDirectory, `${slug}.md`);
 
   if (!fs.existsSync(fullPath)) {
@@ -36,12 +37,19 @@ const getPostContent = (slug: string) => {
   return matterResult;
 };
 
-export const generateStaticParams = async () => {
-  const posts = getPostMetadata();
-  return posts.map((post) => ({
-    slug: post.slug,
+export async function generateStaticParams() {
+  const postsDirectory = path.join(process.cwd(), "blog");
+
+  const filenames = fs.readdirSync(postsDirectory);
+
+  const slugs = filenames
+    .filter((name) => name.endsWith(".md"))
+    .map((name) => name.replace(".md", ""));
+
+  return slugs.map((slug) => ({
+    slug: slug,
   }));
-};
+}
 
 import { notFound } from "next/navigation";
 
