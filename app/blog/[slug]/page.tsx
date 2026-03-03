@@ -37,6 +37,8 @@ const getPostContent = (slug: string) => {
   return matterResult;
 };
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const postsDirectory = path.join(process.cwd(), "blog");
 
