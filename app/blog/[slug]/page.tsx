@@ -42,11 +42,20 @@ export const dynamicParams = false;
 export async function generateStaticParams() {
   const postsDirectory = path.join(process.cwd(), "blog");
 
-  const filenames = fs.readdirSync(postsDirectory);
+  console.log("Looking for posts in:", postsDirectory);
+  console.log("Directory exists?", fs.existsSync(postsDirectory));
+
+  const filenames = fs.existsSync(postsDirectory)
+    ? fs.readdirSync(postsDirectory)
+    : [];
+
+  console.log("Filenames found:", filenames);
 
   const slugs = filenames
     .filter((name) => name.endsWith(".md"))
     .map((name) => name.replace(".md", ""));
+
+  console.log("Slugs generated:", slugs);
 
   return slugs.map((slug) => ({
     slug: slug,
