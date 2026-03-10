@@ -43,5 +43,14 @@
     "date": "18-02-2026",
     "tag": "Control",
     "image":"/images/ScissorMechanism.png"
+  },
+  {
+    "id": 6,
+    "title": "Popup structures",
+    "message": "New article titled \"Geometry and design of popup structures\" is on arXiv.",
+    "link": "https://arxiv.org/pdf/2603.07067",
+    "date": "10-03-2026",
+    "tag": "Geometry",
+    "image":"/images/Popupunit.png"
   }
 ]
