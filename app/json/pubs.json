@@ -6,9 +6,9 @@
       {
         "id": 1,
         "authors": "Fabio Giardina, Ganga Prasath, S., and Mahadevan, L.",
-        "title": "Collective phototactic robotectonics.",
+        "title": "Collective phototactic robotectonics and decentralized construction strategies.",
         "arxiv": "https://arxiv.org/abs/2208.12373",
-        "website": "",
+        "website": "https://doi.org/10.1103/cx3h-bwhc",
         "download": "",
         "video": "https://www.dropbox.com/scl/fi/frvc9zib3lv20g7khmx71/SummaryVideo.mp4?rlkey=dswzl1co4in8rt9cboo1j5idv&dl=0",
         "news1": "",
@@ -27,7 +27,7 @@
         "website": "https://royalsocietypublishing.org/rsif/article/23/235/20250314/480507/Postural-control-in-an-upright-snake",
         "download": "",
         "video": "",
-        "news1": "",
+        "news1": "https://seas.harvard.edu/news/snakes-plane",
         "news2": "",
         "date": "",
         "image": "",
@@ -50,7 +50,23 @@
         "journal": "",
         "tag": "Robotics",
         "tag2": "Control"
-      }      
+      },
+      {
+        "id": 4,
+        "authors": "Jay Jayeshbhai Chavda and Ganga Prasath, S.",
+        "title": "Geometry and design of popup structures.",
+        "arxiv": "https://arxiv.org/abs/2603.07067",
+        "website": "",
+        "download": "",
+        "video": "",
+        "news1": "https://gist.science/paper/2603.07067",
+        "news2": "",
+        "date": "",
+        "image": "",
+        "journal": "",
+        "tag": "Robotics",
+        "tag2": "Control"
+      }
     ]
   },
   {
