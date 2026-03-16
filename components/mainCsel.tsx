@@ -16,7 +16,8 @@ import Img09 from "@/public/images/CoverBB.jpg";
 import Img10 from "@/public/images/Pumping.jpg";
 import Img11 from "@/public/images/CoverString.jpg";
 // import Img09 from "@/public/images/Poster-ethology-site.png";
-import Img12 from "@/public/images/ICTS_School_Banner.png";
+// import Img12 from "@/public/images/ICTS_School_Banner.png";
+import Img13 from "@/public/images/SBP.png";
 
 export default function Cselmain() {
   return (
@@ -83,6 +84,24 @@ export default function Cselmain() {
           />
         </Link>
       </div> */}
+      <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
+        <Link href={"/blog/13-Schrodinger"}>
+          <Image
+            src={Img13}
+            height={0}
+            alt={"Schrodinger Bridge"}
+            objectFit="cover"
+          />
+          <div className="absolute rounded-full top-3 left-4 px-4 py-1 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-auto">
+            <h1 className="text-white text-xs">
+              Bridges between distributions by Ananthanarayanan
+            </h1>
+          </div>
+          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-500 w-auto">
+            <h1 className="text-white text-xs">Blog</h1>
+          </div>
+        </Link>
+      </div>
       <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
         <Link href={"/blog/12-StringArt"}>
           <Image
