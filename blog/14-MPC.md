@@ -60,7 +60,7 @@ economic performance.
 
 <div>
 <div class="flex flex-col justify-center items-center">
-    <img src="/images/MPC_Formulation.pdf" alt="" width="450">
+    <img src="/images/MPC_Formulation.jpeg" alt="" width="600">
 </div>
 </div>
 
