@@ -1,7 +1,7 @@
 ---
 title: "Bridges between distributions"
 subtitle: "A primer on the Schrödinger Bridge Problem with toy examples that inspired the recent class of generative models."
-date: "2025-03-16"
+date: "2026-03-16"
 category: "Primer"
 author: "Ananthanarayanan R"
 desig: "PhD Student"
