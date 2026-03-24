@@ -83,22 +83,43 @@ const PostPage = async ({ params }: PageProps) => {
         <h1 className="text-4xl font-bold">{post.data.title}</h1>
 
         <div className="group container flex flex-row items-center justify-between my-10">
-          <div className="group flex flex-row items-center justify-between gap-4">
-            <Image
-              src={post.data.image}
-              width={45}
-              height={45}
-              alt="Picture of the lab member"
-              className="transform duration-200 rounded-full grayscale group-hover:grayscale-0 hover:scale-125"
-            />
-            <div className="flex flex-col items-start justify-center">
-              <p className="font-semibold text-md">
-                {post.data.author}
-              </p>
-              <p className="font-light text-xs text-gray-500 pb-1">
-                {post.data.desig}
-              </p>
+          <div className="flex flex-row items-center gap-4">
+            <div className="group flex flex-row items-center gap-2">
+              <Image
+                src={post.data.image}
+                width={45}
+                height={45}
+                alt="Picture of the lab member"
+                className="transform duration-200 rounded-full grayscale group-hover:grayscale-0 hover:scale-125"
+              />
+              <div className="flex flex-col items-start justify-center">
+                <p className="font-semibold text-md">
+                  {post.data.author}
+                </p>
+                <p className="font-light text-xs text-gray-500 pb-1">
+                  {post.data.desig}
+                </p>
+              </div>
             </div>
+            {post.data.author2 && post.data.image2 && (
+              <div className="group flex flex-row items-center gap-2">
+                <Image
+                  src={post.data.image2}
+                  width={45}
+                  height={45}
+                  alt="Picture of the second lab member"
+                  className="transform duration-200 rounded-full grayscale group-hover:grayscale-0 hover:scale-125"
+                />
+                <div className="flex flex-col items-start justify-center">
+                  <p className="font-semibold text-md">
+                    {post.data.author2}
+                  </p>
+                  <p className="font-light text-xs text-gray-500 pb-1">
+                    {post.data.desig2}
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
 
           <p className="font-medium text-md text-gray-800 pb-1">
