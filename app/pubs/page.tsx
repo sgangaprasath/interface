@@ -166,6 +166,21 @@ const DataLst = ({data}: any) => (
               />
             </Link>
           )}
+          {data.news2 !== "" && (
+            <Link
+              className="opacity-50 hover:opacity-100"
+              href={data.news2}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src={"/images/news.svg"}
+                width={15}
+                height={15}
+                alt="URL"
+              />
+            </Link>
+          )}
         </div>
         {/* Tags */}
         <div className="flex flex-row items-start justify-start gap-1">
