@@ -43,7 +43,7 @@ const ResearchPage = () => {
               Soft mechanics
             </h2>
             <p className="text-sm text-slate-700 my-1 text-justify">
-              Materials that can undergo large deformation under small magnitude of force are termed soft. Soft materials are all around us, starting with biological materials such as tissues to macroscopic materials such as polymers. In our lab we are understanding how and when materials undergo instabilities, ways to design them with novel responses and controlling their behaviour for a desired function.
+              Materials that can undergo large deformation under small magnitude of force are termed soft. Soft materials are all around us, starting with biological materials such as tissues to macroscopic materials such as polymers. In our lab we are understanding how and when materials undergo instabilities, ways to design them with novel responses and controlling their behaviour for a desired function using optimisation techniques.
             </p>
             <div className="flex flex-col py-4 gap-2">
               <p className="font-bold">Further reading</p>
@@ -115,10 +115,10 @@ const ResearchPage = () => {
           />
           <div className="px-5 py-4">
             <h2 className="font-bold text-2xl mb-1 bg-gradient-to-r from-gray-400 via-gray-700 to-black text-transparent bg-clip-text">
-              Robotics/Behaviour
+              Robotics & Control
             </h2>
             <p className="text-sm text-slate-700 my-1 text-justify">
-              Robots sense their environment and respond to cues depending on the encoded rules to perform a desired task. We develops platforms with custom-built agents that can perform tasks, primarily inspired by insects. We use an agent-environment approach which falls under the paradigm of embodied intelligence and utilise ideas from pattern formation theory to execute tasks in complex settings.
+              Robots sense their environment and respond to cues depending on the encoded rules to perform a desired task.  We use an agent-environment approach which falls under the paradigm of embodied intelligence and utilise ideas from pattern formation theory to execute tasks in complex settings. In parallel we use modern control theoretic and machine learning approaches to design rules for the agents to perform these tasks.
             </p>
             <div className="flex flex-col py-4 gap-2">
               <p className="font-bold">Further reading</p>
@@ -181,7 +181,7 @@ const ResearchPage = () => {
         {/* Third topic */}
         <div className="group flex flex-col items-start justify-start w-full h-auto bg-white rounded-lg border border-gray-200 transition-colors">
           <Image
-            src="/images/ants.jpeg"
+            src="/images/landscape.jpeg"
             width="0"
             height="0"
             alt="News blurb image"
@@ -190,10 +190,10 @@ const ResearchPage = () => {
           />
           <div className="px-5 py-4">
             <h2 className="font-bold text-2xl mb-1 bg-gradient-to-r from-gray-400 via-gray-700 to-black text-transparent bg-clip-text">
-              Scientific ML
+              AI & Scientific ML
             </h2>
             <p className="text-sm text-slate-700 my-1 text-justify">
-             Machine Learning has become ubiquitous, pervading all areas of research. Our group is working on developing a physical understanding of these techniques and also using them for problems in robotics. We are currently working on problems in generative models, Reinforcement Learning and generalization properties of multimodal models.
+             Machine Learning has become ubiquitous, pervading all areas of research. However a fundamental understanding on why they perform the way they do is an ongoing challenge. Our group is working on developing a physical understanding of these techniques using techniques from statistical mechanics and optimal control theory. We are currently working on problems in generative models, Reinforcement Learning and generalization of multimodal models.
             </p>
             <div className="flex flex-col py-4 gap-2">
               <p className="font-bold">Further reading</p>
@@ -222,17 +222,25 @@ const ResearchPage = () => {
                     Information Theory and Learning Algorithms
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href="https://neurophysics.ucsd.edu/courses/physics_171/Sompolinsky_PhysicsToday.pdf"
+                    className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-md rounded-full text-xs px-2 py-1      "
+                  >
+                    Statistical Mechanics of Neural Networks
+                  </Link>
+                </li>
               </ul>
             </div>
             <div className="flex flex-row gap-4">
               <p className="px-2 bg-sky-200 w-fit rounded-full text-[10px] font-normal text-sky-600">
-                Cooperation
+                ML
               </p>
               <p className="px-2 bg-sky-200 w-fit rounded-full text-[10px] font-normal text-sky-600">
-                Decision-making
+                Statistical Physics
               </p>
               <p className="px-2 bg-sky-200 w-fit rounded-full text-[10px] font-normal text-sky-600">
-                Navigation
+                Optimisation
               </p>
             </div>
           </div>
