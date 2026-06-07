@@ -106,106 +106,134 @@ const navItems: NavItem[] = [
 // }
 
 export default function Navbar() {
+  const [isMobileOpen, setMobileOpen] = useState(false);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-end px-8 py-4 text-sm">
-        <div className="hidden md:flex items-center gap-1">
-          {navItems.map((d, i) => (
-            <div key={i} className="relative group">
-              <Link
-                href={d.link ?? "#"}
-                className="flex items-center gap-1 px-3 py-2 rounded-md text-neutral-400 hover:text-black hover:bg-gray-50 transition-all"
-              >
-                <span>{d.label}</span>
+    <>
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-end px-8 py-4 text-sm">
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-1">
+            {navItems.map((d, i) => (
+              <div key={i} className="relative group">
+                <Link
+                  href={d.link ?? "#"}
+                  className="flex items-center gap-1 px-3 py-2 rounded-md text-neutral-400 hover:text-black hover:bg-gray-50 transition-all"
+                >
+                  <span>{d.label}</span>
+                  {d.children && (
+                    <IoIosArrowDown className="text-xs rotate-180 transition-all group-hover:rotate-0" />
+                  )}
+                </Link>
                 {d.children && (
-                  <IoIosArrowDown className="text-xs rotate-180 transition-all group-hover:rotate-0" />
+                  <div className="absolute right-0 top-full mt-1 hidden w-auto flex-col gap-0.5 rounded-lg bg-white border border-gray-100 py-2 shadow-lg transition-all group-hover:flex">
+                    {d.children.map((ch, j) => (
+                      <Link
+                        key={j}
+                        href={ch.link ?? "#"}
+                        className="flex items-center px-4 py-2 text-neutral-400 hover:text-black hover:bg-gray-50 whitespace-nowrap"
+                      >
+                        {ch.label}
+                      </Link>
+                    ))}
+                  </div>
                 )}
-              </Link>
-              {/* dropdown */}
-              {d.children && (
-                <div className="absolute right-0 top-full mt-1 hidden w-auto flex-col gap-0.5 rounded-lg bg-white border border-gray-100 py-2 shadow-lg transition-all group-hover:flex">
-                  {d.children.map((ch, j) => (
-                    <Link
-                      key={j}
-                      href={ch.link ?? "#"}
-                      className="flex items-center px-4 py-2 text-neutral-400 hover:text-black hover:bg-gray-50 whitespace-nowrap"
-                    >
-                      {ch.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
+              </div>
+            ))}
+          </div>
+
+          {/* Hamburger button — mobile only */}
+          <button
+            className="md:hidden flex flex-col gap-1.5 p-2 rounded-md text-neutral-400 hover:text-black hover:bg-gray-50 transition-all"
+            onClick={() => setMobileOpen(true)}
+            aria-label="Open menu"
+          >
+            <span className="block w-5 h-0.5 bg-current" />
+            <span className="block w-5 h-0.5 bg-current" />
+            <span className="block w-5 h-0.5 bg-current" />
+          </button>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      {/* Mobile slide-in menu */}
+      {isMobileOpen && (
+        <MobileNav closeSideMenu={() => setMobileOpen(false)} />
+      )}
+    </>
   );
 }
 
 function MobileNav({ closeSideMenu }: { closeSideMenu: () => void }) {
   return (
-    <div className="fixed left-0 top-0 flex h-full min-h-screen w-full justify-end bg-black/60 md:hidden">
-      <div className=" h-full w-[65%] bg-white px-4 py-4">
-        <div className=" flex flex-col text-base  gap-2 transition-all">
-          {navItems.map((d, i) => (
-            <SingleNavItem key={i} label={d.label} link={d.link}>
-              {d.children}
-            </SingleNavItem>
-          ))}
-        </div>
+    <div
+      className="fixed inset-0 z-50 flex justify-end bg-black/40 md:hidden"
+      onClick={closeSideMenu}
+    >
+      <div
+        className="h-full w-[70%] max-w-xs bg-white px-5 py-6 flex flex-col gap-1 shadow-xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Close button */}
+        <button
+          className="self-end mb-4 p-1 text-neutral-400 hover:text-black transition-colors"
+          onClick={closeSideMenu}
+          aria-label="Close menu"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
 
-        <section className="  flex flex-col gap-8 mt-4 items-center">
-          <button className="h-fit text-neutral-400 transition-all hover:text-black/90">
-            Login
-          </button>
-
-          <button className="w-full max-w-[200px] rounded-xl border-2 border-neutral-400 px-4 py-2 text-neutral-400 transition-all hover:border-black hover:text-black/90">
-            Register
-          </button>
-        </section>
+        {navItems.map((d, i) => (
+          <SingleNavItem key={i} label={d.label} link={d.link} closeSideMenu={closeSideMenu}>
+            {d.children}
+          </SingleNavItem>
+        ))}
       </div>
     </div>
   );
 }
 
-function SingleNavItem(d: NavItem) {
+function SingleNavItem(d: NavItem & { closeSideMenu: () => void }) {
   const [isItemOpen, setItem] = useState(false);
 
-  function toggleItem() {
-    return setItem(!isItemOpen);
+  if (d.children) {
+    return (
+      <div className="flex flex-col">
+        <button
+          onClick={() => setItem(!isItemOpen)}
+          className="flex items-center justify-between px-2 py-3 text-neutral-400 hover:text-black transition-colors"
+        >
+          <span>{d.label}</span>
+          <IoIosArrowDown
+            className={`text-xs transition-all ${isItemOpen ? "rotate-180" : ""}`}
+          />
+        </button>
+        {isItemOpen && (
+          <div className="flex flex-col pl-4 border-l border-gray-100 ml-2 mb-1">
+            {d.children.map((ch, i) => (
+              <Link
+                key={i}
+                href={ch.link ?? "#"}
+                onClick={d.closeSideMenu}
+                className="py-2 px-2 text-sm text-neutral-400 hover:text-black transition-colors"
+              >
+                {ch.label}
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+    );
   }
 
   return (
     <Link
-      onClick={toggleItem}
       href={d.link ?? "#"}
-      className="relative   px-2 py-3 transition-all "
+      onClick={d.closeSideMenu}
+      className="px-2 py-3 text-neutral-400 hover:text-black transition-colors"
     >
-      <p className="flex cursor-pointer items-center gap-2 text-neutral-400 group-hover:text-black ">
-        <span>{d.label}</span>
-        {d.children && (
-          <IoIosArrowDown
-            className={`text-xs transition-all  ${isItemOpen && " rotate-180"}`}
-          />
-        )}
-      </p>
-
-      {/* dropdown */}
-      {isItemOpen && d.children && (
-        <div className="flex flex-col gap-1 rounded-lg bg-white py-3 w-auto transition-all">
-          {d.children.map((ch, i) => (
-            <Link
-              key={i}
-              href={ch.link ?? "#"}
-              className="flex cursor-pointer items-center py-1 pl-6 pr-8 text-neutral-400 hover:text-black  "
-            >
-              {/* item */}
-              <span className="whitespace-nowrap pl-3 ">{ch.label}</span>
-            </Link>
-          ))}
-        </div>
-      )}
+      {d.label}
     </Link>
   );
 }
