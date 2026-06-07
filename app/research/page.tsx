@@ -5,7 +5,7 @@ import Image from "next/image";
 const ResearchPage = () => {
   return (
     <>
-      <div className="flex flex-col items-center justify-between gap-10 max-w-5xl pt-20 pb-10">
+      <div className="flex flex-col items-center justify-between gap-10 max-w-5xl pt-10 pb-10">
         <h1 className="flex flex-row items-center justify-center p-2 text-4xl">
           <div className="opacity-100">
             <svg
@@ -90,16 +90,10 @@ const ResearchPage = () => {
                 </li> */}
               </ul>
             </div>
-            <div className="flex flex-row gap-4">
-              <p className="px-2 bg-lime-200 w-fit rounded-full text-[10px] font-normal text-lime-600">
-                Materials
-              </p>
-              <p className="px-2 bg-lime-200 w-fit rounded-full text-[10px] font-normal text-lime-600">
-                Instability
-              </p>
-              <p className="px-2 bg-lime-200 w-fit rounded-full text-[10px] font-normal text-lime-600">
-                Control
-              </p>
+            <div className="flex flex-row gap-2 flex-wrap">
+              <p className="px-2 bg-lime-100 w-fit rounded-full text-[10px] font-normal text-lime-700 border border-lime-200">Materials</p>
+              <p className="px-2 bg-lime-100 w-fit rounded-full text-[10px] font-normal text-lime-700 border border-lime-200">Instability</p>
+              <p className="px-2 bg-lime-100 w-fit rounded-full text-[10px] font-normal text-lime-700 border border-lime-200">Control</p>
             </div>
           </div>
         </div>
@@ -165,16 +159,10 @@ const ResearchPage = () => {
                 </li>
               </ul>
             </div>
-            <div className="flex flex-row gap-4">
-              <p className="px-2 bg-amber-200 w-fit rounded-full text-[10px] font-normal text-amber-600">
-                Pattern formation
-              </p>
-              <p className="px-2 bg-amber-200 w-fit rounded-full text-[10px] font-normal text-amber-600">
-                Learning
-              </p>
-              <p className="px-2 bg-amber-200 w-fit rounded-full text-[10px] font-normal text-amber-600">
-                Bio-robotics
-              </p>
+            <div className="flex flex-row gap-2 flex-wrap">
+              <p className="px-2 bg-violet-100 w-fit rounded-full text-[10px] font-normal text-violet-600 border border-violet-200">Pattern formation</p>
+              <p className="px-2 bg-violet-100 w-fit rounded-full text-[10px] font-normal text-violet-600 border border-violet-200">Learning</p>
+              <p className="px-2 bg-violet-100 w-fit rounded-full text-[10px] font-normal text-violet-600 border border-violet-200">Bio-robotics</p>
             </div>
           </div>
         </div>
@@ -232,16 +220,10 @@ const ResearchPage = () => {
                 </li>
               </ul>
             </div>
-            <div className="flex flex-row gap-4">
-              <p className="px-2 bg-sky-200 w-fit rounded-full text-[10px] font-normal text-sky-600">
-                ML
-              </p>
-              <p className="px-2 bg-sky-200 w-fit rounded-full text-[10px] font-normal text-sky-600">
-                Statistical Physics
-              </p>
-              <p className="px-2 bg-sky-200 w-fit rounded-full text-[10px] font-normal text-sky-600">
-                Optimisation
-              </p>
+            <div className="flex flex-row gap-2 flex-wrap">
+              <p className="px-2 bg-sky-100 w-fit rounded-full text-[10px] font-normal text-sky-600 border border-sky-200">ML</p>
+              <p className="px-2 bg-sky-100 w-fit rounded-full text-[10px] font-normal text-sky-600 border border-sky-200">Statistical Physics</p>
+              <p className="px-2 bg-sky-100 w-fit rounded-full text-[10px] font-normal text-sky-600 border border-sky-200">Optimisation</p>
             </div>
           </div>
         </div>

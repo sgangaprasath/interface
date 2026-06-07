@@ -97,8 +97,8 @@ export default function Cselmain() {
               Bridges between distributions by Ananthanarayanan
             </h1>
           </div>
-          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-500 w-auto">
-            <h1 className="text-white text-xs">Blog</h1>
+          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-100 border border-rose-200 w-auto">
+            <h1 className="text-rose-600 text-xs font-medium">Blog</h1>
           </div>
         </Link>
       </div>
@@ -115,8 +115,8 @@ export default function Cselmain() {
               Geometry of string art by Jay Chavda
             </h1>
           </div>
-          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-500 w-auto">
-            <h1 className="text-white text-xs">Blog</h1>
+          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-100 border border-rose-200 w-auto">
+            <h1 className="text-rose-600 text-xs font-medium">Blog</h1>
           </div>
         </Link>
       </div>
@@ -133,8 +133,8 @@ export default function Cselmain() {
               How to be a pro skateboarder by Mohanraj
             </h1>
           </div>
-          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-500 w-auto">
-            <h1 className="text-white text-xs">Blog</h1>
+          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-100 border border-rose-200 w-auto">
+            <h1 className="text-rose-600 text-xs font-medium">Blog</h1>
           </div>
         </Link>
       </div>
@@ -151,8 +151,8 @@ export default function Cselmain() {
               Bang-bang control by Vishnu Mishra
             </h1>
           </div>
-          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-500 w-auto">
-            <h1 className="text-white text-xs">Blog</h1>
+          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-100 border border-rose-200 w-auto">
+            <h1 className="text-rose-600 text-xs font-medium">Blog</h1>
           </div>
         </Link>
       </div> */}
@@ -169,8 +169,8 @@ export default function Cselmain() {
               Kempe's Universality Theorem by Mohanraj
             </h1>
           </div>
-          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-500 w-auto">
-            <h1 className="text-white text-xs">Blog</h1>
+          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-100 border border-rose-200 w-auto">
+            <h1 className="text-rose-600 text-xs font-medium">Blog</h1>
           </div>
         </Link>
       </div> */}
@@ -187,8 +187,8 @@ export default function Cselmain() {
               Symmetry in nature, science and engineering by Vishnu Mishra
             </h1>
           </div>
-          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-500 w-auto">
-            <h1 className="text-white text-xs">Blog</h1>
+          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-100 border border-rose-200 w-auto">
+            <h1 className="text-rose-600 text-xs font-medium">Blog</h1>
           </div>
         </Link>
       </div> */}
@@ -205,8 +205,8 @@ export default function Cselmain() {
               Omnipresence of geometry in CG by Jay Chavda
             </h1>
           </div>
-          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-500 w-auto">
-            <h1 className="text-white text-xs">Blog</h1>
+          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-100 border border-rose-200 w-auto">
+            <h1 className="text-rose-600 text-xs font-medium">Blog</h1>
           </div>
         </Link>
       </div> */}
@@ -222,8 +222,8 @@ export default function Cselmain() {
               All about rotations by Mohanraj
             </h1>
           </div>
-          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-sky-400 w-auto">
-            <h1 className="text-white text-xs">Tutorial</h1>
+          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-violet-100 border border-violet-200 w-auto">
+            <h1 className="text-violet-600 text-xs font-medium">Tutorial</h1>
           </div>
         </Link>
       </div> */}
@@ -240,8 +240,8 @@ export default function Cselmain() {
               Precision crafting with Cricut Maker 3 by Jay Chavda
             </h1>
           </div>
-          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-500 w-auto">
-            <h1 className="text-white text-xs">Blog</h1>
+          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-100 border border-rose-200 w-auto">
+            <h1 className="text-rose-600 text-xs font-medium">Blog</h1>
           </div>
         </Link>
       </div> */}
@@ -259,8 +259,8 @@ export default function Cselmain() {
               Art of scientific visualization - Part 1
             </h1>
           </div>
-          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-500 w-auto">
-            <h1 className="text-white text-xs">Blog</h1>
+          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-rose-100 border border-rose-200 w-auto">
+            <h1 className="text-rose-600 text-xs font-medium">Blog</h1>
           </div>
         </Link>
       </div>

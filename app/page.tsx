@@ -4,10 +4,10 @@ import Cselmain from "@/components/mainCsel";
 export default function Home() {
   return (
     <>
-      <div className="relative flex flex-col items-center justify-between pt-4 gap-10">
+      <div className="relative flex flex-col items-center justify-between pt-10 gap-10">
         {/* Carousel */}
         {/* <div className="grid grid-cols-1 items-center justify-center xl:w-auto"> */}
-          <div className="h-10 sm:h-[100px] md:h-[300px] xl:h-[420px] w-20 sm:w-[100px] md:w-[700px] xl:w-[1000px] mt-20">
+          <div className="h-10 sm:h-[100px] md:h-[300px] xl:h-[420px] w-20 sm:w-[100px] md:w-[700px] xl:w-[1000px]">
             <Cselmain />
           </div>
         {/* </div> */}

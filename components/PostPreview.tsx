@@ -2,7 +2,17 @@ import Link from "next/link";
 import { PostMetadata } from "./PostMetadata";
 import Image from "next/image";
 
+const categoryColors: Record<string, string> = {
+  Tutorial: "bg-violet-100 text-violet-600 border border-violet-200",
+  Primer:   "bg-emerald-100 text-emerald-600 border border-emerald-200",
+  Blog:     "bg-sky-100 text-sky-600 border border-sky-200",
+  Rant:     "bg-rose-100 text-rose-600 border border-rose-200",
+};
+
+const defaultColor = "bg-gray-100 text-gray-500 border border-gray-200";
+
 const PostPreview = (props: PostMetadata) => {
+  const tagStyle = categoryColors[props.category] ?? defaultColor;
   return (
     <Link
       href={`/blog/${props.slug}`}
@@ -10,7 +20,7 @@ const PostPreview = (props: PostMetadata) => {
     >
       <div className="flex flex-row w-full items-center justify-between mb-1">
         <p className="text-xs text-gray-400">{props.date}</p>
-        <div className="px-2 bg-sky-200 rounded-full text-[10px] font-normal text-sky-600">
+        <div className={`px-2 rounded-full text-[10px] font-normal ${tagStyle}`}>
           {props.category}
         </div>
       </div>

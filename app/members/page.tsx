@@ -27,22 +27,22 @@ const getMemContent = (): MembersMetaData[] => {
 
 const MemPreview = (props: MembersMetaData) => {
   return (
-    <div className="group container flex flex-row items-center justify-start gap-4">
+    <div className="group container flex flex-col items-center justify-start gap-3">
       <Image
         src={props.image}
-        width={45}
-        height={45}
+        width={80}
+        height={80}
         alt="Picture of the lab member"
-        className="transform duration-200 rounded-full grayscale group-hover:grayscale-0 hover:scale-125"
+        className="transform duration-200 rounded-full grayscale group-hover:grayscale-0 group-hover:scale-110"
       />
-      <div className="flex flex-col items-start justify-center">
-        <p className="text-center md:text-left font-semibold text-md">
+      <div className="flex flex-col items-center justify-center">
+        <p className="text-center font-semibold text-base">
           {props.name}
         </p>
-        <p className="text-center md:text-left font-light text-xs text-gray-500 pb-1">
+        <p className="text-center font-light text-sm text-gray-500 pb-1">
           {props.title}
         </p>
-        <div className="flex flex-row items-start justify-center gap-2">
+        <div className="flex flex-row items-center justify-center gap-2">
           {props.twitter !== "" && (
             <Link
               className="opacity-50 hover:opacity-100"
@@ -71,8 +71,8 @@ const MemPreview = (props: MembersMetaData) => {
           >
             <Image
               src={"/images/email.svg"}
-              width={15}
-              height={15}
+              width={18}
+              height={18}
               alt="Email for correspondence"
             />
           </Link>
@@ -85,8 +85,8 @@ const MemPreview = (props: MembersMetaData) => {
             >
               <Image
                 src={"/images/webpage.svg"}
-                width={15}
-                height={15}
+                width={18}
+                height={18}
                 alt="Personal webpage"
               />
             </Link>
@@ -100,9 +100,9 @@ const MemPreview = (props: MembersMetaData) => {
             >
               <Image
                 src={"/images/cv.svg"}
-                width={15}
-                height={15}
-                alt="Personal webpage"
+                width={18}
+                height={18}
+                alt="CV"
               />
             </Link>
           )}
@@ -126,7 +126,7 @@ const MembersPage = () => {
   ));
   return (
     <div className="flex flex-col items-center md:items-start justify-center max-w-4xl md:ml-20">
-      <div className="flex flex-col items-center md:items-start justify-center gap-4 w-full mt-20 mb-10">
+      <div className="flex flex-col items-center md:items-start justify-center gap-4 w-full mt-10 mb-10">
         <div className="flex flex-col md:flex-row items-center justify-start gap-2">
           <div className="p-3 bg-white border border-gray-300 rounded-full opacity-60">
             <svg
@@ -147,7 +147,7 @@ const MembersPage = () => {
           <p className="font-bold text-lg px-4">Current Members</p>
         </div>
       </div>
-      <section className="grid grid-cols-1 gap-10 md:gap-10 lg:gap-20 mb-10 px-10 lg:px-14 text-sm md:grid-cols-3 max-w-4xl">
+      <section className="grid grid-cols-2 gap-10 mb-10 px-10 lg:px-14 text-sm md:grid-cols-4 max-w-4xl">
         {memPreviews}
       </section>
       {/* <div className="flex flex-col items-center md:items-start justify-center gap-4 w-full mt-20 mb-10">

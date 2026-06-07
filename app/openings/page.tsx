@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-      <div className="flex flex-col items-center md:items-start justify-center gap-4 w-full max-w-4xl mt-20 mb-10 md:ml-20 md:gap-4">
+      <div className="flex flex-col items-center md:items-start justify-center gap-4 w-full max-w-4xl mt-10 mb-10 md:ml-20 md:gap-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-2">
           <div className="p-3 bg-white border border-gray-300 rounded-full opacity-60 ">
             <svg

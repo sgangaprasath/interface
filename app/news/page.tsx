@@ -24,7 +24,17 @@ const getNewsContent = (): NewsMetaData[] => {
   return jsonData;
 };
 
+const tagColors: Record<string, string> = {
+  Behaviour: "bg-sky-100 text-sky-600 border border-sky-200",
+  Control:   "bg-rose-100 text-rose-600 border border-rose-200",
+  Geometry:  "bg-emerald-100 text-emerald-600 border border-emerald-200",
+  Robotics:  "bg-violet-100 text-violet-600 border border-violet-200",
+};
+
+const defaultTagColor = "bg-gray-100 text-gray-500 border border-gray-200";
+
 const NewsPreview = (props: NewsMetaData) => {
+  const tagStyle = tagColors[props.tag] ?? defaultTagColor;
   return (
     <Link
       href={props.link}
@@ -43,20 +53,10 @@ const NewsPreview = (props: NewsMetaData) => {
         <div className="px-5 py-4">
           <div className="flex flex-row w-full items-center justify-between mb-1">
             <p className="text-xs text-gray-400">{props.date}</p>
-            {props.tag == "Behaviour" && (
-            <div className="px-2 bg-sky-200 rounded-full text-[10px] font-normal text-sky-600">
-              {props.tag}
-            </div>
-            )}
-            {props.tag == "Control" && (
-            <div className="px-2 bg-red-200 rounded-full text-[10px] font-normal text-red-600">
-              {props.tag}
-            </div>
-            )}
-            {props.tag == "Geometry" && (
-            <div className="px-2 bg-green-200 rounded-full text-[10px] font-normal text-green-600">
-              {props.tag}
-            </div>
+            {props.tag && (
+              <div className={`px-2 rounded-full text-[10px] font-normal ${tagStyle}`}>
+                {props.tag}
+              </div>
             )}
           </div>
           <h2 className="font-bold text-2xl mb-1 bg-gradient-to-r from-gray-400 via-gray-700 to-black text-transparent bg-clip-text">
@@ -84,7 +84,7 @@ const NewsPage = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-between gap-10 max-w-5xl pt-20 pb-10">
+      <div className="flex flex-col items-center justify-between gap-10 max-w-5xl pt-10 pb-10">
         <h1 className="flex flex-row items-center justify-center p-2 text-4xl">
           <div className="opacity-100">
             <svg

@@ -61,6 +61,8 @@ export async function generateStaticParams() {
 }
 
 import { notFound } from "next/navigation";
+import GoToTop from "@/components/GoToTop";
+import PostNav from "@/components/PostNav";
 
 interface PageProps {
   params: Promise<{
@@ -76,6 +78,11 @@ const PostPage = async ({ params }: PageProps) => {
   }
 
   const post = getPostContent(slug);
+
+  const allPosts = getPostMetadata();
+  const currentIndex = allPosts.findIndex((p) => p.slug === slug);
+  const prev = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
+  const next = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
 
   return (
     <div className="max-w-5xl mt-20">
@@ -136,6 +143,10 @@ const PostPage = async ({ params }: PageProps) => {
           {post.content}
         </ReactMarkdown>
       </article>
+      <div className="flex items-end justify-between mt-16 mb-4">
+        <PostNav prev={prev} next={next} />
+        <GoToTop />
+      </div>
     </div>
   );
 };

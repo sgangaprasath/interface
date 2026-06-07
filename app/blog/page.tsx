@@ -8,7 +8,7 @@ const HomePage = () => {
   ));
 
   return (
-    <div className="flex flex-col items-center justify-between gap-10 max-w-5xl py-20">
+    <div className="flex flex-col items-center justify-between gap-10 max-w-5xl pt-10 pb-20">
       <h1 className="flex flex-row items-center justify-center p-2 text-4xl">
         <div className="opacity-100">
           <svg

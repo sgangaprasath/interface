@@ -1,11 +1,11 @@
 [
   {
-    "id": 4,
+    "id": 10,
     "year": 2026,
     "data": [
       {
         "id": 1,
-        "authors": "Fabio Giardina, Ganga Prasath, S., and Mahadevan, L.",
+        "authors": "Fabio Giardina*, Ganga Prasath, S.*, and Mahadevan, L.",
         "title": "Robotectonics: Emergent Phototactic Aggregation-Disaggregation in Swarms.",
         "arxiv": "https://arxiv.org/abs/2208.12373",
         "website": "https://journals.aps.org/prxlife/abstract/10.1103/cx3h-bwhc",
@@ -47,7 +47,7 @@
         "news2": "",
         "date": "",
         "image": "",
-        "journal": "",
+        "journal": "arXiv, 10.48550/arXiv.2602.14958.",
         "tag": "Robotics",
         "tag2": "Control"
       },
@@ -63,14 +63,14 @@
         "news2": "",
         "date": "",
         "image": "",
-        "journal": "",
-        "tag": "Robotics",
+        "journal": "arXiv, 10.48550/arXiv.2603.07067.",
+        "tag": "Geometry",
         "tag2": "Control"
       }
     ]
   },
   {
-    "id": 3,
+    "id": 9,
     "year": 2025,
     "data": [
       {
@@ -85,13 +85,13 @@
         "news2": "",
         "date": "",
         "image": "",
-        "journal": "",
+        "journal": "arXiv, 10.48550/arXiv.2509.17572.",
         "tag": "Robotics",
         "tag2": "Behaviour"
       },
       {
         "id": 2,
-        "authors": "Siheng Chen, Ganga Prasath, S., and Mahadevan, L.",
+        "authors": "Siheng Chen*, Ganga Prasath, S.*, and Mahadevan, L.",
         "title": "Speed-accuracy trade-offs in Roulette betting.",
         "arxiv": "https://www.biorxiv.org/content/biorxiv/early/2025/03/05/2025.03.04.641449.full.pdf",
         "website": "",
@@ -101,23 +101,23 @@
         "news2": "",
         "date": "",
         "image": "",
-        "journal": "",
+        "journal": "bioRxiv, 10.1101/2025.03.04.641449.",
         "tag": "Behaviour",
         "tag2": ""
       }
     ]
   },
   {
-    "id": 2,
+    "id": 8,
     "year": 2023,
     "data": [
       {
         "id": 1,
         "authors": "Ganga Prasath, S., and Vishaal Krishnan.",
         "title": "Revisiting linear filtering, the Bayesian paradigm & optimal state estimation: From least-squares to Kalman filter.",
-        "arxiv": "https://github.com/sgangaprasath/Publications/raw/master/KFTutorial.pdf",
+        "arxiv": "",
         "website": "",
-        "download": "",
+        "download": "https://github.com/sgangaprasath/Publications/raw/master/KFTutorial.pdf",
         "video": "",
         "news1": "",
         "news2": "",
@@ -129,7 +129,7 @@
       },
       {
         "id": 2,
-        "authors": "Divya Jaganathan, Ganga Prasath, S., Vishal Vasan and Rama Govindarajan. ",
+        "authors": "Divya Jaganathan, Ganga Prasath, S., Vishal Vasan and Rama Govindarajan.",
         "title": "The Basset-Boussinesq history force: its neglect, validity and recent numerical developments.",
         "arxiv": "",
         "website": "https://www.frontiersin.org/articles/10.3389/fphy.2023.1167338",
@@ -139,7 +139,196 @@
         "news2": "",
         "date": "",
         "image": "",
-        "journal": "Frontiers in Physics, 10.3389/fphy.2023.1167338",
+        "journal": "Frontiers in Physics, 10.3389/fphy.2023.1167338.",
+        "tag": "Hydrodynamics",
+        "tag2": ""
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "year": 2022,
+    "data": [
+      {
+        "id": 1,
+        "authors": "Ganga Prasath, S.*, Souvik Mandal*, Fabio Giardina*, Jordan Kennedy, Venkatesh Murthy, and Mahadevan, L.",
+        "title": "Dynamics of cooperative excavation in ants and robots.",
+        "arxiv": "https://www.biorxiv.org/content/10.1101/2021.07.12.451633v1",
+        "website": "https://elifesciences.org/articles/79638",
+        "download": "",
+        "video": "",
+        "news1": "https://www.mcb.harvard.edu/department/news/learning-the-rules-of-cooperation-from-ants-to-make-collaborative-robots/",
+        "news2": "https://seas.harvard.edu/news/2022/12/physical-intelligence-ant-and-robot-collectives",
+        "date": "",
+        "image": "",
+        "journal": "eLife, 10.7554/eLife.79638.",
+        "tag": "Robotics",
+        "tag2": "Behaviour"
+      },
+      {
+        "id": 2,
+        "authors": "Ganga Prasath, S., and Mahadevan, L.",
+        "title": "Rheomergy: Collective behavior mediated by active flow-based recruitment.",
+        "arxiv": "https://arxiv.org/abs/2202.11654",
+        "website": "https://royalsocietypublishing.org/doi/10.1098/rspa.2022.0470",
+        "download": "",
+        "video": "",
+        "news1": "",
+        "news2": "",
+        "date": "",
+        "image": "",
+        "journal": "Proc. Roy. Soc. A., 10.1098/rspa.2022.0470.",
+        "tag": "Behaviour",
+        "tag2": ""
+      },
+      {
+        "id": 3,
+        "authors": "Gregory Kozyref, Benny Davidovitch, Ganga Prasath, S., Guillaume Palumbo, and Fabian Brau.",
+        "title": "Wetting of an elastic sheet subject to external tension.",
+        "arxiv": "https://arxiv.org/abs/2201.10925",
+        "website": "https://journals.aps.org/pre/abstract/10.1103/PhysRevE.107.035101",
+        "download": "",
+        "video": "",
+        "news1": "",
+        "news2": "",
+        "date": "",
+        "image": "",
+        "journal": "Phys. Rev. E., 10.1103/PhysRevE.107.035101.",
+        "tag": "Softmatter",
+        "tag2": ""
+      },
+      {
+        "id": 4,
+        "authors": "Serra, M.*, al-Mosleh, S.*, Ganga Prasath, S.*, Raju, V.*, Mantena, S., Chandra, J., Iams, S., and Mahadevan, L.",
+        "title": "Optimal policies for mitigating pandemic costs: a minimal model.",
+        "arxiv": "https://arxiv.org/abs/2007.11178",
+        "website": "https://iopscience.iop.org/article/10.1088/1478-3975/ac7e9e/meta",
+        "download": "",
+        "video": "",
+        "news1": "",
+        "news2": "",
+        "date": "",
+        "image": "",
+        "journal": "Phys. Biol., 10.1088/1478-3975/ac7e9e.",
+        "tag": "Control",
+        "tag2": ""
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "year": 0,
+    "label": "Pre-2022",
+    "data": [
+      {
+        "id": 1,
+        "authors": "Gaurav Chaudhary*, Ganga Prasath, S.*, and Mahadevan, L.",
+        "title": "Totimorphic assemblies from neutrally-stable units.",
+        "arxiv": "https://arxiv.org/abs/2110.08216",
+        "website": "https://www.pnas.org/doi/full/10.1073/pnas.2107003118",
+        "download": "",
+        "video": "",
+        "news1": "https://www.seas.harvard.edu/news/2021/10/shape-shifting-materials-infinite-possibilities",
+        "news2": "https://www.thecrimson.com/article/2021/11/2/seas-shape-shifting-material",
+        "date": "",
+        "image": "",
+        "journal": "Proc. Nat. Acad. Sci., 10.1073/pnas.2107003118.",
+        "tag": "Softmatter",
+        "tag2": ""
+      },
+      {
+        "id": 2,
+        "authors": "Ganga Prasath, S., Joel Marthelot, Rama Govindarajan, and Narayanan Menon.",
+        "title": "Shapes of a filament on the surface of a bubble.",
+        "arxiv": "https://arxiv.org/abs/2104.09212",
+        "website": "https://royalsocietypublishing.org/doi/abs/10.1098/rspa.2021.0353",
+        "download": "",
+        "video": "",
+        "news1": "",
+        "news2": "",
+        "date": "",
+        "image": "",
+        "journal": "Proc. Roy. Soc. A., 10.1098/rspa.2021.0353.",
+        "tag": "Softmatter",
+        "tag2": ""
+      },
+      {
+        "id": 3,
+        "authors": "Ganga Prasath, S., Joel Marthelot, Narayanan Menon, and Rama Govindarajan.",
+        "title": "Wetting and wrapping of a floating droplet by a thin elastic filament.",
+        "arxiv": "https://arxiv.org/abs/2010.04599",
+        "website": "https://pubs.rsc.org/en/content/articlelanding/2020/sm/d0sm01863e/",
+        "download": "",
+        "video": "",
+        "news1": "",
+        "news2": "",
+        "date": "",
+        "image": "",
+        "journal": "Soft Matter, 10.1039/D0SM01863E.",
+        "tag": "Softmatter",
+        "tag2": ""
+      },
+      {
+        "id": 4,
+        "authors": "Ganga Prasath, S., Vishal Vasan, and Rama Govindarajan.",
+        "title": "Accurate solution method for the Maxey-Riley equation, and the effects of Basset history.",
+        "arxiv": "https://arxiv.org/abs/1808.08769",
+        "website": "https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/accurate-solution-method-for-the-maxeyriley-equation-and-the-effects-of-basset-history/C4E30D782CEA2AA72333825A97B1953C",
+        "download": "",
+        "video": "",
+        "news1": "https://www.cambridge.org/core/journals/journal-of-fluid-mechanics/article/solving-the-inertial-particle-equation-with-memory/80362CEF656BFEBB060C4F535CFDC68D",
+        "news2": "https://www.icts.res.in/news/icts-scientists-research-highlighted-journal-fluid-mechanics",
+        "date": "",
+        "image": "",
+        "journal": "Journal of Fluid Mechanics, 868, 428-460.",
+        "tag": "Hydrodynamics",
+        "tag2": ""
+      },
+      {
+        "id": 5,
+        "authors": "Ganga Prasath, S., Joel Marthelot, Rama Govindarajan, and Narayanan Menon.",
+        "title": "Relaxation of a highly deformed elastic filament at a fluid interface.",
+        "arxiv": "https://arxiv.org/abs/1601.07278",
+        "website": "https://journals.aps.org/prfluids/abstract/10.1103/PhysRevFluids.1.033903",
+        "download": "",
+        "video": "",
+        "news1": "",
+        "news2": "",
+        "date": "",
+        "image": "",
+        "journal": "Physical Review Fluids, 1, 033903.",
+        "tag": "Softmatter",
+        "tag2": ""
+      },
+      {
+        "id": 6,
+        "authors": "Ganga Prasath, S., Stephane Fauve, and Marc Brachet.",
+        "title": "Dynamo action by turbulence in absolute equilibrium.",
+        "arxiv": "",
+        "website": "https://iopscience.iop.org/article/10.1209/0295-5075/106/29002",
+        "download": "https://github.com/sgangaprasath/Publications/raw/master/EPL_2014.pdf",
+        "video": "",
+        "news1": "",
+        "news2": "",
+        "date": "",
+        "image": "",
+        "journal": "Europhysics Letters, 106(2), 29002.",
+        "tag": "Hydrodynamics",
+        "tag2": ""
+      },
+      {
+        "id": 7,
+        "authors": "Ganga Prasath, S., Sudharsan, M., Vinodh Kumar, V., Diwakar, S. V., Sundararajan, T., and Tiwari, S.",
+        "title": "Effects of aspect ratio and orientation on the wake characteristics of low Reynolds number flow over a triangular prism.",
+        "arxiv": "",
+        "website": "https://www.sciencedirect.com/science/article/pii/S0889974613002909",
+        "download": "https://github.com/sgangaprasath/Publications/raw/master/JFS_2013.pdf",
+        "video": "",
+        "news1": "",
+        "news2": "",
+        "date": "",
+        "image": "",
+        "journal": "Journal of Fluids and Structures, 46, 59-76.",
         "tag": "Hydrodynamics",
         "tag2": ""
       }

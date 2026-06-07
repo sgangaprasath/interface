@@ -2,8 +2,6 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import { RiTwitterXLine } from "react-icons/ri";
 import { IoIosArrowDown } from "react-icons/io";
 
 type NavItem = {
@@ -34,6 +32,10 @@ const navItems: NavItem[] = [
         link: "/news",
       },
     ],
+  },
+  {
+    label: "Teaching",
+    link: "/teaching",
   },
   {
     label: "Group",
@@ -103,71 +105,40 @@ const navItems: NavItem[] = [
 // }
 
 export default function Navbar() {
-  // const [isSideMenuOpen, setSideMenue] = useState(false);
-
-  const [isSideMenuOpen, setSideMenue] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  useEffect(() => {
-    setSideMenue(true);
-  }, []);
-
-  if (!isSideMenuOpen) {
-    // render placeholder to keep SSR and client DOM consistent
-    return (
-      <nav className="p-4">
-      </nav>
-    );
-  }
   return (
-    <div className="absolute mx-auto flex w-full max-w-6xl items-end justify-end px-4 py-5 text-sm z-20">
-      {/* right side  */}
-      <section className="flex items-center gap-8">
-        {isSideMenuOpen}
-        <div className="hidden md:flex items-center gap-4 transition-all">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-end px-8 py-4 text-sm">
+        <div className="hidden md:flex items-center gap-1">
           {navItems.map((d, i) => (
-            <Link
-              key={i}
-              href={d.link ?? "#"}
-              className="relative group  px-2 py-3 transition-all "
-            >
-              <p className="flex cursor-pointer items-center gap-2 text-neutral-400 group-hover:text-black">
+            <div key={i} className="relative group">
+              <Link
+                href={d.link ?? "#"}
+                className="flex items-center gap-1 px-3 py-2 rounded-md text-neutral-400 hover:text-black hover:bg-gray-50 transition-all"
+              >
                 <span>{d.label}</span>
                 {d.children && (
-                  <IoIosArrowDown className=" rotate-180  transition-all group-hover:rotate-0" />
+                  <IoIosArrowDown className="text-xs rotate-180 transition-all group-hover:rotate-0" />
                 )}
-              </p>
-
+              </Link>
               {/* dropdown */}
               {d.children && (
-                <div className="absolute right-0 top-10 hidden w-auto flex-col gap-1 rounded-lg bg-white py-3 shadow-md  transition-all group-hover:flex ">
-                  {d.children.map((ch, i) => (
+                <div className="absolute right-0 top-full mt-1 hidden w-auto flex-col gap-0.5 rounded-lg bg-white border border-gray-100 py-2 shadow-lg transition-all group-hover:flex">
+                  {d.children.map((ch, j) => (
                     <Link
-                      key={i}
+                      key={j}
                       href={ch.link ?? "#"}
-                      className=" flex cursor-pointer items-center  py-1 pl-6 pr-8  text-neutral-400 hover:text-black  "
+                      className="flex items-center px-4 py-2 text-neutral-400 hover:text-black hover:bg-gray-50 whitespace-nowrap"
                     >
-                      {/* item */}
-                      <span className="whitespace-nowrap   pl-3 ">
-                        {ch.label}
-                      </span>
+                      {ch.label}
                     </Link>
                   ))}
                 </div>
               )}
-            </Link>
+            </div>
           ))}
         </div>
-        <div className="opacity-50 hover:opacity-100">
-          <Link
-            href={"https://twitter.com/kaitovaai"}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <RiTwitterXLine />
-          </Link>
-        </div>
-      </section>
-    </div>
+      </div>
+    </nav>
   );
 }
 
