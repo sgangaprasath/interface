@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="flex flex-col items-center justify-between h-auto w-full px-24 pt-16">
+      <body className="flex flex-col items-center justify-between h-auto w-full px-4 md:px-24 pt-16">
           {/* Navigation bar */}
           <NavBar />
           {children}

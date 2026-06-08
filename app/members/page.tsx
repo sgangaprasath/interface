@@ -193,7 +193,7 @@ const MembersPage = () => {
         </div>
       </div>
       {/* Table with passouts & interns */}
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg mx-4">
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg mx-4 mb-10">
         <table className="w-full text-sm text-left rtl:text-right">
           <thead className="text-xs uppercase bg-gray-50">
             <tr>

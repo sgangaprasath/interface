@@ -5,14 +5,12 @@ export default function Home() {
   return (
     <>
       <div className="relative flex flex-col items-center justify-between pt-10 gap-10">
-        {/* Carousel */}
-        {/* <div className="grid grid-cols-1 items-center justify-center xl:w-auto"> */}
-          <div className="h-10 sm:h-[100px] md:h-[300px] xl:h-[420px] w-20 sm:w-[100px] md:w-[700px] xl:w-[1000px]">
-            <Cselmain />
-          </div>
-        {/* </div> */}
+        {/* Carousel — desktop only */}
+        <div className="hidden md:block md:h-[300px] xl:h-[420px] md:w-[700px] xl:w-[1000px]">
+          <Cselmain />
+        </div>
         {/* Bottom navigation links */}
-        <div className="grid m-10 text-center lg:mb-4 lg:grid-cols-4 lg:text-left">
+        <div className="grid grid-cols-2 gap-2 mx-2 my-8 text-center lg:grid-cols-4 lg:mx-10 lg:mb-4 lg:text-left">
           {/* News */}
           <Link
             href="/news"
