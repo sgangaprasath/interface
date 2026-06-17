@@ -25,9 +25,9 @@ export default function Home() {
         </div>
         <p className="text-center md:text-left font-light text-md md:px-16">
           We currently have {" "}
-          <b className="font-bold">openings for two PhD students</b> with good academic record to explore problems in {" "}
+          <b className="font-bold">1 PhD position</b> with good academic record to explore problems in {" "}
           <b className="font-bold">
-            collective robotics & surgical device control
+            robotics & optimal control
           </b>
           .
         </p>
@@ -40,9 +40,16 @@ export default function Home() {
           >
             research
           </a>{" "}
-          tab for a broad overview and drop by our lab to know more.
+          and{" "}
+          <a
+            href="/pubs"
+            className="font-bold underline hover:underline-offset-2"
+          >
+            publications
+          </a>{" "}
+          pages for details of the group&apos;s work and drop by our lab to know more.
         </p>
-        <p className="text-center md:text-left font-light text-md md:px-16">
+        {/* <p className="text-center md:text-left font-light text-md md:px-16">
           Details of the graduate admission can be found{" "}
           <a
             href="https://apm.iitm.ac.in/pages/graduate_admission"
@@ -58,15 +65,29 @@ export default function Home() {
             IITM Research Portal
           </a>
           .
+        </p> */}
+        <p className="text-center md:text-left font-light text-md md:px-16">
+          Details of the Junior Research Fellowship which will transition towards a PhD position can be found{" "}
+          <a
+            href="https://icandsr.iitm.ac.in/careers/current_openings.php"
+            className="font-bold underline hover:underline-offset-2"
+          >
+            here
+          </a>
+          .
         </p>
-        <div className="relative flex flex-wrap items-center justify-center h-full bg-white ">
-          <Image
-            className="relative md:pt-10 pl-20 xl:pt-10"
-            src="/images/PhDOpening.jpg"
-            alt="Interface lab Logo"
-            width={700}
-            height={100}
-            priority
+        <div className="flex flex-col items-center w-full md:px-16 gap-4 mt-2">
+          <p className="text-center md:text-left font-light text-md w-full">
+            The task for this position involves developing control strategies for robotic systems
+            using tools from optimal control theory and dynamical systems. Students interested in
+            applying should review the task document below for a detailed description of the problem
+            and the expected skills.
+          </p>
+          <iframe
+            src="/pdf/JRF26_task.pdf"
+            className="w-full rounded-lg border border-gray-300 shadow-sm"
+            style={{ height: "80vh" }}
+            title="JRF 2026 Task Document"
           />
         </div>
       </div>
