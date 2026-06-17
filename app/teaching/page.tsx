@@ -135,7 +135,7 @@ function CourseEntry({
         <div className="mt-2 w-1.5 h-1.5 bg-gray-400 rounded-full flex-shrink-0" />
         <div className="flex-1 min-w-0">
           <div className="flex flex-wrap items-baseline gap-2 mb-1">
-            <span className="font-mono text-xs text-gray-400 bg-gray-50 border border-gray-200 px-1.5 py-0.5 rounded">
+            <span className="font-mono text-xs text-green-400 bg-green-50 border border-green-200 px-1.5 py-0.5 rounded">
               {code}
             </span>
             <p className="font-semibold text-gray-900 leading-snug">{title}</p>
