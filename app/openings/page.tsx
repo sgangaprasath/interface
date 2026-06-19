@@ -25,14 +25,14 @@ export default function Home() {
         </div>
         <p className="text-center md:text-left font-light text-md md:px-16">
           We currently have {" "}
-          <b className="font-bold">1 PhD position</b> with good academic record to explore problems in {" "}
+          <b className="font-bold">1 JRF position</b> (which will transition to a PhD position) for candidates with good academic record to explore problems in {" "}
           <b className="font-bold">
             robotics & optimal control
           </b>
           .
         </p>
         <p className="text-center md:text-left font-light text-md md:px-16">
-          Our group uses experiments and/or theoretical analysis as demanded by
+          Our group uses experiments and theoretical analysis as demanded by
           the question. Have a look at the{" "}
           <a
             href="/research"
@@ -67,21 +67,18 @@ export default function Home() {
           .
         </p> */}
         <p className="text-center md:text-left font-light text-md md:px-16">
-          Details of the Junior Research Fellowship which will transition towards a PhD position can be found{" "}
+          Details of the Junior Research Fellowship position can be found{" "}
           <a
-            href="https://icandsr.iitm.ac.in/careers/current_openings.php"
+            href="https://icandsr.iitm.ac.in/careers/admin/download_announcement.php?file=announce_1781776854.pdf"
             className="font-bold underline hover:underline-offset-2"
           >
             here
           </a>
-          .
+          . The last date for submitting application is <b className="font-bold">2nd July 2026</b>. After submitting the application, you will be notified about the task requirements for you to be selected for the interviews. The task for the position is detailed in the document below and you can get started if you are keen about the position. The last date for task submission is <b className="font-bold">9th July 2026</b>.
         </p>
         <div className="flex flex-col items-center w-full md:px-16 gap-4 mt-2">
           <p className="text-center md:text-left font-light text-md w-full">
-            The task for this position involves developing control strategies for robotic systems
-            using tools from optimal control theory and dynamical systems. Students interested in
-            applying should review the task document below for a detailed description of the problem
-            and the expected skills.
+            The task involves developing control strategies for robotic systems using tools from optimal control theory and dynamical systems. Candidates interested in applying should review the task document below for a detailed description of the problem and the expected skills.
           </p>
           <iframe
             src="/pdf/JRF26_task.pdf"
