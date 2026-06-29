@@ -290,7 +290,7 @@ const MembersPage = () => {
               <td className="px-6 py-4">Summer Research Fellow</td>
               <td className="px-6 py-4">Jun-Jul, 2025</td>
               <td className="px-6 py-4">
-                B.Tech, ME @ NIT, Surathkal - 2025
+                B.Tech, ME @ NIT, Surathkal - 2026
               </td>
             </tr>
           </tbody>
