@@ -52,7 +52,11 @@
     "email": "mailto:am23s028@smail.iitm.ac.in",
     "webpage": "",
     "cv": "https://github.com/sgangaprasath/interface/blob/main/public/pdf/JayCV.pdf",
-    "image": "/images/jaychavda.jpg"
+    "image": "/images/jaychavda.jpg",
+    "status": "past",
+    "thesis": "Geometry and design of pop-up structures",
+    "period": "2023–2025",
+    "currentPosition": "TVS Motors"
   },
   {
     "id": 7,
@@ -63,7 +67,11 @@
     "email": "mailto:am23s055@smail.iitm.ac.in",
     "webpage": "",
     "cv": "https://github.com/sgangaprasath/interface/blob/main/public/pdf/MohanCV.pdf",
-    "image": "/images/mohanraj.jpg"
+    "image": "/images/mohanraj.jpg",
+    "status": "past",
+    "thesis": "Morphing of and writing with a scissor linkage mechanism",
+    "period": "2023–2025",
+    "currentPosition": "JRF, IIT Madras"
   },
   {
     "id": 8,
@@ -78,17 +86,6 @@
   },
   {
     "id": 9,
-    "name": "Eshita Nandi",
-    "title": "MS student - 2025",
-    "twitter": "",
-    "linkedIn": "",
-    "email": "mailto:am25s020@smail.iitm.ac.in",
-    "webpage": "",
-    "cv": "https://github.com/sgangaprasath/interface/blob/main/public/pdf/EshitaCV.pdf",
-    "image": "/images/Eshita.jpg"
-  },
-  {
-    "id": 10,
     "name": "Hari Preetham S",
     "title": "Junior Research Fellow - 2026",
     "twitter": "",
@@ -99,7 +96,7 @@
     "image": "/images/Hari.jpg"
   },
   {
-    "id": 11,
+    "id": 10,
     "name": "Can be you!",
     "title": "MS/PhD student",
     "twitter": "",

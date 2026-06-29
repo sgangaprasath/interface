@@ -14,6 +14,10 @@ export interface MembersMetaData {
   webpage: string;
   cv: string;
   image: string;
+  status?: string;
+  thesis?: string;
+  period?: string;
+  currentPosition?: string;
 }
 
 const getMemContent = (): MembersMetaData[] => {
@@ -121,7 +125,9 @@ export const generateStaticParams = async () => {
 
 const MembersPage = () => {
   const posts = getMemContent();
-  const memPreviews = posts.map((post) => (
+  const currentMembers = posts.filter((p) => p.status !== "past");
+  const pastMsMembers = posts.filter((p) => p.status === "past");
+  const memPreviews = currentMembers.map((post) => (
     <MemPreview key={post.id} {...post} />
   ));
   return (
@@ -198,6 +204,9 @@ const MembersPage = () => {
           <thead className="text-xs uppercase bg-gray-50">
             <tr>
               <th scope="col" className="px-6 py-3">
+                Photo
+              </th>
+              <th scope="col" className="px-6 py-3">
                 Name
               </th>
               <th scope="col" className="px-6 py-3">
@@ -215,7 +224,39 @@ const MembersPage = () => {
             </tr>
           </thead>
           <tbody className="text-xs">
+            {pastMsMembers.map((m) => (
+              <tr key={m.id} className="odd:bg-white even:bg-gray-50 border-b">
+                <td className="px-6 py-4">
+                  <Image
+                    src={m.image}
+                    width={48}
+                    height={48}
+                    alt={`Photo of ${m.name}`}
+                    className="rounded-full grayscale"
+                  />
+                </td>
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                >
+                  {m.name}
+                </th>
+                <td className="px-6 py-4">{m.thesis ?? ""}</td>
+                <td className="px-6 py-4">{m.title}</td>
+                <td className="px-6 py-4">{m.period ?? ""}</td>
+                <td className="px-6 py-4">{m.currentPosition ?? "–"}</td>
+              </tr>
+            ))}
             <tr className="odd:bg-white even:bg-gray-50 border-b">
+              <td className="px-6 py-4">
+                <Image
+                  src="/images/profile.svg"
+                  width={48}
+                  height={48}
+                  alt="Photo of Pranav P R"
+                  className="rounded-full grayscale"
+                />
+              </td>
               <th
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
@@ -226,10 +267,19 @@ const MembersPage = () => {
               <td className="px-6 py-4">Summer Research Fellow</td>
               <td className="px-6 py-4">Jun-Jul, 2024</td>
               <td className="px-6 py-4">
-                B.Tech @ IIITDM, Kancheepuram - 2025
+                B.Tech, ME @ IIITDM, Kancheepuram - 2025
               </td>
             </tr>
             <tr className="odd:bg-white even:bg-gray-50 border-b">
+              <td className="px-6 py-4">
+                <Image
+                  src="/images/profile.svg"
+                  width={48}
+                  height={48}
+                  alt="Photo of Pradhama Sai Eswar Kumar"
+                  className="rounded-full grayscale"
+                />
+              </td>
               <th
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
@@ -240,7 +290,7 @@ const MembersPage = () => {
               <td className="px-6 py-4">Summer Research Fellow</td>
               <td className="px-6 py-4">Jun-Jul, 2025</td>
               <td className="px-6 py-4">
-                Finishing B.Tech @ NIT, Surathkal
+                B.Tech, ME @ NIT, Surathkal - 2025
               </td>
             </tr>
           </tbody>
