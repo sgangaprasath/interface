@@ -20,6 +20,17 @@ export interface MembersMetaData {
   currentPosition?: string;
 }
 
+// Splits "MS student - 2023" into { position: "MS student", year: "2023" }
+const parseTitle = (title: string): { position: string; year: string | null } => {
+  const match = title.match(/^(.+?)\s*-\s*(\d{4})$/);
+  if (match) return { position: match[1].trim(), year: match[2] };
+  return { position: title, year: null };
+};
+
+const positionStyle = (_position: string): string => {
+  return "bg-slate-200 text-slate-700";
+};
+
 const getMemContent = (): MembersMetaData[] => {
   const jsonString = fs.readFileSync("./app/json/members.json", "utf-8");
   const jsonData = JSON.parse(jsonString);
@@ -30,6 +41,8 @@ const getMemContent = (): MembersMetaData[] => {
 };
 
 const MemPreview = (props: MembersMetaData) => {
+  const { position, year } = parseTitle(props.title);
+  const isPI = position.toLowerCase().includes("principal investigator");
   return (
     <div className="group container flex flex-col items-center justify-start gap-3">
       <Image
@@ -37,15 +50,22 @@ const MemPreview = (props: MembersMetaData) => {
         width={80}
         height={80}
         alt="Picture of the lab member"
-        className="transform duration-200 rounded-full grayscale group-hover:grayscale-0 group-hover:scale-110"
+        className="transform duration-200 rounded-full group-hover:scale-110"
       />
       <div className="flex flex-col items-center justify-center">
-        <p className="text-center font-semibold text-base">
+        <p className={`text-center font-semibold pb-1 ${isPI ? "text-lg" : "text-base"}`}>
           {props.name}
         </p>
-        <p className="text-center font-light text-sm text-gray-500 pb-1">
-          {props.title}
-        </p>
+        <div className="flex flex-wrap justify-center items-center gap-1 pb-2">
+          <span className={`rounded text-xs px-2 py-0.5 ${positionStyle(position)}`}>
+            {position}
+          </span>
+          {year && (
+            <span className="rounded-full text-xs px-2 py-0.5 bg-gray-100 text-gray-400">
+              {year}
+            </span>
+          )}
+        </div>
         <div className="flex flex-row items-center justify-center gap-2">
           {props.twitter !== "" && (
             <Link
@@ -232,7 +252,7 @@ const MembersPage = () => {
                     width={48}
                     height={48}
                     alt={`Photo of ${m.name}`}
-                    className="rounded-full grayscale"
+                    className="rounded-full hover:scale-110 transition-transform duration-200"
                   />
                 </td>
                 <th
@@ -254,7 +274,7 @@ const MembersPage = () => {
                   width={48}
                   height={48}
                   alt="Photo of Pranav P R"
-                  className="rounded-full grayscale"
+                  className="rounded-full hover:scale-110 transition-transform duration-200"
                 />
               </td>
               <th
@@ -277,7 +297,7 @@ const MembersPage = () => {
                   width={48}
                   height={48}
                   alt="Photo of Pradhama Sai Eswar Kumar"
-                  className="rounded-full grayscale"
+                  className="rounded-full hover:scale-110 transition-transform duration-200"
                 />
               </td>
               <th

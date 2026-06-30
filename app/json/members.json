@@ -28,7 +28,7 @@
     "twitter": "",
     "linkedIn": "",
     "email": "mailto:shrupandey28@gmail.com",
-    "webpage": "shruti.jpg",
+    "webpage": "",
     "cv": "https://github.com/sgangaprasath/interface/blob/main/public/pdf/ShrutiCV.pdf",
     "image": "/images/shruti.jpg"
   },
@@ -38,7 +38,7 @@
     "title": "Joint PhD student - 2025",
     "twitter": "",
     "linkedIn": "",
-    "email": "",
+    "email": "mailto:ananthanarayanan.r.3141@gmail.com",
     "webpage": "",
     "cv": "",
     "image": "/images/profile.svg"
@@ -46,7 +46,7 @@
   {
     "id": 6,
     "name": "Jay Jayeshbhai Chavda",
-    "title": "MS student - 2023",
+    "title": "MS student",
     "twitter": "",
     "linkedIn": "",
     "email": "mailto:am23s028@smail.iitm.ac.in",
@@ -61,7 +61,7 @@
   {
     "id": 7,
     "name": "Mohanraj A",
-    "title": "MS student - 2023",
+    "title": "MS student",
     "twitter": "",
     "linkedIn": "",
     "email": "mailto:am23s055@smail.iitm.ac.in",
@@ -71,7 +71,18 @@
     "status": "past",
     "thesis": "Morphing of and writing with a scissor linkage mechanism",
     "period": "2023–2025",
-    "currentPosition": "JRF, IIT Madras"
+    "currentPosition": "Junior Research Fellow, IIT Madras"
+  },
+  {
+    "id": 10,
+    "name": "Mohanraj A",
+    "title": "Junior Research Fellow - 2026",
+    "twitter": "",
+    "linkedIn": "",
+    "email": "mailto:am23s055@smail.iitm.ac.in",
+    "webpage": "",
+    "cv": "https://github.com/sgangaprasath/interface/blob/main/public/pdf/MohanCV.pdf",
+    "image": "/images/mohanraj.jpg"
   },
   {
     "id": 8,
@@ -96,7 +107,7 @@
     "image": "/images/Hari.jpg"
   },
   {
-    "id": 10,
+    "id": 11,
     "name": "Can be you!",
     "title": "MS/PhD student",
     "twitter": "",
