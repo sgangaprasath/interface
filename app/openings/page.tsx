@@ -77,7 +77,7 @@ export default function Home() {
           . The last date for submitting application is <b className="font-bold">2nd July 2026</b>. After submitting the application, you will be notified about the task requirements for you to be selected for the interviews. The task for the position is detailed in the document below and you can get started if you are keen about the position.
         </p>
         <p className="text-center md:text-left font-light text-md md:px-16">
-           The last date for task submission is <b className="font-bold">9th July 2026</b>. If you have finished the task, please upload your report and videos here: <a href="https://forms.gle/3yEQ2vJiihN3Fwb59" className="font-bold underline hover:underline-offset-2">Task Submission Form</a>
+           The last date for task submission is extended to <b className="font-bold">13th July 2026</b>. If you have finished the task, please upload your report and videos here: <a href="https://forms.gle/3yEQ2vJiihN3Fwb59" className="font-bold underline hover:underline-offset-2">Task Submission Form</a>
         </p>
         <div className="flex flex-col items-center w-full md:px-16 gap-4 mt-2">
           <p className="text-center md:text-left font-light text-md w-full">
