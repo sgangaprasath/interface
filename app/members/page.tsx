@@ -16,6 +16,7 @@ export interface MembersMetaData {
   image: string;
   status?: string;
   thesis?: string;
+  thesisLink?: string;
   period?: string;
   currentPosition?: string;
 }
@@ -219,26 +220,26 @@ const MembersPage = () => {
         </div>
       </div>
       {/* Table with passouts & interns */}
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg mx-4 mb-10">
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg mx-4 mb-10 w-full">
         <table className="w-full text-sm text-left rtl:text-right">
           <thead className="text-xs uppercase bg-gray-50">
             <tr>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-4 py-3">
                 Photo
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-4 py-3">
                 Name
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-4 py-3">
                 Project Title
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-4 py-3">
                 Position
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-4 py-3">
                 Period
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-4 py-3">
                 Current Position
               </th>
             </tr>
@@ -246,7 +247,7 @@ const MembersPage = () => {
           <tbody className="text-xs">
             {pastMsMembers.map((m) => (
               <tr key={m.id} className="odd:bg-white even:bg-gray-50 border-b">
-                <td className="px-6 py-4">
+                <td className="px-4 py-4">
                   <Image
                     src={m.image}
                     width={48}
@@ -257,18 +258,31 @@ const MembersPage = () => {
                 </td>
                 <th
                   scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                  className="px-4 py-4 font-medium text-gray-900"
                 >
                   {m.name}
                 </th>
-                <td className="px-6 py-4">{m.thesis ?? ""}</td>
-                <td className="px-6 py-4">{m.title}</td>
-                <td className="px-6 py-4">{m.period ?? ""}</td>
-                <td className="px-6 py-4">{m.currentPosition ?? "–"}</td>
+                <td className="px-4 py-4">
+                  {m.thesisLink ? (
+                    <Link
+                      href={m.thesisLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-sky-600 hover:text-sky-800 underline underline-offset-2 transition-colors"
+                    >
+                      {m.thesis ?? ""} ↗
+                    </Link>
+                  ) : (
+                    m.thesis ?? ""
+                  )}
+                </td>
+                <td className="px-4 py-4">{m.title}</td>
+                <td className="px-4 py-4">{m.period ?? ""}</td>
+                <td className="px-4 py-4">{m.currentPosition ?? "–"}</td>
               </tr>
             ))}
             <tr className="odd:bg-white even:bg-gray-50 border-b">
-              <td className="px-6 py-4">
+              <td className="px-4 py-4">
                 <Image
                   src="/images/profile.svg"
                   width={48}
@@ -279,19 +293,19 @@ const MembersPage = () => {
               </td>
               <th
                 scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                className="px-4 py-4 font-medium text-gray-900"
               >
                 Pranav P R
               </th>
-              <td className="px-6 py-4">Balancing an inverted pendulum</td>
-              <td className="px-6 py-4">Summer Research Fellow</td>
-              <td className="px-6 py-4">Jun-Jul, 2024</td>
-              <td className="px-6 py-4">
+              <td className="px-4 py-4">Balancing an inverted pendulum</td>
+              <td className="px-4 py-4">Summer Research Fellow</td>
+              <td className="px-4 py-4">Jun-Jul, 2024</td>
+              <td className="px-4 py-4">
                 B.Tech, ME @ IIITDM, Kancheepuram - 2025
               </td>
             </tr>
             <tr className="odd:bg-white even:bg-gray-50 border-b">
-              <td className="px-6 py-4">
+              <td className="px-4 py-4">
                 <Image
                   src="/images/profile.svg"
                   width={48}
@@ -302,14 +316,14 @@ const MembersPage = () => {
               </td>
               <th
                 scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                className="px-4 py-4 font-medium text-gray-900"
               >
                 Pradhama Sai Eswar Kumar
               </th>
-              <td className="px-6 py-4">Table-top Universal Testing Machine</td>
-              <td className="px-6 py-4">Summer Research Fellow</td>
-              <td className="px-6 py-4">Jun-Jul, 2025</td>
-              <td className="px-6 py-4">
+              <td className="px-4 py-4">Table-top Universal Testing Machine</td>
+              <td className="px-4 py-4">Summer Research Fellow</td>
+              <td className="px-4 py-4">Jun-Jul, 2025</td>
+              <td className="px-4 py-4">
                 B.Tech, ME @ NIT, Surathkal - 2026
               </td>
             </tr>

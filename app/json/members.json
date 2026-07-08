@@ -24,13 +24,17 @@
   {
     "id": 3,
     "name": "Shruti Pandey",
-    "title": "Research Scholar - 2025",
+    "title": "Research Scholar",
     "twitter": "",
     "linkedIn": "",
     "email": "mailto:shrupandey28@gmail.com",
     "webpage": "",
     "cv": "https://github.com/sgangaprasath/interface/blob/main/public/pdf/ShrutiCV.pdf",
-    "image": "/images/shruti.jpg"
+    "image": "/images/shruti.jpg",
+    "status": "past",
+    "thesis": "Peeling dynamics of a Velcro",
+    "period": "2025",
+    "currentPosition": "Design Engineer, Siemens"
   },
   {
     "id": 5,
@@ -55,6 +59,7 @@
     "image": "/images/jaychavda.jpg",
     "status": "past",
     "thesis": "Geometry and design of pop-up structures",
+    "thesisLink": "https://drive.google.com/file/d/1_1TLkkSvlC4jhbIoiGWXECIOBkBfBdze/view?usp=sharing",
     "period": "2023–2025",
     "currentPosition": "TVS Motors"
   },
@@ -70,6 +75,7 @@
     "image": "/images/mohanraj.jpg",
     "status": "past",
     "thesis": "Morphing of and writing with a scissor linkage mechanism",
+    "thesisLink": "https://drive.google.com/file/d/1OGeoBquw776mgkqSSvJsv_8zPgdWU1L4/view?usp=sharing",
     "period": "2023–2025",
     "currentPosition": "Junior Research Fellow, IIT Madras"
   },

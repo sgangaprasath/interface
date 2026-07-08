@@ -10,7 +10,7 @@ export default function Home() {
           <Cselmain />
         </div>
         {/* Bottom navigation links */}
-        <div className="grid grid-cols-2 gap-2 mx-2 my-8 text-center lg:grid-cols-4 lg:mx-10 lg:mb-4 lg:text-left">
+        <div className="grid grid-cols-2 gap-2 mx-2 my-8 text-center lg:grid-cols-4 lg:mx-0 lg:mb-4 lg:text-left w-full max-w-6xl">
           {/* News */}
           <Link
             href="/news"
