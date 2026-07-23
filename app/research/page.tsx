@@ -169,7 +169,7 @@ const ResearchPage = () => {
         {/* Third topic */}
         <div className="group flex flex-col items-start justify-start w-full h-auto bg-white rounded-lg border border-gray-200 transition-colors">
           <Image
-            src="/images/landscape.jpeg"
+            src="/images/landscape.png"
             width="0"
             height="0"
             alt="News blurb image"
@@ -178,10 +178,10 @@ const ResearchPage = () => {
           />
           <div className="px-5 py-4">
             <h2 className="font-bold text-2xl mb-1 bg-gradient-to-r from-gray-400 via-gray-700 to-black text-transparent bg-clip-text">
-              AI & Scientific ML
+              Scientific ML
             </h2>
             <p className="text-sm text-slate-700 my-1 text-justify">
-             Machine Learning has become ubiquitous, pervading all areas of research. However a fundamental understanding on why they perform the way they do is an ongoing challenge. Our group is working on developing a physical understanding of these techniques using techniques from statistical mechanics and optimal control theory. We are currently working on problems in generative models, Reinforcement Learning and generalization of multimodal models.
+             Machine Learning has become ubiquitous, pervading all areas of research. However a fundamental understanding on why they perform the way they do is an ongoing challenge. Our group is working on developing a physical understanding of these techniques using techniques from statistical physics and control theory. We are currently working on problems in generative models, Reinforcement Learning and generalization of multimodal models.
             </p>
             <div className="flex flex-col py-4 gap-2">
               <p className="font-bold">Further reading</p>

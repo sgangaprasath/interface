@@ -6,9 +6,10 @@
     "twitter": "https://twitter.com/kaitovaai",
     "linkedIn": "https://www.linkedin.com/in/ganga-prasath-s-152a1225a/",
     "email": "mailto:sgangaprasath@smail.iitm.ac.in",
-    "webpage": "https://sgangaprasath.github.io",
-    "cv": "https://drive.google.com/file/d/1uvcn4yscbZEaiaKMCZs2NEio4Hfp7h0b/view?usp=sharing",
-    "image": "/images/sgp.jpg"
+    "webpage": "https://scholar.google.com/citations?user=fHr_IJgAAAAJ&hl=en&authuser=1",
+    "cv": "https://drive.google.com/file/d/1FaD-D5XMLlVw2u6D05fr7PestvvEKtJt/view?usp=sharing",
+    "image": "/images/sgp.jpg",
+    "topics": ["Mechanics", "Robotics & Control", "Behaviour", "Inverse Problems", "Scientific ML"]
   },
   {
     "id": 2,
@@ -19,7 +20,8 @@
     "email": "mailto:vdmgya@gmail.com",
     "webpage": "https://scholar.google.com/citations?user=FnVSQWwAAAAJ&hl=en",
     "cv": "https://github.com/sgangaprasath/interface/blob/main/public/pdf/VishnuCV.pdf",
-    "image": "/images/vishnu.jpg"
+    "image": "/images/vishnu.jpg",
+    "topics": ["Continuum model", "Scientific ML"]
   },
   {
     "id": 3,
@@ -34,7 +36,7 @@
     "status": "past",
     "thesis": "Peeling dynamics of a Velcro",
     "period": "2025-26",
-    "currentPosition": "Siemens"
+    "currentPosition": "Design Engineer, Siemens"
   },
   {
     "id": 5,
@@ -45,7 +47,8 @@
     "email": "mailto:ananthanarayanan.r.3141@gmail.com",
     "webpage": "",
     "cv": "",
-    "image": "/images/profile.svg"
+    "image": "/images/profile.svg",
+    "topics": ["Interpretable models", "Scientific ML (jointly with Dr. S Kannabiran, IIT Madras)"]
   },
   {
     "id": 6,
@@ -88,7 +91,8 @@
     "email": "mailto:am23s055@smail.iitm.ac.in",
     "webpage": "",
     "cv": "https://github.com/sgangaprasath/interface/blob/main/public/pdf/MohanCV.pdf",
-    "image": "/images/mohanraj.jpg"
+    "image": "/images/mohanraj.jpg",
+    "topics": ["Robotics", "Control"]
   },
   {
     "id": 8,
@@ -99,18 +103,20 @@
     "email": "mailto:am25s021@smail.iitm.ac.in",
     "webpage": "",
     "cv": "https://github.com/sgangaprasath/interface/blob/main/public/pdf/JeyadityaCV.pdf",
-    "image": "/images/Jeyaditya.jpg"
+    "image": "/images/Jeyaditya.jpg",
+    "topics": ["Trampoline Mechanics", "Control"]
   },
   {
     "id": 9,
     "name": "Hari Preetham S",
-    "title": "Junior Research Fellow - 2026",
+    "title": "Joint Junior Research Fellow - 2026",
     "twitter": "",
     "linkedIn": "",
     "email": "mailto:haripreetham.jntuh@gmail.com",
     "webpage": "",
     "cv": "https://github.com/sgangaprasath/interface/blob/main/public/pdf/HariCV.pdf",
-    "image": "/images/Hari.jpg"
+    "image": "/images/Hari.jpg",
+    "topics": ["Navigation", "Stochastic Optimal Control (jointly with Dr. Danny Raj M, IIT Madras)"]
   },
   {
     "id": 11,

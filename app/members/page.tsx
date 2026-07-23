@@ -1,8 +1,6 @@
 import * as fs from "fs";
 import Link from "next/link";
 import Image from "next/image";
-import { RiTwitterXLine } from "react-icons/ri";
-import { RiLinkedinBoxLine } from "react-icons/ri";
 
 export interface MembersMetaData {
   id: number;
@@ -14,6 +12,7 @@ export interface MembersMetaData {
   webpage: string;
   cv: string;
   image: string;
+  topics?: string[];
   status?: string;
   thesis?: string;
   thesisLink?: string;
@@ -45,93 +44,79 @@ const MemPreview = (props: MembersMetaData) => {
   const { position, year } = parseTitle(props.title);
   const isPI = position.toLowerCase().includes("principal investigator");
   return (
-    <div className="group container flex flex-col items-center justify-start gap-3">
-      <Image
-        src={props.image}
-        width={80}
-        height={80}
-        alt="Picture of the lab member"
-        className="transform duration-200 rounded-full group-hover:scale-110"
-      />
-      <div className="flex flex-col items-center justify-center">
-        <p className={`text-center font-semibold pb-1 ${isPI ? "text-lg" : "text-base"}`}>
-          {props.name}
-        </p>
-        <div className="flex flex-wrap justify-center items-center gap-1 pb-2">
-          <span className={`rounded text-xs px-2 py-0.5 ${positionStyle(position)}`}>
-            {position}
-          </span>
-          {year && (
-            <span className="rounded-full text-xs px-2 py-0.5 bg-gray-100 text-gray-400">
-              {year}
+    <div className="flex flex-row items-center justify-between gap-6 py-5 border-b border-gray-100 last:border-0 w-full">
+      {/* Left: photo + name + position + topics */}
+      <div className="flex flex-row items-center gap-5">
+        <Image
+          src={props.image}
+          width={isPI ? 80 : 64}
+          height={isPI ? 80 : 64}
+          alt={`Picture of ${props.name}`}
+          className="rounded-full flex-shrink-0"
+        />
+        <div>
+          <div className="flex flex-wrap items-center gap-2 mb-1">
+            <p className={`font-semibold text-gray-900 ${isPI ? "text-lg" : "text-base"}`}>
+              {props.name}
+            </p>
+            <span className={`rounded text-xs px-2 py-0.5 ${positionStyle(position)}`}>
+              {position}
             </span>
+            {year && (
+              <span className="rounded-full text-xs px-2 py-0.5 bg-gray-100 text-gray-400">
+                {year}
+              </span>
+            )}
+          </div>
+          {props.topics && props.topics.length > 0 && (
+            <p className="text-xs text-gray-400 font-light">
+              {props.topics.join(" / ")}
+            </p>
           )}
         </div>
-        <div className="flex flex-row items-center justify-center gap-2">
-          {props.twitter !== "" && (
-            <Link
-              className="opacity-50 hover:opacity-100"
-              href={`${props.twitter}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <RiTwitterXLine />
-            </Link>
-          )}
-          {props.linkedIn !== "" && (
-            <Link
-              className="opacity-50 hover:opacity-100"
-              href={`${props.linkedIn}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <RiLinkedinBoxLine />
-            </Link>
-          )}
+      </div>
+      {/* Right: text links */}
+      <div className="flex flex-row items-center gap-4 flex-shrink-0">
+        {props.linkedIn !== "" && (
           <Link
-            className="opacity-50 hover:opacity-100"
+            href={props.linkedIn}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-sky-600 hover:text-sky-800 underline underline-offset-2 transition-colors"
+          >
+            LinkedIn ↗
+          </Link>
+        )}
+        {props.email !== "" && (
+          <Link
             href={props.email}
             target="_blank"
             rel="noopener noreferrer"
+            className="text-xs text-sky-600 hover:text-sky-800 underline underline-offset-2 transition-colors"
           >
-            <Image
-              src={"/images/email.svg"}
-              width={18}
-              height={18}
-              alt="Email for correspondence"
-            />
+            Email ↗
           </Link>
-          {props.webpage !== "" && (
-            <Link
-              className="opacity-50 hover:opacity-100"
-              href={props.webpage}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                src={"/images/webpage.svg"}
-                width={18}
-                height={18}
-                alt="Personal webpage"
-              />
-            </Link>
-          )}
-          {props.cv !== "" && (
-            <Link
-              className="opacity-50 hover:opacity-100"
-              href={props.cv}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                src={"/images/cv.svg"}
-                width={18}
-                height={18}
-                alt="CV"
-              />
-            </Link>
-          )}
-        </div>
+        )}
+        {props.webpage !== "" && (
+          <Link
+            href={props.webpage}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-sky-600 hover:text-sky-800 underline underline-offset-2 transition-colors"
+          >
+            Scholar ↗
+          </Link>
+        )}
+        {props.cv !== "" && (
+          <Link
+            href={props.cv}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-sky-600 hover:text-sky-800 underline underline-offset-2 transition-colors"
+          >
+            CV ↗
+          </Link>
+        )}
       </div>
     </div>
   );
@@ -174,7 +159,7 @@ const MembersPage = () => {
           <p className="font-bold text-lg px-4">Current Members</p>
         </div>
       </div>
-      <section className="grid grid-cols-2 gap-10 mb-10 px-10 lg:px-14 text-sm md:grid-cols-4 max-w-4xl">
+      <section className="flex flex-col w-full mb-10 px-4 lg:px-6 text-sm">
         {memPreviews}
       </section>
       {/* <div className="flex flex-col items-center md:items-start justify-center gap-4 w-full mt-20 mb-10">
