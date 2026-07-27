@@ -18,10 +18,12 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Deploy to sgangaprasath.github.io
+      - name: Deploy to sgangaprasath.github.io/interface
         uses: peaceiris/actions-gh-pages@v4
         with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
           external_repository: sgangaprasath/sgangaprasath.github.io
           publish_branch: main
           publish_dir: ./out
+          destination_dir: interface      # ← puts it in /interface subfolder
+          keep_files: true               # ← keeps your personal page intact
