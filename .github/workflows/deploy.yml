@@ -18,12 +18,17 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Deploy to sgangaprasath.github.io/interface
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          external_repository: sgangaprasath/sgangaprasath.github.io
-          publish_branch: main
-          publish_dir: ./out
-          destination_dir: interface
-          keep_files: true
+      - name: Clone pages repo and deploy
+        env:
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+        run: |
+          git clone https://x-access-token:${PERSONAL_TOKEN}@github.com/sgangaprasath/sgangaprasath.github.io.git pages-repo
+          rm -rf pages-repo/interface
+          mkdir -p pages-repo/interface
+          cp -r out/* pages-repo/interface/
+          cd pages-repo
+          git config user.name sgangaprasath
+          git config user.email sgangaprasath@users.noreply.github.com
+          git add interface/
+          git commit -m "deploy interface site"
+          git push
