@@ -25,5 +25,5 @@ jobs:
           external_repository: sgangaprasath/sgangaprasath.github.io
           publish_branch: main
           publish_dir: ./out
-          destination_dir: interface      # ← puts it in /interface subfolder
-          keep_files: true               # ← keeps your personal page intact
+          destination_dir: interface
+          keep_files: true
