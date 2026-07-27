@@ -18,15 +18,13 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Clone pages repo and deploy
+      - name: Deploy to sgangaprasath.github.io
         env:
           PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         run: |
           git clone https://x-access-token:${PERSONAL_TOKEN}@github.com/sgangaprasath/sgangaprasath.github.io.git pages-repo
-          rm -rf pages-repo/interface
-          mkdir -p pages-repo/interface
-          cp -r out/* pages-repo/interface/
-          touch pages-repo/interface/.nojekyll
+          rm -rf pages-repo/*
+          cp -r out/* pages-repo/
           touch pages-repo/.nojekyll
           cd pages-repo
           git config user.name sgangaprasath
