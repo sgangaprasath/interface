@@ -23,6 +23,7 @@ const getPostMetadata = (): PostMetadata[] => {
       image: matterResult.data.image,
       desig: matterResult.data.desig,
       slug: fileName.replace(".md", ""),
+      redirect: matterResult.data.redirect ?? undefined,
     };
   });
 

@@ -7,4 +7,5 @@ export interface PostMetadata {
     slug: string;
     image: string;
     desig: string;
+    redirect?: string;
   }

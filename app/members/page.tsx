@@ -18,6 +18,7 @@ export interface MembersMetaData {
   thesisLink?: string;
   period?: string;
   currentPosition?: string;
+  personalPage?: string;
 }
 
 // Splits "MS student - 2023" into { position: "MS student", year: "2023" }
@@ -77,6 +78,14 @@ const MemPreview = (props: MembersMetaData) => {
       </div>
       {/* Right: text links */}
       <div className="flex flex-row items-center gap-4 flex-shrink-0">
+        {props.personalPage && (
+          <Link
+            href={props.personalPage}
+            className="text-xs text-sky-600 hover:text-sky-800 underline underline-offset-2 transition-colors"
+          >
+            Personal page →
+          </Link>
+        )}
         {props.linkedIn !== "" && (
           <Link
             href={props.linkedIn}

@@ -18,6 +18,92 @@ html {
   overflow-y: scroll;
 }
 
+/* ── Tutorial prose ─────────────────────────────────────────── */
+.tutorial-prose {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #1a1a1a;
+}
+.tutorial-prose h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-top: 1.5em;
+  margin-bottom: 0.4em;
+  color: #111;
+}
+.tutorial-prose h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 1.7em;
+  margin-bottom: 0.3em;
+  color: #111;
+}
+.tutorial-prose p { margin-top: 1.1em; }
+.tutorial-prose a { color: #0369a1; text-decoration: underline; text-underline-offset: 2px; }
+.tutorial-prose code {
+  font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+  background-color: #f0f0f0;
+  font-size: 84%;
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+}
+.tutorial-prose pre {
+  background-color: #f5f5f5;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  padding: 1em 1.2em;
+  overflow-x: auto;
+  line-height: 1.5;
+  margin-top: 1.2em;
+}
+.tutorial-prose pre code { background: none; padding: 0; font-size: 0.88rem; }
+.tutorial-prose ul, .tutorial-prose ol { padding-left: 1.7em; margin-top: 1.1em; }
+.tutorial-prose li { margin-bottom: 0.45em; }
+.tutorial-prose li > p { margin-top: 0.4em; }
+.tutorial-prose blockquote {
+  margin: 1.4em 0 1.4em 1.5em;
+  padding-left: 1em;
+  border-left: 3px solid #cbd5e1;
+  color: #555;
+  font-style: italic;
+}
+.tutorial-prose table {
+  border-collapse: collapse;
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+  margin-top: 1.2em;
+  font-size: 0.9rem;
+}
+.tutorial-prose th, .tutorial-prose td {
+  border-bottom: 1px solid #d1d5db;
+  padding: 0.6em 1.2em 0.6em 0;
+  text-align: left;
+  vertical-align: top;
+}
+.tutorial-prose th { font-weight: 600; color: #374151; }
+.tutorial-prose img {
+  max-width: 100%;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  margin: 1.2em 0;
+}
+/* Pandoc syntax highlighting */
+.tutorial-prose code span.kw { color: #007020; font-weight: bold; }
+.tutorial-prose code span.st { color: #4070a0; }
+.tutorial-prose code span.co { color: #60a0b0; font-style: italic; }
+.tutorial-prose code span.op { color: #666; }
+.tutorial-prose code span.dv { color: #40a070; }
+.tutorial-prose code span.cf { color: #007020; font-weight: bold; }
+.tutorial-prose code span.bu { }
+.tutorial-prose code span.at { color: #7d9029; }
+.tutorial-prose code span.cn { color: #880000; }
+.tutorial-prose code span.dt { color: #902000; }
+.tutorial-prose code span.fu { color: #06287e; }
+.tutorial-prose code span.va { color: #19177c; }
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(

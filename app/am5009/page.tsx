@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const projects = [
   {
-    image: "https://sgangaprasath.github.io/images/am5009/Group1-2024.jpg",
+    image: "/images/am5009/Group1-2024.jpg",
     title: "Campus Waste Map",
     description:
       "Enhance waste management via a web-based platform on campus by identifying & mapping waste hot-spots.",
@@ -22,7 +22,7 @@ const projects = [
     ],
   },
   {
-    image: "https://sgangaprasath.github.io/images/am5009/Group2-2024.jpg",
+    image: "/images/am5009/Group2-2024.jpg",
     title: "Collective campus residents' behaviour",
     description:
       "Understand campus dwellers' behaviour, investigate their attitude, habits, and willingness to adopt eco-friendly practices.",
@@ -38,7 +38,7 @@ const projects = [
     ],
   },
   {
-    image: "https://sgangaprasath.github.io/images/am5009/Group3-2024.jpg",
+    image: "/images/am5009/Group3-2024.jpg",
     title: "Flow of packaging materials on campus",
     description:
       "Investigate the prevalent packaging materials on the campus, categorising and analysing them across zones. A cradle-to-grave Life Cycle Assessment (LCA) for each identified material.",
@@ -54,7 +54,7 @@ const projects = [
     ],
   },
   {
-    image: "https://sgangaprasath.github.io/images/am5009/Group4-2024.jpg",
+    image: "/images/am5009/Group4-2024.jpg",
     title: "Online platform for resale of items",
     description:
       "Develop an online buy-and-sell platform to streamline the exchange of used items among students.",

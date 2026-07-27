@@ -60,7 +60,7 @@ export async function generateStaticParams() {
   }));
 }
 
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import GoToTop from "@/components/GoToTop";
 import PostNav from "@/components/PostNav";
 
@@ -75,6 +75,13 @@ const PostPage = async ({ params }: PageProps) => {
 
   if (!slug) {
     notFound();
+  }
+
+  // If this post has a redirect field, send the user there instead.
+  const allPostsMeta = getPostMetadata();
+  const meta = allPostsMeta.find((p) => p.slug === slug);
+  if (meta?.redirect) {
+    redirect(meta.redirect);
   }
 
   const post = getPostContent(slug);

@@ -6,6 +6,7 @@ category: "Tutorial"
 author: "S Ganga Prasath"
 desig: "Principal Investigator"
 image: "/images/sgp.jpg"
+redirect: "/tutorials/auto07p"
 ---
 
 ![auto-07p tutorial](/images/auto.jpeg)

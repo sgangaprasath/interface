@@ -13,9 +13,10 @@ const defaultColor = "bg-gray-100 text-gray-500 border border-gray-200";
 
 const PostPreview = (props: PostMetadata) => {
   const tagStyle = categoryColors[props.category] ?? defaultColor;
+  const href = props.redirect ?? `/blog/${props.slug}`;
   return (
     <Link
-      href={`/blog/${props.slug}`}
+      href={href}
       className="group flex flex-col items-start justify-around w-auto h-auto bg-white rounded-lg border border-gray-200  px-5 py-4 transition-colors hover:bg-gray-50"
     >
       <div className="flex flex-row w-full items-center justify-between mb-1">

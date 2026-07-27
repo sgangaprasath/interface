@@ -3,13 +3,14 @@
     "id": 1,
     "name": "S Ganga Prasath",
     "title": "Principal Investigator",
-    "twitter": "https://twitter.com/kaitovaai",
+    "twitter": "",
     "linkedIn": "https://www.linkedin.com/in/ganga-prasath-s-152a1225a/",
     "email": "mailto:sgangaprasath@smail.iitm.ac.in",
     "webpage": "https://scholar.google.com/citations?user=fHr_IJgAAAAJ&hl=en&authuser=1",
     "cv": "https://drive.google.com/file/d/1FaD-D5XMLlVw2u6D05fr7PestvvEKtJt/view?usp=sharing",
-    "image": "/images/sgp.jpg",
-    "topics": ["Mechanics", "Robotics & Control", "Behaviour", "Inverse Problems", "Scientific ML"]
+    "image": "/images/sgp.png",
+    "topics": ["Mechanics", "Robotics & Control", "Behaviour", "Inverse Problems", "Scientific ML"],
+    "personalPage": "/members/sgp"
   },
   {
     "id": 2,
@@ -21,7 +22,7 @@
     "webpage": "https://scholar.google.com/citations?user=FnVSQWwAAAAJ&hl=en",
     "cv": "https://github.com/sgangaprasath/interface/blob/main/public/pdf/VishnuCV.pdf",
     "image": "/images/vishnu.jpg",
-    "topics": ["Continuum model", "Scientific ML"]
+    "topics": ["Continuum models", "Scientific ML"]
   },
   {
     "id": 3,
@@ -92,7 +93,7 @@
     "webpage": "",
     "cv": "https://github.com/sgangaprasath/interface/blob/main/public/pdf/MohanCV.pdf",
     "image": "/images/mohanraj.jpg",
-    "topics": ["Robotics", "Control"]
+    "topics": ["Robotics", "Optimisation", "Control"]
   },
   {
     "id": 8,
