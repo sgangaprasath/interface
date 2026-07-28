@@ -31,6 +31,127 @@ const socialLinks = [
   },
 ];
 
+const degrees = [
+  {
+    period: "2019–2022",
+    degree: "Postdoctoral Fellow",
+    institution: "School of Engineering and Applied Sciences, Harvard University, Cambridge, USA.",
+    items: [
+      {
+        text: (
+          <>
+            Soft Math group:{" "}
+            <Link href="https://softmath.seas.harvard.edu" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:text-sky-800 underline underline-offset-2">
+              Prof. L Mahadevan
+            </Link>.
+          </>
+        ),
+      },
+      {
+        text: (
+          <>
+            Collaborators:{" "}
+            <Link href="https://vnmurthylab.org/" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:text-sky-800 underline underline-offset-2">
+              Prof. Venkatesh N Murthy
+            </Link>.
+          </>
+        ),
+      },
+      { text: "Projects: Behaviour of animals & robots, Programming mechanical properties of soft/smart-materials." },
+    ],
+  },
+  {
+    period: "2013–2019",
+    degree: "Ph.D. in Physics",
+    institution: "International Centre for Theoretical Sciences, Tata Institute of Fundamental Research, Bengaluru, India.",
+    items: [
+      {
+        text: (
+          <>
+            <Link href="https://drive.google.com/file/d/18Jo4n4aU79etWbhs4fPXq2DOnauR8BoI/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:text-sky-800 underline underline-offset-2">
+              Thesis
+            </Link>: Mechanics of filaments and spherical particles: role of elasticity and hydrodynamic interaction.
+          </>
+        ),
+      },
+      {
+        text: (
+          <>
+            Advisors:{" "}
+            <Link href="https://www.icts.res.in/people/rama-govindarajan" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:text-sky-800 underline underline-offset-2">
+              Prof. Rama Govindarajan
+            </Link>,{" "}
+            <Link href="https://people.umass.edu/nmenon/" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:text-sky-800 underline underline-offset-2">
+              Prof. Narayanan Menon
+            </Link>.
+          </>
+        ),
+      },
+      {
+        text: (
+          <>
+            Collaborators:{" "}
+            <Link href="https://www.icts.res.in/people/vishal-vasan" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:text-sky-800 underline underline-offset-2">
+              Prof. Vishal Vasan
+            </Link>,{" "}
+            <Link href="https://biosoftact.wordpress.com" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:text-sky-800 underline underline-offset-2">
+              Dr. Joel Marthelot
+            </Link>.
+          </>
+        ),
+      },
+    ],
+  },
+  {
+    period: "2012–2013",
+    degree: "M.S. in Mechanics",
+    institution: "École Polytechnique, Palaiseau, France.",
+    items: [
+      {
+        text: (
+          <>
+            <Link href="https://drive.google.com/file/d/191LhINv_6u4mhgZZgJZj5BbPv4PT4iYS/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:text-sky-800 underline underline-offset-2">
+              Thesis
+            </Link>: Dynamo action in ABC flows: what is the effect of Fourier truncation at low Prandtl number?
+          </>
+        ),
+      },
+      {
+        text: (
+          <>
+            Advisors:{" "}
+            <Link href="http://www.lps.ens.fr/~brachet/files/Home.html" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:text-sky-800 underline underline-offset-2">
+              Prof. Marc Brachet
+            </Link>,{" "}
+            <Link href="https://www.lpens.ens.psl.eu/research/flu-int/physique-non-lineaire/?lang=en" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:text-sky-800 underline underline-offset-2">
+              Prof. Stephane Fauve
+            </Link>.
+          </>
+        ),
+      },
+      { text: "Recipient of the Charpak fellowship by Institut Français." },
+    ],
+  },
+  {
+    period: "2008–2012",
+    degree: "B.Tech in Mechanical Engineering",
+    institution: "Indian Institute of Information Technology, Design and Manufacturing, Kancheepuram, Chennai, India.",
+    items: [
+      {
+        text: (
+          <>
+            Advisor:{" "}
+            <Link href="https://sites.google.com/view/sjv2020/home" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:text-sky-800 underline underline-offset-2">
+              Dr. S. Jayavel
+            </Link>.
+          </>
+        ),
+      },
+      { text: "Recipient of the institute's Best thesis award." },
+    ],
+  },
+];
+
 const currentProjects = [
   {
     href: "https://projectclimate.substack.com",
@@ -141,6 +262,37 @@ const SGPPage = () => {
               topics.
             </p>
           </div>
+        </div>
+
+        {/* Résumé header */}
+        <div className="flex flex-col md:flex-row items-center justify-start gap-2 mt-8 mb-6">
+          <div className="p-3 bg-white border border-gray-300 rounded-full opacity-60">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.437 60.437 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+            </svg>
+          </div>
+          <p className="font-bold text-lg px-4">Résumé</p>
+        </div>
+
+        {/* Degree cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          {degrees.map((d) => (
+            <div key={d.period} className="flex flex-col bg-slate-50 border border-gray-200 rounded-2xl p-6 shadow-sm">
+              <span className="mb-3 self-start text-xs font-medium bg-slate-200 text-slate-700 px-3 py-1 rounded">
+                {d.period}
+              </span>
+              <p className="font-semibold text-sm text-gray-900 mb-1">{d.degree}</p>
+              <p className="text-xs text-gray-500 font-light mb-3 leading-relaxed">{d.institution}</p>
+              <ul className="flex flex-col gap-2">
+                {d.items.map((item, i) => (
+                  <li key={i} className="flex items-baseline gap-2 text-xs text-gray-600 leading-relaxed">
+                    <span className="w-1.5 h-1.5 rounded-full bg-slate-400 flex-shrink-0 mt-1.5" />
+                    <span>{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
         {/* Projects & Initiatives header */}
