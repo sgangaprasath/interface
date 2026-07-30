@@ -120,7 +120,31 @@
     "topics": ["Navigation", "Stochastic Optimal Control (jointly with Dr. Danny Raj M, IIT Madras)"]
   },
   {
+    "id": 10,
+    "name": "Manan M Agrawal",
+    "title": "Undergraduate student - 2026",
+    "twitter": "",
+    "linkedIn": "",
+    "email": "mailto:ed23b052@smail.iitm.ac.in",
+    "webpage": "",
+    "cv": "https://github.com/sgangaprasath/interface/blob/main/public/pdf/MananCV.pdf",
+    "image": "/images/Manan.jpg",
+    "topics": ["Robotics", "Control"]
+  },
+  {
     "id": 11,
+    "name": "Aditya Pillai",
+    "title": "UG Intern - 2026",
+    "twitter": "",
+    "linkedIn": "",
+    "email": "mailto:ed23b052@smail.iitm.ac.in",
+    "webpage": "",
+    "cv": "https://github.com/sgangaprasath/interface/blob/main/public/pdf/AdityaInternCV.pdf",
+    "image": "/images/AdityaIntern.png",
+    "topics": ["Robotics", "Control"]
+  },
+  {
+    "id": 12,
     "name": "Can be you!",
     "title": "MS/PhD student",
     "twitter": "",
