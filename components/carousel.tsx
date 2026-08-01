@@ -15,6 +15,7 @@ import Img12 from "@/public/gallery/ChennaiHalf.jpg";
 import Img14 from "@/public/gallery/RamaVisit.jpg";
 import Img15 from "@/public/gallery/PaperRocket.jpg";
 import Img16 from "@/public/gallery/Beach.jpg";
+import Img17 from "@/public/gallery/Graduates2026.jpg";
 export default function Csel() {
   return (
     <Carousel>
@@ -31,6 +32,19 @@ export default function Csel() {
           </h1>
         </div>
       </div> */}
+      <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
+        <Image
+          src={Img17}
+          width={0}
+          height={0}
+          alt={"Convocation 2026"}
+        />
+        <div className="absolute top-0 px-4 py-2 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-full">
+          <h1 className="text-white text-xs">
+            First batch of graduates from INTERFACE lab on convocation day - 17 July, 26
+          </h1>
+        </div>
+      </div>
       <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
         <Image
           src={Img16}
@@ -135,7 +149,7 @@ export default function Csel() {
           </h1>
         </div>
       </div>
-      <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
+      {/* <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
         <Image
           src={Img06}
           width={0}
@@ -147,8 +161,8 @@ export default function Csel() {
             Jay&apos;s poster presentation in AMBE Research Palooza on 5 Jul, 2024 
           </h1>
         </div>
-      </div>
-      <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
+      </div> */}
+      {/* <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
         <Image
           src={Img03}
           width={0}
@@ -160,8 +174,8 @@ export default function Csel() {
             Our dinner at Toscano with AM1100 TAs
           </h1>
         </div>
-      </div>
-      <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
+      </div> */}
+      {/* <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
         <Image
           src={Img05}
           width={0}
@@ -173,7 +187,7 @@ export default function Csel() {
             Mohan wins 2nd Prize in AMBE Research Palooza Sci-Tech Exposium held on 5 Jul, 2024 
           </h1>
         </div>
-      </div>
+      </div> */}
       <div className="flex flex-wrap items-center justify-center h-full bg-gray-400">
         <Image
           src={Img01}

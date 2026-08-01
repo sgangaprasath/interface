@@ -15,6 +15,7 @@ import Img08 from "@/public/images/KempeCover.jpg";
 import Img09 from "@/public/images/CoverBB.jpg";
 import Img10 from "@/public/images/Pumping.jpg";
 import Img11 from "@/public/images/CoverString.jpg";
+import Img12 from "@/public/images/COLDBanner.jpg";
 // import Img09 from "@/public/images/Poster-ethology-site.png";
 // import Img12 from "@/public/images/ICTS_School_Banner.png";
 import Img13 from "@/public/images/SBP.png";
@@ -84,6 +85,24 @@ export default function Cselmain() {
           />
         </Link>
       </div> */}
+      <div className="flex flex-wrap items-center justify-center h-full bg-white">
+        <Link href={"http://ge.iitm.ac.in/COLD2026"}>
+          <Image
+            src={Img12}
+            height={400}
+            alt={"COLD Winter School 2026"}
+            objectFit="cover"
+          />
+          <div className="absolute rounded-full top-3 left-4 px-4 py-1 sm:opacity-0 md:opacity-100 md:bg-gray-800/40 w-auto">
+            <h1 className="text-white text-xs">
+              COLD Winter School 2026
+            </h1>
+          </div>
+          <div className="absolute rounded-full top-3 right-4 px-2 py-1 sm:opacity-0 md:opacity-100 md:bg-violet-100 border border-violet-200 w-auto">
+            <h1 className="text-violet-600 text-xs font-medium">School</h1>
+          </div>
+        </Link>
+      </div>
       <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
         <Link href={"/blog/13-Schrodinger"}>
           <Image
@@ -102,7 +121,7 @@ export default function Cselmain() {
           </div>
         </Link>
       </div>
-      <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
+      {/* <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
         <Link href={"/blog/12-StringArt"}>
           <Image
             src={Img11}
@@ -119,7 +138,7 @@ export default function Cselmain() {
             <h1 className="text-rose-600 text-xs font-medium">Blog</h1>
           </div>
         </Link>
-      </div>
+      </div> */}
       <div className="flex flex-wrap items-center justify-center h-full bg-zinc-400 ">
         <Link href={"/blog/11-Skateboard"}>
           <Image
