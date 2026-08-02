@@ -53,6 +53,18 @@
   },
   {
     "id": 6,
+    "name": "Prateek Dwivedi",
+    "title": "Joint PhD student - 2026",
+    "twitter": "",
+    "linkedIn": "",
+    "email": "mailto:id26d033@smail.iitm.ac.in",
+    "webpage": "",
+    "cv": "https://github.com/sgangaprasath/interface/blob/main/public/pdf/PrateekCV.pdf",
+    "image": "/images/profile.svg",
+    "topics": ["Interpretable models", "Scientific ML (jointly with Prof. Sayan Gupta, IIT Madras)"]
+  },
+  {
+    "id": 6,
     "name": "Jay Jayeshbhai Chavda",
     "title": "MS student",
     "twitter": "",
