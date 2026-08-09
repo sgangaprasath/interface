@@ -42,6 +42,10 @@ const courses = [
         url: "/am5009",
       },
       {
+        label: "Showcase of 2025 projects",
+        url: "/am5009-2025",
+      },
+      {
         label: "Of Materials and Mindsets",
         url: "https://www.t5eiitm.org/of-materials-and-mindsets/",
       },
