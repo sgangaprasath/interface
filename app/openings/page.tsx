@@ -24,14 +24,23 @@ export default function Home() {
           <p className="font-bold text-lg px-4">Openings</p>
         </div>
         <p className="text-center md:text-left font-light text-md md:px-16">
-          We currently have {" "}
+          We currently have {" "} no openings for PhD/MS students. We will update this page when we have new openings.
+          If you have an exceptional academic record and are interested in working with us, please feel free to reach out to us at {" "}
+          <a
+            href="mailto:sgangaprasath@smail.iitm.ac.in"
+            className="font-bold underline hover:underline-offset-2"
+          >
+            sgangaprasath@smail.iitm.ac.in
+          </a>.
+        </p>
+        {/* <p className="text-center md:text-left font-light text-md md:px-16">
           <b className="font-bold">1 JRF position</b> (which will transition to a PhD position) for candidates with good academic record to explore problems in {" "}
           <b className="font-bold">
             robotics & optimal control
           </b>
           .
-        </p>
-        <p className="text-center md:text-left font-light text-md md:px-16">
+        </p> */}
+        {/* <p className="text-center md:text-left font-light text-md md:px-16">
           Our group uses experiments and theoretical analysis as demanded by
           the question. Have a look at the{" "}
           <a
@@ -48,7 +57,7 @@ export default function Home() {
             publications
           </a>{" "}
           pages for details of the group&apos;s work and drop by our lab to know more.
-        </p>
+        </p> */}
         {/* <p className="text-center md:text-left font-light text-md md:px-16">
           Details of the graduate admission can be found{" "}
           <a
@@ -66,7 +75,7 @@ export default function Home() {
           </a>
           .
         </p> */}
-        <p className="text-center md:text-left font-light text-md md:px-16">
+        {/* <p className="text-center md:text-left font-light text-md md:px-16">
           Details of the Junior Research Fellowship position can be found{" "}
           <a
             href="https://icandsr.iitm.ac.in/careers/admin/download_announcement.php?file=announce_1781776854.pdf"
@@ -89,7 +98,7 @@ export default function Home() {
             style={{ height: "80vh" }}
             title="JRF 2026 Task Document"
           />
-        </div>
+        </div> */}
       </div>
     </>
   );
