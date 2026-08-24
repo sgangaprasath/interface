@@ -65,6 +65,18 @@
   },
   {
     "id": 6,
+    "name": "Aprameyan Veeraraghavan",
+    "title": "Joint PhD student - 2026",
+    "twitter": "",
+    "linkedIn": "",
+    "email": "mailto:aprameyanveerereghavan@gmail.com",
+    "webpage": "",
+    "cv": "https://github.com/sgangaprasath/interface/blob/main/public/pdf/AprameyamCV.pdf",
+    "image": "/images/Aprameyan.jpg",
+    "topics": ["Interpretable models", "Scientific ML (jointly with Prof. Sayan Gupta, IIT Madras)"]
+  },
+  {
+    "id": 6,
     "name": "Jay Jayeshbhai Chavda",
     "title": "MS student",
     "twitter": "",
@@ -153,7 +165,11 @@
     "webpage": "",
     "cv": "https://github.com/sgangaprasath/interface/blob/main/public/pdf/AdityaInternCV.pdf",
     "image": "/images/AdityaIntern.png",
-    "topics": ["Robotics", "Control"]
+    "topics": ["Robotics", "Control"],
+    "status": "past",
+    "thesis": "Design of manipulators for pick and place operations",
+    "period": "Jun-Aug 2026",
+    "currentPosition": "3rd Year B.Tech, EE @ UW Madison"
   },
   {
     "id": 12,
