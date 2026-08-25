@@ -1,7 +1,6 @@
 import fs from "fs";
 import Image from "next/image";
-import Markdown from "markdown-to-jsx";
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import matter from "gray-matter";
 import getPostMetadata from "@/components/getPostMetadata";
@@ -9,15 +8,7 @@ import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 import path from "path";
 import "katex/dist/katex.min.css";
-
-// const getPostContent = (slug: string) => {
-//   const folder = "blog/";
-//   const file = `${folder}${slug}.md`;
-//   const content = fs.readFileSync(file, "utf8");
-//   const matterResult = matter(content);
-//   return matterResult;
-// };
-
+import "./tufte.css";
 
 const getPostContent = (slug: string) => {
   if (!slug) {
@@ -40,20 +31,13 @@ const getPostContent = (slug: string) => {
 export async function generateStaticParams() {
   const postsDirectory = path.join(process.cwd(), "blog");
 
-  console.log("Looking for posts in:", postsDirectory);
-  console.log("Directory exists?", fs.existsSync(postsDirectory));
-
   const filenames = fs.existsSync(postsDirectory)
     ? fs.readdirSync(postsDirectory)
     : [];
 
-  console.log("Filenames found:", filenames);
-
   const slugs = filenames
     .filter((name) => name.endsWith(".md"))
     .map((name) => name.replace(".md", ""));
-
-  console.log("Slugs generated:", slugs);
 
   return slugs.map((slug) => ({
     slug: slug,
@@ -61,14 +45,56 @@ export async function generateStaticParams() {
 }
 
 import { notFound, redirect } from "next/navigation";
-import GoToTop from "@/components/GoToTop";
 import PostNav from "@/components/PostNav";
+import { toneFor } from "@/components/categoryColors";
 
 interface PageProps {
   params: Promise<{
     slug: string;
   }>;
 }
+
+/** "2026-03-24" -> "24 March 2026"; anything unparseable is passed through. */
+const formatDate = (value: unknown): string => {
+  if (!value) return "";
+  const raw = value instanceof Date ? value.toISOString().slice(0, 10) : String(value);
+  const parsed = new Date(raw);
+  if (Number.isNaN(parsed.getTime())) return raw;
+  return parsed.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+};
+
+const Byline = ({
+  image,
+  author,
+  desig,
+}: {
+  image?: string;
+  author?: string;
+  desig?: string;
+}) => {
+  if (!author) return null;
+  return (
+    <div className="tufte-author">
+      {image && (
+        <Image
+          src={image}
+          width={44}
+          height={44}
+          alt={`Photograph of ${author}`}
+        />
+      )}
+      <div>
+        <div className="tufte-author-name">{author}</div>
+        {desig && <div className="tufte-author-desig">{desig}</div>}
+      </div>
+    </div>
+  );
+};
 
 const PostPage = async ({ params }: PageProps) => {
   const { slug } = await params;
@@ -88,61 +114,52 @@ const PostPage = async ({ params }: PageProps) => {
 
   const allPosts = getPostMetadata();
   const currentIndex = allPosts.findIndex((p) => p.slug === slug);
-  const prev = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
+  const prev =
+    currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
   const next = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
 
+  const tone = toneFor(post.data.category);
+
   return (
-    <div className="max-w-5xl mt-20">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold">{post.data.title}</h1>
-
-        <div className="group container flex flex-row items-center justify-between my-10">
-          <div className="flex flex-row items-center gap-4">
-            <div className="group flex flex-row items-center gap-2">
-              <Image
-                src={post.data.image}
-                width={45}
-                height={45}
-                alt="Picture of the lab member"
-                className="transform duration-200 rounded-full grayscale group-hover:grayscale-0 hover:scale-125"
-              />
-              <div className="flex flex-col items-start justify-center">
-                <p className="font-semibold text-md">
-                  {post.data.author}
-                </p>
-                <p className="font-light text-xs text-gray-500 pb-1">
-                  {post.data.desig}
-                </p>
-              </div>
-            </div>
-            {post.data.author2 && post.data.image2 && (
-              <div className="group flex flex-row items-center gap-2">
-                <Image
-                  src={post.data.image2}
-                  width={45}
-                  height={45}
-                  alt="Picture of the second lab member"
-                  className="transform duration-200 rounded-full grayscale group-hover:grayscale-0 hover:scale-125"
-                />
-                <div className="flex flex-col items-start justify-center">
-                  <p className="font-semibold text-md">
-                    {post.data.author2}
-                  </p>
-                  <p className="font-light text-xs text-gray-500 pb-1">
-                    {post.data.desig2}
-                  </p>
-                </div>
-              </div>
-            )}
+    <div className="tufte-page mb-8">
+      <header className="tufte-header">
+        {post.data.category && (
+          <div
+            className="tufte-kicker"
+            style={{
+              backgroundColor: tone.bg,
+              color: tone.fg,
+              border: `1px solid ${tone.border}`,
+            }}
+          >
+            {post.data.category}
           </div>
+        )}
 
-          <p className="font-medium text-md text-gray-800 pb-1">
-            {post.data.date}
-          </p>
+        <h1 className="tufte-title">{post.data.title}</h1>
+
+        {post.data.subtitle && (
+          <p className="tufte-subtitle">{post.data.subtitle}</p>
+        )}
+
+        <div className="tufte-byline">
+          <div className="tufte-authors">
+            <Byline
+              image={post.data.image}
+              author={post.data.author}
+              desig={post.data.desig}
+            />
+            <Byline
+              image={post.data.image2}
+              author={post.data.author2}
+              desig={post.data.desig2}
+            />
+          </div>
+          <p className="tufte-date">{formatDate(post.data.date)}</p>
         </div>
-      </div>
+      </header>
 
-      <article className="prose prose-stone max-w-none scroll-smooth dark:prose-invert">
+      <article className="tufte-body scroll-smooth">
         <ReactMarkdown
           remarkPlugins={[remarkMath]}
           rehypePlugins={[rehypeKatex, rehypeRaw]}
@@ -150,10 +167,11 @@ const PostPage = async ({ params }: PageProps) => {
           {post.content}
         </ReactMarkdown>
       </article>
-      <div className="flex items-end justify-between mt-16 mb-4">
+
+      {/* .tufte-footer is a 3-column grid; PostNav supplies its cells. */}
+      <nav className="tufte-footer">
         <PostNav prev={prev} next={next} />
-        <GoToTop />
-      </div>
+      </nav>
     </div>
   );
 };

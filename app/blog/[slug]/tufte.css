@@ -1,0 +1,554 @@
+/* ──────────────────────────────────────────────────────────────
+   Tufte-style article layout for blog posts.
+   Scoped to .tufte-page / .tufte-body so nothing else on the site
+   is affected. Imported by app/blog/[slug]/page.tsx
+
+   Layout: the text column is centred on the page. Symmetric gutters
+   are reserved on both sides; the left one stays empty, the right one
+   holds margin notes. So the prose reads down the middle of the
+   screen while the notes still sit out in the margin.
+   ────────────────────────────────────────────────────────────── */
+
+.tufte-page {
+  --measure: 44rem;      /* width of the main text column   ~704px */
+  --note: 12rem;         /* width of a margin note          ~192px */
+  --gap: 1.5rem;         /* space between column and note    ~24px */
+  --note-pull: calc(-1 * (var(--note) + var(--gap)));
+
+  /* Inter, self-hosted by next/font via --font-inter on <body>.
+     The literal "Inter" is a fallback if that variable isn't present. */
+  --sans: var(--font-inter, "Inter"), system-ui, -apple-system, "Segoe UI",
+    Helvetica, Arial, sans-serif;
+
+  --ink: #111110;
+  --ink-soft: #55554e;
+  --ink-faint: #8a8a80;
+  --rule: #d8d8cf;
+  --paper: #ffffff;
+  --accent: #0b6b4f;
+
+  width: 100%;
+  /* text column plus an equal gutter on each side, centred as a whole */
+  max-width: calc(var(--measure) + 2 * (var(--note) + var(--gap)));
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 4rem;
+
+  color: var(--ink);
+  font-family: "EB Garamond", "Iowan Old Style", "Palatino Linotype",
+    Palatino, Georgia, "Times New Roman", serif;
+  font-size: 1.25rem;
+  line-height: 1.7;
+  font-kerning: normal;
+  font-variant-numeric: oldstyle-nums;
+  -webkit-font-smoothing: antialiased;
+  counter-reset: sidenote-counter;
+}
+
+
+/* ── Header block ─────────────────────────────────────────────── */
+
+.tufte-header {
+  margin-bottom: 3.5rem;
+}
+
+.tufte-kicker {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.2em 0.75em;
+  border-radius: 999px;
+  margin-bottom: 1.8rem;
+}
+
+.tufte-title {
+  font-size: 3rem;
+  line-height: 1.08;
+  font-weight: 400;
+  letter-spacing: -0.012em;
+  margin: 0 0 0.35em 0;
+  text-wrap: balance;
+}
+
+.tufte-subtitle {
+  font-size: 1.5rem;
+  line-height: 1.35;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink-soft);
+  margin: 0 0 2rem 0;
+  text-wrap: pretty;
+}
+
+.tufte-byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--rule);
+}
+
+.tufte-authors {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.tufte-author {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.tufte-author img {
+  border-radius: 999px;
+  filter: grayscale(1);
+  transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+.tufte-author:hover img {
+  filter: grayscale(0);
+  transform: scale(1.08);
+}
+
+.tufte-author-name {
+  font-size: 1rem;
+  line-height: 1.25;
+  font-weight: 600;
+  font-variant-numeric: normal;
+}
+
+.tufte-author-desig {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.tufte-date {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
+/* ── Body ─────────────────────────────────────────────────────
+
+   The column width is set once, on the container. Everything inside
+   inherits it — including bare text nodes that markdown leaves
+   unwrapped (e.g. a paragraph that follows a raw <div> with no blank
+   line between them). Setting widths on individual children instead
+   would let those stray nodes run the full page width.
+   ───────────────────────────────────────────────────────────── */
+
+.tufte-body,
+.tufte-header {
+  width: var(--measure);
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Anything tagged .fullwidth breaks out across both gutters */
+.tufte-body .fullwidth {
+  width: calc(var(--measure) + 2 * (var(--note) + var(--gap)));
+  max-width: calc(100vw - 2rem);
+  margin-left: calc(-1 * (var(--note) + var(--gap)));
+  margin-right: calc(-1 * (var(--note) + var(--gap)));
+}
+
+@media (max-width: 1340px) {
+  /* No gutters to break out into. */
+  .tufte-body .fullwidth {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.tufte-body p {
+  margin-top: 0;
+  margin-bottom: 1.4rem;
+  text-wrap: pretty;
+}
+
+/* Posts use `# Heading` for sections, so h1 is styled as a section head,
+   not as a title (the title is rendered separately above). */
+.tufte-body h1 {
+  font-size: 2rem;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  margin-top: 3.2rem;
+  margin-bottom: 1rem;
+}
+
+.tufte-body h2 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.25;
+  margin-top: 2.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.tufte-body h3 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  font-style: italic;
+  margin-top: 2.1rem;
+  margin-bottom: 0.6rem;
+}
+
+.tufte-body h4,
+.tufte-body h5,
+.tufte-body h6 {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Opening-phrase small caps, Tufte's "new thought" */
+.tufte-body .newthought {
+  font-variant: small-caps;
+  font-size: 1.1em;
+  letter-spacing: 0.02em;
+}
+
+.tufte-body a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: var(--rule);
+  transition: text-decoration-color 0.2s ease, color 0.2s ease;
+}
+
+.tufte-body a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+.tufte-body ul,
+.tufte-body ol {
+  padding-left: 1.4rem;
+  margin-top: 0;
+  margin-bottom: 1.4rem;
+}
+
+.tufte-body li {
+  margin-bottom: 0.5rem;
+  padding-left: 0.2rem;
+}
+
+.tufte-body li > p {
+  margin-bottom: 0.5rem;
+}
+
+.tufte-body blockquote {
+  margin-top: 1.8rem;
+  margin-bottom: 1.8rem;
+  padding-left: 1.6rem;
+  border-left: 2px solid var(--rule);
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.tufte-body blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.tufte-body hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+/* ── Figures ──────────────────────────────────────────────────── */
+
+.tufte-body img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tufte-body figure {
+  margin-top: 2.2rem;
+  margin-bottom: 2.2rem;
+}
+
+.tufte-body figcaption,
+.tufte-body .caption {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  margin-top: 0.6rem;
+}
+
+/* ── Tables: horizontal rules only ────────────────────────────── */
+
+.tufte-body table {
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: block;
+  overflow-x: auto;
+  font-variant-numeric: tabular-nums;
+}
+
+.tufte-body th,
+.tufte-body td {
+  border: none;
+  border-bottom: 1px solid var(--rule);
+  padding: 0.5em 1.4em 0.5em 0;
+  text-align: left;
+  vertical-align: top;
+}
+
+.tufte-body thead th {
+  border-bottom: 1.5px solid var(--ink);
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── Code ─────────────────────────────────────────────────────── */
+
+.tufte-body code,
+.tufte-body kbd,
+.tufte-body samp {
+  font-family: "Roboto Mono", Menlo, Consolas, monospace;
+  font-size: 0.82em;
+  font-variant-numeric: normal;
+}
+
+.tufte-body :not(pre) > code {
+  background: rgba(0, 0, 0, 0.04);
+  padding: 0.12em 0.35em;
+  border-radius: 3px;
+}
+
+.tufte-body pre {
+  background: rgba(0, 0, 0, 0.025);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.5;
+  margin-top: 1.8rem;
+  margin-bottom: 1.8rem;
+}
+
+.tufte-body pre code {
+  background: none;
+  padding: 0;
+}
+
+/* ── Math (KaTeX) ─────────────────────────────────────────────── */
+
+.tufte-body .katex {
+  font-size: 1.02em;
+}
+
+.tufte-body .katex-display {
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.2rem 0;
+}
+
+/* ── Margin notes and sidenotes ───────────────────────────────── */
+
+/*  Unnumbered aside:
+      <span class="marginnote">Some aside.</span>
+
+    Numbered sidenote:
+      text<span class="sidenote-number"></span><span class="sidenote">The note.</span>
+*/
+
+.tufte-body .marginnote,
+.tufte-body .sidenote {
+  float: right;
+  clear: right;
+  width: var(--note);
+  margin-right: var(--note-pull);
+  margin-top: 0.35rem;
+  margin-bottom: 1.2rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  position: relative;
+  vertical-align: baseline;
+  text-align: left;
+  font-variant-numeric: normal;
+  hyphens: auto;
+}
+
+.tufte-body .marginnote a,
+.tufte-body .sidenote a {
+  text-decoration-color: var(--ink-faint);
+}
+
+.tufte-body .sidenote-number {
+  counter-increment: sidenote-counter;
+}
+
+.tufte-body .sidenote-number::after {
+  content: counter(sidenote-counter);
+  font-size: 0.68em;
+  vertical-align: super;
+  line-height: 0;
+  margin-left: 0.1em;
+  color: var(--accent);
+}
+
+.tufte-body .sidenote::before {
+  content: counter(sidenote-counter) " ";
+  font-size: 0.7em;
+  vertical-align: super;
+  line-height: 0;
+  margin-right: 0.25em;
+  color: var(--accent);
+}
+
+/* Epigraph */
+.tufte-body .epigraph {
+  margin-top: 2.5rem;
+  margin-bottom: 3rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.tufte-body .epigraph footer {
+  font-style: normal;
+  font-size: 0.85rem;
+  text-align: right;
+  color: var(--ink-faint);
+}
+
+/* ── Footer nav ───────────────────────────────────────────────── */
+
+/* Previous at the left edge, next at the right, back-to-top centred. */
+.tufte-footer {
+  width: 100%;
+  margin-top: 4rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.tufte-footer > :first-child {
+  justify-self: start;
+}
+
+.tufte-footer > :last-child {
+  justify-self: end;
+}
+
+/* "Back to top" is plain linked text, not a button */
+.tufte-totop {
+  justify-self: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.28em;
+  text-decoration-color: var(--rule);
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.tufte-totop:hover {
+  color: var(--ink);
+  text-decoration-color: var(--ink-faint);
+}
+
+@media (max-width: 700px) {
+  .tufte-footer {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 1rem;
+  }
+
+  .tufte-footer > :first-child,
+  .tufte-footer > :last-child {
+    justify-self: center;
+  }
+}
+
+/* ── Narrow screens: the gutters vanish, notes fall inline ────── */
+
+@media (max-width: 1340px) {
+  .tufte-body .marginnote,
+  .tufte-body .sidenote {
+    float: none;
+    clear: both;
+    display: block;
+    width: 100%;
+    margin: 1rem 0 1.2rem 1.25rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--rule);
+  }
+}
+
+@media (max-width: 900px) {
+  .tufte-page {
+    font-size: 1.15rem;
+    padding-top: 3rem;
+  }
+
+  .tufte-title {
+    font-size: 2.25rem;
+  }
+
+  .tufte-subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .tufte-page {
+    font-size: 1.08rem;
+  }
+
+  .tufte-title {
+    font-size: 1.85rem;
+  }
+
+  .tufte-byline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.9rem;
+  }
+}

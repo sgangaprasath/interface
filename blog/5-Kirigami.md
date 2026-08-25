@@ -10,6 +10,7 @@ image: "/images/jaychavda.jpg"
 <div class="flex justify-center items-center font-bold mt-10">
 	Abstract
 </div>
+
 The Cricut Maker 3 is an advanced precision cutting machine for cutting thin materials such as sheets of paper, plastic and fabric into complex shapes, used primarily in the realm of crafting. Operating on sophisticated engineering principles such as Computer Aided Design (CAD), it ensures highly accurate and intricate cuts, elevating the quality of crafting projects. For engineers and crafting enthusiasts alike, exploring the technical attributes of the Cricut Maker 3 provides a new way to design materials due to its superior cutting results. In this tutorial, we demonstrate how to use Cricut Maker 3 by cutting a sheet of paper.
 
 # Introduction
