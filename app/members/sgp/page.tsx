@@ -244,7 +244,7 @@ const SGPPage = () => {
                 Department of Applied Mechanics &amp; Biomedical Engineering
               </Link>{" "}
               at the Indian Institute of Technology Madras. My research interests lie at the interface of{" "}
-              <strong>scientific ML, inverse problems, robotics & control, and soft-mechanics</strong>.
+              <strong>scientific ML, inverse problems, robotics & control, and mechanics</strong>. I am also part of the <Link href="https://ccsd.iitm.ac.in" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:text-sky-800 underline underline-offset-2">Center for Complex Systems and Dynamics</Link> at IIT Madras.
             </p>
             <p>
               I am also the faculty advisor of the{" "}
