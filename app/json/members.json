@@ -145,6 +145,18 @@
   },
   {
     "id": 10,
+    "name": "Manoj N H",
+    "title": "Undergraduate student - 2026",
+    "twitter": "",
+    "linkedIn": "",
+    "email": "mailto:ee23b044@smail.iitm.ac.in",
+    "webpage": "",
+    "cv": "https://github.com/sgangaprasath/interface/blob/main/public/pdf/ManojCV.pdf",
+    "image": "/images/Manoj.jpg",
+    "topics": ["Navigation", "Collective Behaviour", "Optimal Control"]
+  },
+  {
+    "id": 11,
     "name": "Manan M Agrawal",
     "title": "Undergraduate student - 2026",
     "twitter": "",
@@ -156,7 +168,7 @@
     "topics": ["Robotics", "Control"]
   },
   {
-    "id": 11,
+    "id": 12,
     "name": "Aditya Pillai",
     "title": "UG Intern - 2026",
     "twitter": "",
@@ -172,7 +184,7 @@
     "currentPosition": "3rd Year B.Tech, EE @ UW Madison"
   },
   {
-    "id": 12,
+    "id": 13,
     "name": "Can be you!",
     "title": "MS/PhD student",
     "twitter": "",
