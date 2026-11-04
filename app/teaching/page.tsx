@@ -4,7 +4,7 @@ const courses = [
   {
     code: "AM1100",
     title: "Engineering mechanics",
-    years: "2024(E), 25(O)",
+    years: "2024(E), 25(O), 26(O)",
     description:
       "First year B.Tech course in basics of mechanics, covering statics and dynamics of rigid bodies.",
     coTaught: [] as { name: string; url: string }[],
