@@ -66,6 +66,22 @@
         "journal": "arXiv, 10.48550/arXiv.2603.07067.",
         "tag": "Geometry",
         "tag2": "Control"
+      },
+      {
+        "id": 5,
+        "authors": "Manoj N H and Ganga Prasath, S.",
+        "title": "Emergent stigmergy and pheromone-guided decisions in a foraging collective.",
+        "arxiv": "https://arxiv.org/abs/2611.02997",
+        "website": "",
+        "download": "",
+        "video": "https://youtu.be/UmFeAe5c678",
+        "news1": "",
+        "news2": "",
+        "date": "",
+        "image": "",
+        "journal": "arXiv, 10.48550/arXiv.2611.02997.",
+        "tag": "Behaviour",
+        "tag2": "Control"
       }
     ]
   },
