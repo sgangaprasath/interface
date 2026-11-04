@@ -1,28 +1,11 @@
 import Link from "next/link";
+import PageTitle from "@/components/PageTitle";
 import Image from "next/image";
 export default function Home() {
   return (
     <>
       <div className="flex flex-col items-center md:items-start justify-center gap-4 w-full max-w-4xl mt-10 mb-10 md:ml-20 md:gap-4">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-2">
-          <div className="p-3 bg-white border border-gray-300 rounded-full opacity-60 ">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z"
-              />
-            </svg>
-          </div>
-          <p className="font-bold text-lg px-4">Openings</p>
-        </div>
+        <PageTitle title="Openings" icon="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
         <p className="text-center md:text-left font-light text-md md:px-16">
           We currently have {" "} no openings for PhD/MS students. We will update this page when we have new openings.
           If you have an exceptional academic record and are interested in working with us, please feel free to reach out to us at {" "}
