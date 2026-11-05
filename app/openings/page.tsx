@@ -7,14 +7,51 @@ export default function Home() {
       <div className="flex flex-col items-center md:items-start justify-center gap-4 w-full max-w-4xl mt-10 mb-10 md:ml-20 md:gap-4">
         <PageTitle title="Openings" icon="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
         <p className="text-center md:text-left font-light text-md md:px-16">
-          We currently have {" "} no openings for PhD/MS students. We will update this page when we have new openings.
-          If you have an exceptional academic record and are interested in working with us, please feel free to reach out to us at {" "}
+          We have an opening for <b className="font-bold">1 PhD student</b> in the field of{" "}
+          <b className="font-bold">humanoid robotics</b>. We are interested in students with prior experience in
+          robotics, controls and physics simulations, and a good mathematical background.
+        </p>
+        <p className="text-center md:text-left font-light text-md md:px-16">
+          Our group uses experiments and theoretical analysis as demanded by
+          the question. Have a look at the{" "}
+          <a
+            href="/research"
+            className="font-bold underline hover:underline-offset-2"
+          >
+            research
+          </a>{" "}
+          and{" "}
+          <a
+            href="/pubs"
+            className="font-bold underline hover:underline-offset-2"
+          >
+            publications
+          </a>{" "}
+          pages for details of the group&apos;s work.
+        </p>
+        <p className="text-center md:text-left font-light text-md md:px-16">
+          Details of the graduate admission can be found{" "}
+          <a
+            href="https://apm.iitm.ac.in/pages/graduate_admission"
+            className="font-bold underline hover:underline-offset-2"
+          >
+            here
+          </a>{" "}
+          and the application procedure is elaborated in the{" "}
+          <a
+            href="https://research.iitm.ac.in"
+            className="font-bold underline hover:underline-offset-2"
+          >
+            IITM Research Portal
+          </a>
+          . If you are interested, please write to us at{" "}
           <a
             href="mailto:sgangaprasath@smail.iitm.ac.in"
             className="font-bold underline hover:underline-offset-2"
           >
             sgangaprasath@smail.iitm.ac.in
-          </a>.
+          </a>{" "}
+          with your CV and a short note on your relevant experience.
         </p>
         {/* <p className="text-center md:text-left font-light text-md md:px-16">
           <b className="font-bold">1 JRF position</b> (which will transition to a PhD position) for candidates with good academic record to explore problems in {" "}
