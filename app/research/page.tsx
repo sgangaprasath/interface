@@ -281,63 +281,133 @@ const SoftFigure = ({ c }: { c: string }) => {
   );
 };
 
-// Scientific ML: a pitchfork bifurcation. As the parameter a crosses zero the
-// single well V(x) = x^4/4 - a x^2/2 splits in two and the state picks a side.
-// The lower panel is the bifurcation diagram, traced by the same parameter.
+// Scientific ML: optimisers on a loss landscape. Gradient descent zig-zags down
+// a narrow valley into a sharp minimum; noisy SGD settles into a wide, flat one.
+// The panel below plots both losses against steps, in step with the walkers.
 const MLFigure = ({ c }: { c: string }) => {
-  const xs = Array.from({ length: 33 }, (_, i) => -1.6 + (3.2 * i) / 32);
-  const V = (x: number, a: number) => x ** 4 / 4 - (a * x * x) / 2;
-  const top = { cx: 120, base: 62, sx: 58, sy: 34 };
-  const curve = (a: number) =>
-    "M" + xs.map((x) => `${r1(top.cx + top.sx * x)} ${r1(top.base - top.sy * V(x, a))}`).join(" L");
-  const xstar = (a: number) => (a > 0 ? Math.sqrt(a) : 0);
+  type Basin = { cx: number; cy: number; deg: number; rx: number; k: number };
+  const sharp: Basin = { cx: 164, cy: 56, deg: -14, rx: 64, k: 0.28 };
+  const flat: Basin = { cx: 56, cy: 58, deg: 28, rx: 46, k: 0.72 };
+  const toXY = (b: Basin, u: number, v: number) => {
+    const a = (b.deg * Math.PI) / 180;
+    return [b.cx + u * Math.cos(a) - v * Math.sin(a), b.cy + u * Math.sin(a) + v * Math.cos(a)];
+  };
+  const lossOf = (b: Basin, u: number, v: number) => (u / b.rx) ** 2 + (v / (b.rx * b.k)) ** 2;
 
-  const diag = { x0: 30, x1: 214, y: 130, sy: 22, a0: -0.6, a1: 1.3 };
-  const ax = (a: number) => diag.x0 + ((a - diag.a0) / (diag.a1 - diag.a0)) * (diag.x1 - diag.x0);
-  const branch = (sign: number) =>
-    "M" +
-    Array.from({ length: 17 }, (_, i) => (diag.a1 * i) / 16)
-      .map((a) => `${r1(ax(a))} ${r1(diag.y - sign * diag.sy * Math.sqrt(a))}`)
-      .join(" L");
+  const N = 18;
+  const noise = (i: number, s: number) => Math.sin(i * 12.9898 + s * 78.233) * 0.5; // deterministic
+  // GD: step size near the stability limit of the stiff direction, so it overshoots.
+  const gdUV = Array.from({ length: N }, (_, i) => [-66 * 0.8 ** i, -16 * (-0.84) ** i]);
+  // SGD: slower, with noise that shrinks as the learning rate decays.
+  const sgdUV = Array.from({ length: N }, (_, i) => {
+    const amp = i === 0 || i === N - 1 ? 0 : 16 * 0.88 ** i;
+    return [-14 * 0.8 ** i + amp * noise(i, 1), -36 * 0.78 ** i + amp * noise(i, 2)];
+  });
 
-  const forward = Array.from({ length: 12 }, (_, i) => diag.a0 + ((diag.a1 - diag.a0) * i) / 11);
-  const as = [...forward, diag.a1, ...forward.slice().reverse()];
-  const kt = as.map((_, i) => r1((i / (as.length - 1)) * 1000) / 1000).join(";");
-  const t = { dur: "10s", keyTimes: kt, ...loop };
+  const walk = (b: Basin, uv: number[][]) => {
+    const pts = uv.map(([u, v]) => toXY(b, u, v).map(r1));
+    const seg = pts.slice(1).map((p, i) => Math.hypot(p[0] - pts[i][0], p[1] - pts[i][1]));
+    const total = seg.reduce((x, y) => x + y, 0);
+    let acc = 0;
+    const frac = [0, ...seg.map((d) => (acc += d) / total)];
+    return { pts, frac, loss: uv.map(([u, v]) => lossOf(b, u, v)) };
+  };
+  const gd = walk(sharp, gdUV);
+  const sgd = walk(flat, sgdUV);
 
-  const ballX = as.map((a) => r1(top.cx + top.sx * xstar(a)));
-  const ballY = as.map((a) => r1(top.base - top.sy * V(xstar(a), a) - 4));
-  const markX = as.map((a) => r1(ax(a)));
-  const markY = as.map((a) => r1(diag.y - diag.sy * xstar(a)));
+  // Each step takes equal time; the last 20% of the loop holds at the minimum.
+  const hold = <T,>(xs: T[]) => [...xs, xs[xs.length - 1]];
+  const kt = [...Array.from({ length: N }, (_, i) => r1((i / (N - 1)) * 800) / 1000), 1].join(";");
+  const t = { dur: "9s", keyTimes: kt, ...loop };
+
+  const panel = { x0: 30, x1: 214, y0: 126, y1: 158 };
+  const lmax = Math.max(...gd.loss, ...sgd.loss);
+  const lx = (i: number) => r1(panel.x0 + 4 + ((panel.x1 - panel.x0 - 8) * i) / (N - 1));
+  const ly = (l: number) => r1(panel.y1 - 2 - ((panel.y1 - panel.y0 - 4) * l) / lmax);
+
+  const Walker = ({ w, color }: { w: typeof gd; color: string }) => {
+    const curve = w.loss.map((l, i) => `${lx(i)},${ly(l)}`).join(" ");
+    const curveFrac = w.loss.map((_, i) => i / (N - 1));
+    return (
+      <g>
+        {/* Path on the landscape, drawn as the walker moves */}
+        <polyline
+          points={w.pts.map((p) => p.join(",")).join(" ")}
+          fill="none"
+          stroke={color}
+          strokeWidth="1.3"
+          strokeOpacity="0.75"
+          strokeLinejoin="round"
+          pathLength={1}
+          strokeDasharray="1 1"
+          strokeDashoffset="1"
+        >
+          <animate attributeName="stroke-dashoffset" values={hold(w.frac.map((f) => r1((1 - f) * 1000) / 1000)).join(";")} {...t} />
+        </polyline>
+        {w.pts.map((p, i) => (
+          <circle key={i} cx={p[0]} cy={p[1]} r="1.3" fill={color} opacity="0">
+            <animate attributeName="opacity" values={hold(w.pts.map((_, j) => (j >= i ? 0.7 : 0))).join(";")} {...t} calcMode="discrete" />
+          </circle>
+        ))}
+        <circle r="4" cx={w.pts[0][0]} cy={w.pts[0][1]} fill={color} stroke="white" strokeWidth="1">
+          <animate attributeName="cx" values={hold(w.pts.map((p) => p[0])).join(";")} {...t} />
+          <animate attributeName="cy" values={hold(w.pts.map((p) => p[1])).join(";")} {...t} />
+        </circle>
+
+        {/* Loss against steps */}
+        <polyline
+          points={curve}
+          fill="none"
+          stroke={color}
+          strokeWidth="1.4"
+          strokeLinejoin="round"
+          pathLength={1}
+          strokeDasharray="1 1"
+          strokeDashoffset="1"
+        >
+          <animate attributeName="stroke-dashoffset" values={hold(curveFrac.map((f) => r1((1 - f) * 1000) / 1000)).join(";")} {...t} />
+        </polyline>
+        <circle r="2.4" cx={lx(0)} cy={ly(w.loss[0])} fill={color}>
+          <animate attributeName="cx" values={hold(w.loss.map((_, i) => lx(i))).join(";")} {...t} />
+          <animate attributeName="cy" values={hold(w.loss.map(ly)).join(";")} {...t} />
+        </circle>
+      </g>
+    );
+  };
+
+  const contours = (b: Basin, sizes: number[], color: string) => (
+    <g transform={`rotate(${b.deg} ${b.cx} ${b.cy})`} fill="none" stroke={color} strokeWidth="1">
+      {sizes.map((f, i) => (
+        <ellipse
+          key={f}
+          cx={b.cx}
+          cy={b.cy}
+          rx={r1(b.rx * f)}
+          ry={r1(b.rx * b.k * f)}
+          strokeOpacity={0.15 + i * 0.09}
+          fill={color}
+          fillOpacity={0.035}
+        />
+      ))}
+    </g>
+  );
 
   return (
     <svg viewBox="0 0 240 170" className="w-full" aria-hidden="true">
-      {/* Potential */}
-      <path d={curve(as[0])} fill="none" stroke={c} strokeWidth="2.2" strokeLinejoin="round">
-        <animate attributeName="d" values={as.map(curve).join(";")} {...t} />
-      </path>
-      <circle r="4" cx={ballX[0]} cy={ballY[0]} fill={ink}>
-        <animate attributeName="cx" values={ballX.join(";")} {...t} />
-        <animate attributeName="cy" values={ballY.join(";")} {...t} />
-      </circle>
-      <text x="22" y="20" {...label} textAnchor="start">V(x)</text>
+      {/* Landscape */}
+      {contours(sharp, [1.1, 0.9, 0.72, 0.55, 0.38, 0.2], c)}
+      {contours(flat, [1.1, 0.9, 0.72, 0.55, 0.38, 0.2], ink)}
+      <circle cx={sharp.cx} cy={sharp.cy} r="1.8" fill={c} />
+      <circle cx={flat.cx} cy={flat.cy} r="1.8" fill={ink} />
+      <Walker w={sgd} color={ink} />
+      <Walker w={gd} color={c} />
+      <text x={sharp.cx + 8} y={sharp.cy + 36} {...label}>sharp minimum · GD</text>
+      <text x={flat.cx} y={flat.cy + 54} {...label}>flat minimum · SGD</text>
 
-      {/* Bifurcation diagram */}
-      <line x1={diag.x0} y1={diag.y} x2={ax(0)} y2={diag.y} stroke={c} strokeWidth="1.6" />
-      <line x1={ax(0)} y1={diag.y} x2={diag.x1} y2={diag.y} stroke={c} strokeWidth="1.2" strokeDasharray="3 3" strokeOpacity="0.6" />
-      <path d={branch(1)} fill="none" stroke={c} strokeWidth="1.6" />
-      <path d={branch(-1)} fill="none" stroke={c} strokeWidth="1.6" />
-      <line x1={diag.x0} y1="160" x2={diag.x1} y2="160" stroke={faint} strokeWidth="1" />
-      <line x1={markX[0]} y1="100" x2={markX[0]} y2="160" stroke={ink} strokeOpacity="0.25" strokeWidth="1">
-        <animate attributeName="x1" values={markX.join(";")} {...t} />
-        <animate attributeName="x2" values={markX.join(";")} {...t} />
-      </line>
-      <circle r="3.2" cx={markX[0]} cy={markY[0]} fill={ink}>
-        <animate attributeName="cx" values={markX.join(";")} {...t} />
-        <animate attributeName="cy" values={markY.join(";")} {...t} />
-      </circle>
-      <text x={diag.x1} y="168" {...label} textAnchor="end">parameter</text>
-      <text x={ax(0)} y="168" {...label}>bifurcation</text>
+      {/* Loss panel */}
+      <path d={`M${panel.x0} ${panel.y0 - 2} V${panel.y1} H${panel.x1}`} fill="none" stroke={faint} strokeWidth="1" />
+      <text x={panel.x0 - 4} y={panel.y0 + 4} {...label} textAnchor="end">loss</text>
+      <text x={panel.x1} y="168" {...label} textAnchor="end">steps</text>
     </svg>
   );
 };
@@ -345,28 +415,6 @@ const MLFigure = ({ c }: { c: string }) => {
 // --- Content ---------------------------------------------------------------
 
 const areas: Area[] = [
-  {
-    id: "behaviour",
-    // Heroicons: bug-ant
-    icon: [
-      "M12 12.75c1.148 0 2.278.08 3.383.237 1.037.146 1.866.966 1.866 2.013 0 3.728-2.35 6.75-5.25 6.75S6.75 18.728 6.75 15c0-1.046.83-1.867 1.866-2.013A24.204 24.204 0 0 1 12 12.75Zm0 0c2.883 0 5.647.508 8.207 1.44a23.91 23.91 0 0 1-1.152 6.06M12 12.75c-2.883 0-5.647.508-8.208 1.44.125 2.104.52 4.136 1.153 6.06M12 12.75a2.25 2.25 0 0 0 2.248-2.354M12 12.75a2.25 2.25 0 0 1-2.248-2.354M12 8.25c.995 0 1.971-.08 2.922-.236.403-.066.74-.358.795-.762a3.778 3.778 0 0 0-.399-2.25M12 8.25c-.995 0-1.97-.08-2.922-.236-.402-.066-.74-.358-.795-.762a3.734 3.734 0 0 1 .4-2.253M12 8.25a2.25 2.25 0 0 0-2.248 2.146M12 8.25a2.25 2.25 0 0 1 2.248 2.146M8.683 5a6.032 6.032 0 0 1-1.155-1.002c.07-.63.27-1.222.574-1.747m.581 2.749A3.75 3.75 0 0 1 15.318 5m0 0c.427-.283.815-.62 1.155-.999a4.471 4.471 0 0 0-.575-1.752M4.921 6a24.048 24.048 0 0 0-.392 3.314c1.668.546 3.416.914 5.223 1.082M19.08 6c.205 1.08.337 2.187.392 3.314a23.882 23.882 0 0 1-5.223 1.082",
-    ],
-    title: "Behaviour",
-    color: "#2f9e6f",
-    keywords: ["decision making", "posture & locomotion", "stigmergy", "collectives"],
-    pubTags: ["Behaviour"],
-    featured: ["Dynamics of cooperative excavation in ants and robots"],
-    hidden: ["Speed-accuracy trade-offs in Roulette betting"],
-    figure: <BehaviourFigure c="#2f9e6f" />,
-    summary: (
-      <p>
-        We model how animals, alone and in groups, act with limited information and noisy senses: a snake balancing
-        upright, ant colonies choosing food through pheromone trails, bees recruiting with airflow, and people trading
-        speed against accuracy when they bet.
-      </p>
-    ),
-    reading: [{ label: "Swarm intelligence", url: "https://www.jasss.org/4/1/reviews/kluegl.html" }],
-  },
   {
     id: "robotics-control",
     // Heroicons: cog-6-tooth
@@ -390,36 +438,6 @@ const areas: Area[] = [
       { label: "Self-organization and embodiment", url: "https://www.jstor.org/stable/pdf/20051596.pdf" },
       { label: "Elephants don't play chess", url: "http://people.csail.mit.edu/brooks/papers/elephants.pdf" },
       { label: "Morphological computation", url: "http://people.csail.mit.edu/iida/papers/pfeifer_iida_JSM05.pdf" },
-    ],
-  },
-  {
-    id: "soft-mechanics",
-    // Heroicons: cube-transparent
-    icon: [
-      "m21 7.5-2.25-1.313M21 7.5v2.25m0-2.25-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3 2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75 2.25-1.313M12 21.75V19.5m0 2.25-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25",
-    ],
-    title: "Soft mechanics & geometry",
-    color: "#d9822b",
-    keywords: ["instability", "filaments & sheets", "elastocapillarity", "design"],
-    pubTags: ["Softmatter", "Geometry"],
-    featured: ["Totimorphic assemblies from neutrally-stable units"],
-    hidden: ["Wetting of an elastic sheet subject to external tension"],
-    figure: <SoftFigure c="#d9822b" />,
-    summary: (
-      <p>
-        We study how thin sheets, filaments and droplets change shape when elasticity, surface tension and geometry
-        compete, and how geometry can be used to design a response, as in popup structures and reconfigurable
-        assemblies.
-      </p>
-    ),
-    reading: [
-      { label: "Morphological instabilities", url: "https://pubs.rsc.org/en/content/articlehtml/2012/sm/c2sm00011c" },
-      { label: "The elastica: a mathematical history", url: "https://www2.eecs.berkeley.edu/Pubs/TechRpts/2008/EECS-2008-103.pdf" },
-      { label: "Leaves, Flowers and Garbage Bags", url: "https://www.academia.edu/download/75296176/1081357172.pdf" },
-      {
-        label: "Crumpling, buckling, and cracking",
-        url: "https://www.epfl.ch/labs/flexlab/wp-content/uploads/2018/03/research_fracture_tearing_graphene_cracks_marder_physicstoday_2007.pdf",
-      },
     ],
   },
   {
@@ -450,6 +468,58 @@ const areas: Area[] = [
       {
         label: "Statistical Mechanics of Neural Networks",
         url: "https://neurophysics.ucsd.edu/courses/physics_171/Sompolinsky_PhysicsToday.pdf",
+      },
+    ],
+  },
+  {
+    id: "behaviour",
+    // Heroicons: bug-ant
+    icon: [
+      "M12 12.75c1.148 0 2.278.08 3.383.237 1.037.146 1.866.966 1.866 2.013 0 3.728-2.35 6.75-5.25 6.75S6.75 18.728 6.75 15c0-1.046.83-1.867 1.866-2.013A24.204 24.204 0 0 1 12 12.75Zm0 0c2.883 0 5.647.508 8.207 1.44a23.91 23.91 0 0 1-1.152 6.06M12 12.75c-2.883 0-5.647.508-8.208 1.44.125 2.104.52 4.136 1.153 6.06M12 12.75a2.25 2.25 0 0 0 2.248-2.354M12 12.75a2.25 2.25 0 0 1-2.248-2.354M12 8.25c.995 0 1.971-.08 2.922-.236.403-.066.74-.358.795-.762a3.778 3.778 0 0 0-.399-2.25M12 8.25c-.995 0-1.97-.08-2.922-.236-.402-.066-.74-.358-.795-.762a3.734 3.734 0 0 1 .4-2.253M12 8.25a2.25 2.25 0 0 0-2.248 2.146M12 8.25a2.25 2.25 0 0 1 2.248 2.146M8.683 5a6.032 6.032 0 0 1-1.155-1.002c.07-.63.27-1.222.574-1.747m.581 2.749A3.75 3.75 0 0 1 15.318 5m0 0c.427-.283.815-.62 1.155-.999a4.471 4.471 0 0 0-.575-1.752M4.921 6a24.048 24.048 0 0 0-.392 3.314c1.668.546 3.416.914 5.223 1.082M19.08 6c.205 1.08.337 2.187.392 3.314a23.882 23.882 0 0 1-5.223 1.082",
+    ],
+    title: "Behaviour",
+    color: "#2f9e6f",
+    keywords: ["decision making", "posture & locomotion", "stigmergy", "collectives"],
+    pubTags: ["Behaviour"],
+    featured: ["Dynamics of cooperative excavation in ants and robots"],
+    hidden: ["Speed-accuracy trade-offs in Roulette betting"],
+    figure: <BehaviourFigure c="#2f9e6f" />,
+    summary: (
+      <p>
+        We model how animals, alone and in groups, act with limited information and noisy senses: a snake balancing
+        upright, ant colonies choosing food through pheromone trails, bees recruiting with airflow, and people trading
+        speed against accuracy when they bet.
+      </p>
+    ),
+    reading: [{ label: "Swarm intelligence", url: "https://www.jasss.org/4/1/reviews/kluegl.html" }],
+  },
+  {
+    id: "soft-mechanics",
+    // Heroicons: cube-transparent
+    icon: [
+      "m21 7.5-2.25-1.313M21 7.5v2.25m0-2.25-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3 2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0 6.75 2.25-1.313M12 21.75V19.5m0 2.25-2.25-1.313m0-16.875L12 2.25l2.25 1.313M21 14.25v2.25l-2.25 1.313m-13.5 0L3 16.5v-2.25",
+    ],
+    title: "Soft mechanics & geometry",
+    color: "#d9822b",
+    keywords: ["instability", "filaments & sheets", "elastocapillarity", "design"],
+    pubTags: ["Softmatter", "Geometry"],
+    featured: ["Totimorphic assemblies from neutrally-stable units"],
+    hidden: ["Wetting of an elastic sheet subject to external tension"],
+    figure: <SoftFigure c="#d9822b" />,
+    summary: (
+      <p>
+        We study how thin sheets, filaments and droplets change shape when elasticity, surface tension and geometry
+        compete, and how geometry can be used to design a response, as in popup structures and reconfigurable
+        assemblies.
+      </p>
+    ),
+    reading: [
+      { label: "Morphological instabilities", url: "https://pubs.rsc.org/en/content/articlehtml/2012/sm/c2sm00011c" },
+      { label: "The elastica: a mathematical history", url: "https://www2.eecs.berkeley.edu/Pubs/TechRpts/2008/EECS-2008-103.pdf" },
+      { label: "Leaves, Flowers and Garbage Bags", url: "https://www.academia.edu/download/75296176/1081357172.pdf" },
+      {
+        label: "Crumpling, buckling, and cracking",
+        url: "https://www.epfl.ch/labs/flexlab/wp-content/uploads/2018/03/research_fracture_tearing_graphene_cracks_marder_physicstoday_2007.pdf",
       },
     ],
   },
@@ -620,7 +690,7 @@ function AreaSection({ area, index, papers }: { area: Area; index: number; paper
 export default function ResearchPage() {
   const papers = getPapers();
   return (
-    <div className="flex flex-col w-full max-w-5xl pt-10 pb-12">
+    <div className="flex flex-col w-full max-w-5xl pt-10">
       <PageTitle title="Research Areas" icon="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 01-.657.643 48.39 48.39 0 01-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 01-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 00-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 01-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 00.657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 01-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 005.427-.63 48.05 48.05 0 00.582-4.717.532.532 0 00-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.96.401v0a.656.656 0 00.658-.663 48.422 48.422 0 00-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 01-.61-.58v0z" />
 
       {/* Tags linking to each area */}

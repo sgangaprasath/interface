@@ -2,6 +2,7 @@ import "./global.css";
 import { Inter } from "next/font/google";
 import NavBar from "@/components/navbar";
 import Footer from "@/components/footer";
+import BackToTop from "@/components/BackToTop";
 
 // Exposed as a CSS variable so stylesheets (e.g. the blog's tufte.css) can use
 // the self-hosted Inter without pulling it from Google Fonts a second time.
@@ -25,6 +26,8 @@ export default function RootLayout({
           {/* Navigation bar */}
           <NavBar />
           {children}
+          {/* Shown only on pages taller than the window */}
+          <BackToTop />
           {/* Footer */}
           <Footer />
       </body>

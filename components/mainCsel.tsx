@@ -54,7 +54,7 @@ export default function Cselmain() {
         </div>
         <div className="md:text-xl xl:text-2xl text-center max-w-2xl">
           <p className="font-light">at the intersection of</p>
-          <p className="font-extrabold">Soft-mechanics, Robotics & Behaviour</p>
+          <p className="font-extrabold">Robotics, Scientific ML & Soft-mechanics</p>
         </div>
       </div>
       {/* <div className="flex flex-wrap items-center justify-center h-full bg-white ">
