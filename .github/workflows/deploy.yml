@@ -21,9 +21,28 @@ jobs:
       - name: Deploy to sgangaprasath.github.io
         env:
           PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          # Top-level folders in sgangaprasath.github.io that are maintained by
+          # hand, not built from this repo. The deploy never deletes these.
+          # Add a folder's name here before adding it to the Pages repo.
+          KEEP: "CCSD AM5000"
         run: |
           git clone https://x-access-token:${PERSONAL_TOKEN}@github.com/sgangaprasath/sgangaprasath.github.io.git pages-repo
-          rm -rf pages-repo/*
+          # Remove the previous build, but keep the hand-maintained folders
+          # above. Hidden files (.git, .github, .nojekyll) are never matched.
+          for path in pages-repo/*; do
+            name=$(basename "$path")
+            case " $KEEP " in
+              *" $name "*) echo "Keeping $name" ;;
+              *) rm -rf "$path" ;;
+            esac
+          done
+          # Stop rather than overwrite a hand-maintained folder with a build output.
+          for name in $KEEP; do
+            if [ -e "out/$name" ]; then
+              echo "out/$name would overwrite the hand-maintained $name folder" >&2
+              exit 1
+            fi
+          done
           cp -r out/* pages-repo/
           touch pages-repo/.nojekyll
           cd pages-repo
